@@ -35,7 +35,7 @@ class App extends Component {
   renderMainRoutes() {
     const {plants, notes} = this.context
     return (
-      <>
+      <div>
         <Switch>
           `{['/garden/:gardenId'].map(path =>
             <Route
@@ -104,14 +104,14 @@ class App extends Component {
               component={NotFoundPage}
             />
         </Switch>
-      </>
+      </div>
     )
   }
 
   renderNavRoutes() {
     const {plants, notes} = this.state
     return (
-      <>
+      <div>
        {['/garden/:gardenId'].map(path =>
           <Route
             exact
@@ -162,7 +162,7 @@ class App extends Component {
             path='/garden/:gardenId/add-note'
             component={Nav}
           />
-      </>
+      </div>
     )
   }
 

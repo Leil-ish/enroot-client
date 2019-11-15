@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "leilish-enroot-app",
+    "name": "enroot-app",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
