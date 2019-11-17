@@ -25,36 +25,6 @@ export default class AddPlantPage extends Component {
             </label>
             <input type='text' id='plant-name-input' />
           </div>
-          <div className='field'>
-            <label htmlFor='plant-author-input'>
-              Author
-            </label>
-            <input type='text' id='plant-author-input' />
-          </div>
-          <div className='field'>
-            <label htmlFor='plant-categories-input'>
-              Genre 
-            </label>
-            <input type='text' id='plant-categories-input' />
-          </div>
-          <div className='field'>
-            <label htmlFor='plant-description-input'>
-              Synopsis
-            </label>
-            <textarea id='plant-description-input' />
-          </div>
-          <div className='select-input'>
-            <label htmlFor='plant-rating-input'>
-              Rating
-            </label>
-            <select id='plant-rating-input'>
-                <option value="1">1 &#9733;</option>
-                <option value="2">2 &#9733;</option>
-                <option value="3">3 &#9733;</option>
-                <option value="4">4 &#9733;</option>
-                <option value="5">5 &#9733;</option>
-            </select>
-          </div>
           <br/>          
           <br/>
           <div className='buttons'>

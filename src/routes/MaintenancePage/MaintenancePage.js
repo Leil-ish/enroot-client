@@ -21,9 +21,6 @@ export default class MaintenancePage extends React.Component {
               <MaintenanceNote
                 gardenId={note.gardenId}
                 name={note.name}
-                plant={note.plant}
-                modified={note.modified}
-                content={note.content}
               />
             </li>
           )}

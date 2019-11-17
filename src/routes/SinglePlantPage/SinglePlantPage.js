@@ -20,10 +20,6 @@ export default class SinglePlantPage extends React.Component {
       <section className='SinglePlantPage'>
         <SinglePlant
           name={plant.name}
-          author={plant.author}
-          categories={plant.categories}
-          description={plant.description}
-          rating={plant.rating}
         />
       </section>
     )

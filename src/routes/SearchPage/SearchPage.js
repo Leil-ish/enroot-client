@@ -16,11 +16,6 @@ class SearchPage extends Component {
         };
       }
     
-      handlePrintFilter(printType) {
-        this.setState({
-          printType: printType
-        })
-      }
     
       handlePlantFilter(plantType) {
         console.log(plantType)
@@ -79,12 +74,10 @@ class SearchPage extends Component {
             <h2>Search for a Plant to Add to Your Garden</h2>
             <SearchBar 
               onSubmit={searchTerm => this.handleSubmit(searchTerm)}
-              onPrintFilter={printType => this.handlePrintFilter(printType)}
               onPlantFilter={plantType => this.handlePlantFilter(plantType)}/>
              {error}
             <Results 
               plants={this.state.plants} 
-              printFilter={this.state.printType}
               plantFilter={this.state.plantType}/>
           </main>
         );

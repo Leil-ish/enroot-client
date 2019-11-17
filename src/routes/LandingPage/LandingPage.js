@@ -1,17 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import '../LandingPage/LandingPage.css'
+import {Link} from 'react-router-dom'
+import './LandingPage.css'
 
 export default class LandingPage extends React.Component {
 
   render() {
     return (
       <div className='Landing_Page'>
-          <h2>Your Personal Virtual Garden</h2>
-          <p>Enroot is a virtual garden app that allows people to add any plants they have in their personal 
-              libraries to a digital management system. From there, they have options to post notes about each plant - 
-              such as, "Borrowed by John on 6/20" or "Give away." People can see all of their personal garden in one 
-              space and sort, filter, and organize their plants to their hearts' desires. </p>
+          <p>This app is a resource for home gardeners. It will pull data from a 
+              third party plant API (Trefle) that contains information about plant 
+              maintenance, planting, shade needs, etc. Users can look up any plants 
+              in their yards/gardens, get info on them, and save them to a personal 
+              garden page where they can access their 
+              own plants at any time to remind themselves of what they need to be 
+              doing to take care of their plants. They will be able to add Google 
+              Calendar reminders to do things like water their trees and renew their 
+              mulch.</p>
           <div className = 'options'>
             <h3>Ready to get started?</h3>
             <Link className = 'SignUp_link'

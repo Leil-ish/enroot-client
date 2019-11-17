@@ -1,33 +1,28 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
-import {Input} from '../Utils/Utils'
-import './LoginForm.css'
+import {Input} from '../Utils/Utils';
+import './LoginForm.css';
 
 export default class LoginForm extends Component {
-  static defaultProps = {
-    onLoginSuccess: () => {}
-  }
-
-  state = { error: null }
 
   render() {
-    const { error } = this.state
+    const {error} = this.state
     return (
       <form
         className='LoginForm'
-        onSubmit={this.handleSubmitBasicAuth}
+        onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='user_name'>
-          <label htmlFor='LoginForm_user_name'>
-            User name
+        <div className='username'>
+          <label htmlFor='LoginForm_username'>
+            Username
           </label>
           <Input
             required
-            name='user_name'
-            id='Login_user_name'>
+            name='username'
+            id='Login_username'>
           </Input>
         </div>
         <div className='password'>

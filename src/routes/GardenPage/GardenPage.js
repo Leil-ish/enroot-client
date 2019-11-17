@@ -21,8 +21,7 @@ export default class GardenPage extends React.Component {
               Filter garden by:
             </label>
             <select id='plant-filter-input'>
-                <option value="print">Print Plants</option>
-                <option value="eplant">ePlants</option>
+                <option value="type">Print Plants</option>
             </select>
           </div>          
           <div className='input'>
@@ -31,10 +30,6 @@ export default class GardenPage extends React.Component {
             </label>
             <select id='input'>
                 <option value="name">Name</option>
-                <option value="author">Author</option>
-                <option value="rating">Rating</option>
-                <option value="borrowed">Borrowed</option>
-                <option value="genre">Genre</option>
             </select>
           </div>
         <ul>
@@ -43,10 +38,6 @@ export default class GardenPage extends React.Component {
               <SinglePlant
                 gardenId={plant.gardenId}
                 name={plant.name}
-                author={plant.author}
-                categories={plant.categories}
-                description={plant.description}
-                rating={plant.rating}
               />
             </li>
           )}
