@@ -11,7 +11,7 @@ class MaintenanceNote extends Component {
   }
 
   render() {
-    let {plant, name, gardenId} = this.props
+    let {common_name, scientific_name, note_name, note_content, gardenId} = this.props
     console.log(this.props)
 
     return (
@@ -20,16 +20,18 @@ class MaintenanceNote extends Component {
               to={`/notes/${gardenId}`}
               type='button'
               className='Add-note-button'>
-                <h2>Note for: <i>{plant}</i></h2>
+                <h2>Note for: <i>{common_name}</i></h2>
               </Link>
-            <h3>{name}</h3>
+            <h3>{scientific_name}</h3>
+            <h3>{note_name}</h3>
+            <p>{note_content}</p>
 
             <Link
                 to={`/garden/${gardenId}/add-note`}
                 type='button'
                 className='Add-note-button'
               >
-            Add a New Note for <i>{plant}</i>
+            Add a New Note for <i>{common_name}</i>
             </Link>
         </ul>
     );

@@ -6,7 +6,7 @@ export default class GardenNav extends React.Component {
 
   render() {
     return (
-      <div className='GardenNav'>
+      <div className='GardenNav_main'>
         <ul className='GardenNav_list'>
             <li>
               <Link

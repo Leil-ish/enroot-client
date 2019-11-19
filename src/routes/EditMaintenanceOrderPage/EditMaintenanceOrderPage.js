@@ -41,7 +41,7 @@ export default class EditMaintenanceOrderPage extends Component {
               className='Add-note-button'
             >
             <br />
-              Add Note
+              Add Maintenance Order
             </Link>
             <Link
               to='/garden'

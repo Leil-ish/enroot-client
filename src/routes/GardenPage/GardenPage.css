@@ -1,0 +1,11 @@
+.GardenPage {
+    display:block;
+}
+
+.GardenPage h2 {
+    text-align: center;
+}
+
+.GardenPage .input {
+    text-align: center;
+}

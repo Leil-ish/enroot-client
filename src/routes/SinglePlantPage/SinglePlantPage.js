@@ -19,7 +19,12 @@ export default class SinglePlantPage extends React.Component {
     return (
       <section className='SinglePlantPage'>
         <SinglePlant
-          name={plant.name}
+          common_name={plant.common_name}
+          scientific_name={plant.scientific_name}
+          flower_color={plant.flower_color}
+          seedling_vigor={plant.seedling_vigor}
+          image={plant.image}
+          shade_tolerance={plant.shade_tolerance}
         />
       </section>
     )

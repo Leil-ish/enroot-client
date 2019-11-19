@@ -19,8 +19,11 @@ export default class MaintenancePage extends React.Component {
           {this.context.notes.map(note =>
             <li key={note.gardenId}>
               <MaintenanceNote
-                gardenId={note.gardenId}
-                name={note.name}
+                note_id={note.note_id}
+                common_name={note.common_name}
+                scientific_name={note.scientific_name}
+                note_name={note.note_name}
+                note_content={note.note_content}
               />
             </li>
           )}

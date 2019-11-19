@@ -6,7 +6,7 @@
   font-style: none;
   text-decoration: none;
   color: rgb(9, 20, 44);
-  height: 150px;
+  height: 250px;
   padding: 20px;
 }
 
@@ -16,5 +16,5 @@
 }
 
 .App_header h1 {
-  margin: 0;
+  margin: 30px auto;
 }

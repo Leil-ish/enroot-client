@@ -23,43 +23,44 @@ class SearchPage extends Component {
           plantType: plantType
         })
       }
-    
+
       handleSubmit(searchTerm) {
-    
-        const url = `https://www.googleapis.com/plants/v1/volumes?q=${searchTerm}&key=${process.env.REACT_APP_API_KEY}`
-        
-        fetch(url)
-          .then(response => {
-            if(!response.ok) {
-              throw new Error('Something went wrong, please try again later.');
-            }
-            this.setState({
-              error: true
-            })
-            return response;
+        return fetch(`https://trefle.io/api/plants?common_name=${searchTerm}`, {
+          mode: "no-cors",
+          headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
+          },
+        })
+        .then(response => {
+          if(!response.ok) {
+            throw new Error('Something went wrong, please try again later.');
+          }
+          this.setState({
+            error: true
           })
-          .then(response => response.json())
-          .then(data => {
-            if(!data.items) {
-              throw new Error('There are no results for that search. Try using different search terms or manually add the plant.');
-            }
-            this.setState({
-              error: true
-            })
-            return data;
+          return response;
+        })
+        .then(response => response.json())
+        .then(data => {
+          if(!data.items) {
+            throw new Error('There are no results for that search. Try using different search terms or manually add the plant.');
+          }
+          this.setState({
+            error: true
           })
-          .then(data => {
-            this.setState({
-             plants: data.items
-            })
+          return data;
+        })
+        .then(data => {
+          this.setState({
+           plants: data.items
           })
-          .catch(err => this.setState({
-            error: err.message
-          }))
+        })
+        .catch(err => this.setState({
+          error: err.message
+        }))
       }
-      
-    
-    
+
       render() {
         
         const error = this.state.error 

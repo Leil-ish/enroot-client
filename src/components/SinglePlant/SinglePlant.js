@@ -11,24 +11,31 @@ class SinglePlant extends Component {
 
   render() {
 
+    let {common_name, scientific_name, flower_color, seedling_vigor, shade_tolerance} = this.props
+
       const {gardenId} = this.props
     
       return (
           <div className = 'single-plant'>
             <ul>
+              <h3>Common Name: {common_name}</h3>
+              <h4>Scientific Name: {scientific_name}</h4>
+              <p>Flower Color: {flower_color}</p>
+              <p>Seedling Vigor: {seedling_vigor}</p>
+              <p>Shade Tolerance: {shade_tolerance}</p>
               <div className='buttons'>
               <Link
                 to={`/garden/${gardenId}/add-note`}
                 type='button'
-                className='Add-note-button'
+                className='Plant-add-note-button'
               >
               <br />
-                Add a note to this plant
+                Add a maintenance note to this plant
               </Link>
               <Link
                 to={`/notes/${gardenId}`}
                 type='button'
-                className='View-notes-button'
+                className='.Plant-view-notes-button'
               >
               <br />
                 View notes for this plant
