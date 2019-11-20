@@ -11,8 +11,6 @@ class SearchPage extends Component {
         this.state = {
             plants:[],
             error: false,
-            printType: "All",
-            plantType: "All"
         };
       }
     
@@ -29,12 +27,12 @@ class SearchPage extends Component {
           mode: "no-cors",
           headers: {
             'content-type': 'application/json',
-            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
+            'authorization': `bearer ${process.env.REACT_APP_API_KEY}`,
           },
         })
         .then(response => {
           if(!response.ok) {
-            throw new Error('Something went wrong, please try again later.');
+            throw new Error('Oops, API call is not set up yet. This is just a static client.');
           }
           this.setState({
             error: true

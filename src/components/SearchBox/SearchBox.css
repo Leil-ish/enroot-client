@@ -1,0 +1,15 @@
+.search-submit {
+    display: block;
+    text-align: center;
+    margin:15px auto 15px auto;
+    color: black;
+    background-color: #465C8B;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    width:200px;
+    height:55px;
+    padding:15px 0px 15px 0px;
+    cursor: pointer;
+}

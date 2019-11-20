@@ -29,15 +29,13 @@ class SinglePlant extends Component {
                 type='button'
                 className='Plant-add-note-button'
               >
-              <br />
                 Add a maintenance note to this plant
               </Link>
               <Link
-                to={`/notes/${gardenId}`}
+                to={`/maintenance-notes/${gardenId}`}
                 type='button'
-                className='.Plant-view-notes-button'
+                className='Plant-view-notes-button'
               >
-              <br />
                 View notes for this plant
               </Link>
             </div>

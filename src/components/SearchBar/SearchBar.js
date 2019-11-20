@@ -8,9 +8,9 @@ class SearchBar extends Component {
   
     return (
       <div className='searchTerms'>
-        <SearchBox className onSubmit={this.props.onSubmit}/>
         <Filters className 
           onPlantFilter={this.props.onPlantFilter}/>
+        <SearchBox className onSubmit={this.props.onSubmit}/>
       </div>
     );
   }

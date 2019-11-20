@@ -1,0 +1,38 @@
+.AddPlantPage {
+    margin: 50px auto;
+    max-width: 70%;
+    border: 1px solid #465C8B;
+    padding: 10px;
+}
+
+.AddPlantPage .Add-plant-button {
+    display: block;
+    text-align: center;
+    margin:15px auto 15px auto;
+    color: black;
+    background-color: #465C8B;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    width:200px;
+    height:30px;
+    padding:15px 0px 15px 0px;
+    cursor: pointer;
+}
+
+.AddPlantPage .Cancel-add-plant-button {
+    display: block;
+    text-align: center;
+    margin:15px auto 15px auto;
+    color: black;
+    background-color: #465C8B;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    width:200px;
+    height:30px;
+    padding:15px 0px 15px 0px;
+    cursor: pointer;
+}

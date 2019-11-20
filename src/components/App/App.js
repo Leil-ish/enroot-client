@@ -24,7 +24,6 @@ class App extends Component {
       plants:[],
       notes:[],
       error: false,
-      borrowed: false,
     };
   }
   
@@ -97,7 +96,7 @@ class App extends Component {
               component={GardenPage}
             />
             <Route
-              path='/notes'
+              path='/maintenance-notes'
               component={MaintenancePage}
             />
             <Route
@@ -128,7 +127,7 @@ class App extends Component {
         )}
         <Route
           exact
-          path='/notes/:gardenId'
+          path='/maintenance-notes/:gardenId'
           render={routeProps => {
             const {gardenId} = routeProps.match.params
             const note = findNote(notes, gardenId) || {}
@@ -147,7 +146,7 @@ class App extends Component {
           />
           <Route
             exact
-            path='/notes'
+            path='/maintenance-notes'
             component={Nav}
           />
           <Route
@@ -159,7 +158,7 @@ class App extends Component {
             component={Nav}
           />
           <Route
-            path='/garden/:gardenId/add-note'
+            path='/garden/:gardenId/add-maintenance-note'
             component={Nav}
           />
       </>

@@ -17,7 +17,7 @@ class MaintenanceNote extends Component {
     return (
         <ul className = 'single-note'>
             <Link
-              to={`/notes/${gardenId}`}
+              to={`/maintenance-notes/${gardenId}`}
               type='button'
               className='Add-note-button'>
                 <h2>Note for: <i>{common_name}</i></h2>

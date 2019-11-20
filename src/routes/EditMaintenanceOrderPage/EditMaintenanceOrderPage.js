@@ -36,7 +36,7 @@ export default class EditMaintenanceOrderPage extends Component {
           </div>
           <div className='buttons'>
             <Link
-              to='/notes'
+              to='/maintenance-notes'
               type='button'
               className='Add-note-button'
             >

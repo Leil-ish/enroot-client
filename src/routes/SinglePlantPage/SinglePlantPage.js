@@ -29,4 +29,4 @@ export default class SinglePlantPage extends React.Component {
       </section>
     )
   }
-}
+}s

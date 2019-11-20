@@ -33,7 +33,7 @@ class SearchBox extends Component {
               placeholder="Search for a plant" 
               id="search"
               onChange={e => this.searchTermChanged(e.target.value)} />
-              <button type="submit">Search</button>
+              <button type="submit" className='search-submit'>Search</button>
           </form>
       </div>
       
