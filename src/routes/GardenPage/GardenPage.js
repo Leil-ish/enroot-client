@@ -7,7 +7,7 @@ export default class GardenPage extends React.Component {
 
   static defaultProps = {
     plants: [],
-    notes: []
+    orders: []
   }
   
   static contextType = ApiContext;

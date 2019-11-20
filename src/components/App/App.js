@@ -6,14 +6,14 @@ import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import SignUpPage from '../../routes/SignUpPage/SignUpPage'
 import GardenPage from '../../routes/GardenPage/GardenPage'
-import MaintenancePage from '../../routes/MaintenancePage/MaintenancePage'
+import TendPage from '../../routes/TendPage/TendPage'
 import SinglePlantPage from '../../routes/SinglePlantPage/SinglePlantPage'
 import SearchPage from '../../routes/SearchPage/SearchPage'
-import EditMaintenanceOrderPage from '../../routes/EditMaintenanceOrderPage/EditMaintenanceOrderPage'
+import EditTendOrderPage from '../../routes/EditTendOrderPage/EditTendOrderPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import ApiContext from '../../contexts/ApiContext'
 import dummyStore from '../../dummy-store'
-import {findNote, getPlantsForGarden, getNotesForPlant} from '../../garden-helper'
+import {findOrder, getPlantsForGarden, getOrdersForPlant} from '../../garden-helper'
 import './App.css';
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       plants:[],
-      notes:[],
+      orders:[],
       error: false,
     };
   }
@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   renderMainRoutes() {
-    const {plants, notes} = this.context
+    const {plants, orders} = this.context
     return (
       <>
         <Switch>
@@ -61,18 +61,18 @@ class App extends Component {
             path='/add-plant'
             component={AddPlantPage}
           />
-          `{['/garden/:gardenId/add-note'].map(path =>
+          `{['/garden/:gardenId/add-order'].map(path =>
             <Route
               exact
               key={path}
               path={path}
               render={routeProps => {
                 const {gardenId} = routeProps.match.params
-                const notesForPlant = getNotesForPlant(notes, gardenId)
+                const ordersForPlant = getOrdersForPlant(orders, gardenId)
                 return (
-                  <EditMaintenanceOrderPage
+                  <EditTendOrderPage
                     {...routeProps}
-                    notes={notesForPlant}
+                    orders={ordersForPlant}
                   />
                 )
               }}
@@ -96,8 +96,8 @@ class App extends Component {
               component={GardenPage}
             />
             <Route
-              path='/maintenance-notes'
-              component={MaintenancePage}
+              path='/tend-orders'
+              component={TendPage}
             />
             <Route
               component={NotFoundPage}
@@ -108,7 +108,7 @@ class App extends Component {
   }
 
   renderNavRoutes() {
-    const {plants, notes} = this.state
+    const {plants, orders} = this.state
     return (
       <>
        {['/garden/:gardenId'].map(path =>
@@ -119,7 +119,7 @@ class App extends Component {
             render={routeProps =>
               <Nav
                 plants={plants}
-                notes={notes}
+                orders={orders}
                 {...routeProps}
               />
             }
@@ -127,14 +127,14 @@ class App extends Component {
         )}
         <Route
           exact
-          path='/maintenance-notes/:gardenId'
+          path='/tend-orders/:gardenId'
           render={routeProps => {
             const {gardenId} = routeProps.match.params
-            const note = findNote(notes, gardenId) || {}
+            const order = findOrder(orders, gardenId) || {}
             return (
               <Nav
                 {...routeProps}
-                note={note}
+                order={order}
               />
             )
           }}
@@ -146,7 +146,7 @@ class App extends Component {
           />
           <Route
             exact
-            path='/maintenance-notes'
+            path='/tend-orders'
             component={Nav}
           />
           <Route
@@ -158,7 +158,7 @@ class App extends Component {
             component={Nav}
           />
           <Route
-            path='/garden/:gardenId/add-maintenance-note'
+            path='/garden/:gardenId/add-tend-order'
             component={Nav}
           />
       </>
@@ -168,7 +168,7 @@ class App extends Component {
   render() {
     const value = {
       plants: this.state.plants,
-      notes: this.state.notes,
+      orders: this.state.orders,
     }
     return (
       <ApiContext.Provider value={value}>

@@ -9,7 +9,7 @@ export default class LandingPage extends React.Component {
       <div className='Landing_Page'>
           <p>This app is a resource for home gardeners. It will pull data from a 
               third party plant API (Trefle) that contains information about plant 
-              maintenance, planting, shade needs, etc. Users can look up any plants 
+              tend, planting, shade needs, etc. Users can look up any plants 
               in their yards/gardens, get info on them, and save them to a personal 
               garden page where they can access their 
               own plants at any time to remind themselves of what they need to be 

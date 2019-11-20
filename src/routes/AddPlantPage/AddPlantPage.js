@@ -7,7 +7,7 @@ import './AddPlantPage.css'
 export default class AddPlantPage extends Component {
   static defaultProps = {
     plants: [],
-    notes: []
+    orders: []
   }
   static contextType = ApiContext;
 

@@ -1,13 +1,13 @@
 export const findPlant = (plants=[], gardenId) =>
   plants.find(plant => plant.gardenId === gardenId)
 
-export const findNote = (notes=[], gardenId) =>
-  notes.find(note => note.gardenId === gardenId)
+export const findOrder = (orders=[], gardenId) =>
+  orders.find(order => order.gardenId === gardenId)
 
-export const getNotesForPlant = (notes=[], gardenId) => (
+export const getOrdersForPlant = (orders=[], gardenId) => (
   (!gardenId)
-    ? notes
-    : notes.filter(note => note.gardenId === gardenId)
+    ? orders
+    : orders.filter(order => order.gardenId === gardenId)
 )
 
 export const getPlantsForGarden = (plants=[], gardenId) => (
@@ -16,5 +16,5 @@ export const getPlantsForGarden = (plants=[], gardenId) => (
     : plants.filter(plant => plant.gardenId === gardenId)
 )
 
-export const countNotesForPlant = (notes=[], gardenId) =>
-  notes.filter(note => note.gardenId === gardenId).length
+export const countOrdersForPlant = (orders=[], gardenId) =>
+  orders.filter(order => order.gardenId === gardenId).length

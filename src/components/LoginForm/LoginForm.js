@@ -6,14 +6,12 @@ import './LoginForm.css';
 export default class LoginForm extends Component {
 
   render() {
-    const {error} = this.state
     return (
       <form
         className='LoginForm'
         onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>
-          {error && <p className='red'>{error}</p>}
         </div>
         <div className='username'>
           <label htmlFor='LoginForm_username'>

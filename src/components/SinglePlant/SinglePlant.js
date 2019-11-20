@@ -25,18 +25,18 @@ class SinglePlant extends Component {
               <p>Shade Tolerance: {shade_tolerance}</p>
               <div className='buttons'>
               <Link
-                to={`/garden/${gardenId}/add-note`}
+                to={`/garden/${gardenId}/add-order`}
                 type='button'
-                className='Plant-add-note-button'
+                className='Plant-add-order-button'
               >
-                Add a maintenance note to this plant
+                Add a tend order to this plant
               </Link>
               <Link
-                to={`/maintenance-notes/${gardenId}`}
+                to={`/tend-orders/${gardenId}`}
                 type='button'
-                className='Plant-view-notes-button'
+                className='Plant-view-orders-button'
               >
-                View notes for this plant
+                View orders for this plant
               </Link>
             </div>
           </ul>

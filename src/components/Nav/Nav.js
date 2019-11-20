@@ -13,15 +13,15 @@ export default class GardenNav extends React.Component {
                 className='GardenNav_link'
                 to={`/garden`}
               >
-                Garden
+                View Garden
               </Link>
             </li>
             <li>
               <Link
                 className='GardenNav_link'
-                to={`/maintenance-notes`}
+                to={`/tend-orders`}
               >
-                Notes
+                Tend Orders
               </Link>
             </li>
             <li>

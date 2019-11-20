@@ -3,12 +3,12 @@ import {Link} from 'react-router-dom'
 import Form from '../../components/Form/Form'
 import ApiContext from '../../contexts/ApiContext'
 import {findPlant} from '../../garden-helper'
-import './EditMaintenanceOrderPage.css'
+import './EditTendOrderPage.css'
 
-export default class EditMaintenanceOrderPage extends Component {
+export default class EditTendOrderPage extends Component {
   static defaultProps = {
     plants: [],
-    notes: []
+    orders: []
   }
   static contextType = ApiContext;
 
@@ -17,36 +17,37 @@ export default class EditMaintenanceOrderPage extends Component {
     const {gardenId} = this.props.match.params
     const plant = findPlant(plants, gardenId) || {content: ''}
     return (
-      <section className='EditMaintenanceOrderPage'>
+      <section className='EditTendOrderPage'>
         <h2>
-          Add Note for {plant.name}
+          Add Order for {plant.name}
         </h2>
         <Form>
           <div className='field'>
-            <label htmlFor='note-name-input'>
+            <label htmlFor='order-name-input'>
               Name
             </label>
-            <input type='text' id='note-name-input' />
+            <input type='text' id='order-name-input' />
           </div>
           <div className='field'>
-            <label htmlFor='note-content-input'>
+            <label htmlFor='order-content-input'>
               Content
             </label>
-            <textarea id='note-content-input' />
+            <textarea id='order-content-input' />
           </div>
           <div className='buttons'>
             <Link
-              to='/maintenance-notes'
+              to='/tend-orders'
               type='button'
-              className='Add-note-button'
+              className='Add-order-button'
             >
             <br />
-              Add Maintenance Order
+            
+              Add Tend Order
             </Link>
             <Link
               to='/garden'
               type='button'
-              className='Cancel-add-note-button'
+              className='Cancel-add-order-button'
             >
             <br />
               Cancel
