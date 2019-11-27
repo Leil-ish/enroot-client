@@ -17,7 +17,7 @@ class TendOrder extends Component {
     return (
         <ul className = 'single-order'>
             <Link
-              to={`/tend-orders/${gardenId}`}
+              to={`/orders/${gardenId}`}
               type='button'
               className='Add-order-button'>
                 <h2>Order for: <i>{common_name}</i></h2>

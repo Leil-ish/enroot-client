@@ -5,29 +5,27 @@ import './ApiPlant.css'
 class ApiPlant extends Component {
   render() {
     
-    let author;
-    if (this.props.volumeInfo.authors) {
-      author = this.props.volumeInfo.authors[0];
+    let common_name;
+    if (this.props.common_name) {
+      author = this.props.common_name;
     }
     else (
-      author = "No authors listed"
+      common_name = "No common name listed"
     )
 
-    let description;
-    if (this.props.volumeInfo.description) {
-      description = this.props.volumeInfo.description;
+    let scientific_name;
+    if (this.props.scientific_name) {
+      scientific_name = this.props.scientific_name;
     }
     else (
-      description = "No description included for this plant."
+      scientific_name = "No scientific name listed."
     )
 
     return (
       <ul className = 'api-plant'>
-          <h3>Name: {this.props.volumeInfo.name}</h3>
-          <h4>Author: {author}</h4>
+          <h3>Common Name: {this.props.common_name}</h3>
+          <h4>Scientific Name: {this.props.scientific_name}</h4>
           <div className = 'api-plant-content'>
-            <img src={this.props.volumeInfo.imageLinks.thumbnail} alt='plant cover thumbnail'></img>
-            <p>Description: {description}</p>
           </div>
           <div className='buttons'>
             <Link

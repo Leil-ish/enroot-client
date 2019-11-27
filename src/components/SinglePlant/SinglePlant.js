@@ -32,7 +32,7 @@ class SinglePlant extends Component {
                 Add a tend order to this plant
               </Link>
               <Link
-                to={`/tend-orders/${gardenId}`}
+                to={`/orders/${gardenId}`}
                 type='button'
                 className='Plant-view-orders-button'
               >

@@ -36,7 +36,7 @@ export default class EditTendOrderPage extends Component {
           </div>
           <div className='buttons'>
             <Link
-              to='/tend-orders'
+              to='/orders'
               type='button'
               className='Add-order-button'
             >

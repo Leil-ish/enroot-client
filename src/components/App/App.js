@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Route, Switch, Link} from 'react-router-dom'
 import Nav from '../Nav/Nav'
+import PrivateRoute from '../Utils/PrivateRoute';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import AddPlantPage from '../../routes/AddPlantPage/AddPlantPage'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
@@ -9,75 +11,109 @@ import GardenPage from '../../routes/GardenPage/GardenPage'
 import TendPage from '../../routes/TendPage/TendPage'
 import SinglePlantPage from '../../routes/SinglePlantPage/SinglePlantPage'
 import SearchPage from '../../routes/SearchPage/SearchPage'
+import GardenContext from '../../contexts/GardenContext';
 import EditTendOrderPage from '../../routes/EditTendOrderPage/EditTendOrderPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import ApiContext from '../../contexts/ApiContext'
+import Error from '../Error/Error'
 import dummyStore from '../../dummy-store'
 import {findOrder, getPlantsForGarden, getOrdersForPlant} from '../../garden-helper'
 import './App.css';
 
 class App extends Component {
 
+  static contextType = GardenContext;
+
   constructor(props){
     super(props);
     this.state = {
+      hasError: false,
       plants:[],
       orders:[],
       error: false,
     };
   }
-  
-  componentDidMount() {
-    setTimeout(() => this.setState(dummyStore), 600)
+
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return {hasError: true}
   }
+
+  handleDeleteOrder = orderId => {
+    this.setState({
+      orders: this.state.orders.filter(order => order.id !== orderId)
+    })
+  }
+
+  handleDeletePlant = plantId => {
+    this.setState({
+      plants: this.state.plants.filter(plant => plant.id !==plantId)
+    })
+  }
+
 
   renderMainRoutes() {
     const {plants, orders} = this.context
     return (
-      <>
-        <Switch>
-          `{['/garden/:gardenId'].map(path =>
-            <Route
-              exact
-              key={path}
-              path={path}
-              render={routeProps => {    
-                const {gardenId} = routeProps.match.params
-                const plantsForGarden = getPlantsForGarden(plants, gardenId)
-                return (
-                  <SinglePlantPage
-                    {...routeProps}
-                    plants={plantsForGarden}
-                  />
-                )
-              }}
+      <div className='App-main'>
+        {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
+          <Switch>
+              `{['/garden/:plantId'].map(path =>
+                <PrivateRoute
+                  exact
+                  key={path}
+                  path={path}
+                  component={routeProps => {    
+                    const {plantId} = routeProps.match.params
+                    const plantsForGarden = getPlantsForGarden(plants, plantId)
+                    return (
+                      <SinglePlantPage
+                        {...routeProps}
+                        plants={plantsForGarden}
+                      />
+                    )
+                  }}
+                />
+              )}
+              <PrivateRoute
+                exact
+                path='/garden/:plantId/orders'
+                component={routeProps => {
+                  const {plantId} = routeProps.match.params
+                  const ordersForPlant = getOrdersForPlant(orders, plantId)
+                  return (
+                    <TendPage
+                      {...routeProps}
+                      orders={ordersForPlant}
+                    />
+                  )
+                }}
+              />
+            <PrivateRoute
+              path='/find-plant'
+              component={SearchPage}
             />
-          )}
-          <Route
-            path='/find-plant'
-            component={SearchPage}
-          />
-          <Route
-            path='/add-plant'
-            component={AddPlantPage}
-          />
-          `{['/garden/:gardenId/add-order'].map(path =>
-            <Route
-              exact
-              key={path}
-              path={path}
-              render={routeProps => {
-                const {gardenId} = routeProps.match.params
-                const ordersForPlant = getOrdersForPlant(orders, gardenId)
-                return (
-                  <EditTendOrderPage
-                    {...routeProps}
-                    orders={ordersForPlant}
-                  />
-                )
-              }}
+            <PrivateRoute
+              path='/add-plant'
+              component={AddPlantPage}
             />
-          )}
+            {['/garden/:plantId/add-order'].map(path =>
+              <PrivateRoute
+                exact
+                key={path}
+                path={path}
+                component={routeProps => {
+                  const {plantId} = routeProps.match.params
+                  const ordersForPlant = getOrdersForPlant(orders, plantId)
+                  return (
+                    <EditTendOrderPage
+                      {...routeProps}
+                      orders={ordersForPlant}
+                    />
+                  )
+                }}
+              />
+            )}
             />
             <Route
               exact path='/'
@@ -96,98 +132,100 @@ class App extends Component {
               component={GardenPage}
             />
             <Route
-              path='/tend-orders'
+              path='/orders'
               component={TendPage}
             />
             <Route
               component={NotFoundPage}
             />
-        </Switch>
-      </>
+          </Switch>
+      </div>
     )
   }
 
   renderNavRoutes() {
     const {plants, orders} = this.state
     return (
-      <>
-       {['/garden/:gardenId'].map(path =>
-          <Route
+      <div className='App-nav'>
+        {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
+          {['/garden/:plantId'].map(path =>
+            <PrivateRoute
+              exact
+              key={path}
+              path={path}
+              component={routeProps =>
+                <Nav
+                  plants={plants}
+                  orders={orders}
+                  {...routeProps}
+                />
+              }
+            />
+          )}
+          <PrivateRoute
             exact
-            key={path}
-            path={path}
-            render={routeProps =>
-              <Nav
-                plants={plants}
-                orders={orders}
-                {...routeProps}
-              />
-            }
-          />
-        )}
-        <Route
-          exact
-          path='/tend-orders/:gardenId'
-          render={routeProps => {
-            const {gardenId} = routeProps.match.params
-            const order = findOrder(orders, gardenId) || {}
-            return (
-              <Nav
-                {...routeProps}
-                order={order}
-              />
-            )
-          }}
-          />
-          <Route
-            exact
-            path='/garden'
-            component={Nav}
-          />
-          <Route
-            exact
-            path='/tend-orders'
-            component={Nav}
-          />
-          <Route
-            path='/find-plant'
-            component={Nav}
-          />
-          <Route
-            path='/add-plant'
-            component={Nav}
-          />
-          <Route
-            path='/garden/:gardenId/add-tend-order'
-            component={Nav}
-          />
-      </>
+            path='/garden/:plantId/orders'
+            component={routeProps => {
+              const {plantId} = routeProps.match.params
+              const ordersForPlant = getOrdersForPlant(orders, plantId)
+              return (
+                <Nav
+                  {...routeProps}
+                  ordersForPlant={ordersForPlant}
+                />
+              )
+            }}
+            />
+            <Route
+              exact path='/'
+              component={Nav}
+            />
+            <PrivateRoute
+              exact
+              path='/garden'
+              component={Nav}
+            />
+            <PrivateRoute
+              exact
+              path='/orders'
+              component={Nav}
+            />
+            <PrivateRoute
+              path='/find-plant'
+              component={Nav}
+            />
+            <PrivateRoute
+              path='/add-plant'
+              component={Nav}
+            />
+            <PrivateRoute
+              path='/garden/:plantId/add-order'
+              component={Nav}
+            />
+      </div>
     )
   }
 
   render() {
-    const value = {
-      plants: this.state.plants,
-      orders: this.state.orders,
-    }
     return (
-      <ApiContext.Provider value={value}>
         <div className='App'>
           <header className='App_header'>
             <h1>
               <Link to='/'>Enroot</Link>
-              {' '}
             </h1>
-            <h2>Your Digital Garden</h2>
+            <h2>Digital Garden Tend Tracker</h2>
           </header>
           <main className='App_main'>
-            {this.renderMainRoutes()}
+            <Error>
+              {this.renderMainRoutes()}
+            </Error>
           </main>
           <nav className='App_nav'>
-            {this.renderNavRoutes()}
+            <Error>
+              {this.renderNavRoutes()}
+            </Error>
           </nav>
         </div>
-      </ApiContext.Provider>
     )
   }
 }
