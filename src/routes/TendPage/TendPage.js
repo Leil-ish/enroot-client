@@ -35,10 +35,10 @@ export default class TendPage extends React.Component {
     if (orders.length===0) {
       return (
         <div className='PlantOrdersPage'>
-        <h2>{plant.title}</h2>
+        <h2>{plant.common_name}</h2>
         <hr/>
 
-        <h3 className='Orders-subtitle'>No Orders Yet</h3>
+        <h3 className='Orders-subcommon_name'>No Orders Yet</h3>
         <hr/>
         <br/>
           <Link
@@ -60,8 +60,8 @@ export default class TendPage extends React.Component {
     } else {
       return (
         <div className='PlantOrdersPage'>
-          <h2>{plant.title}</h2>
-          <h3 className='Orders-subtitle'>Orders</h3>
+          <h2>{plant.common_name}</h2>
+          <h3 className='Orders-subcommon_name'>Orders</h3>
           <ul className='PlantOrdersPage_order-list'>
             <li>
               {orders.map(order =>

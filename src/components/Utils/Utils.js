@@ -34,8 +34,6 @@ export function Required({ className, ...props }) {
   )
 }
 
-export function Change() {document.getElementById("Plant-borrowed").value="Plant Borrowed"; }
-
 export function Section({ className, list, ...props }) {
   const classes = [
     'Section',

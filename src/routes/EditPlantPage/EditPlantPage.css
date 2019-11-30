@@ -1,0 +1,66 @@
+.PlantEditPage {
+    border: 2px solid #FBA100;
+    max-width:80%;
+    margin: 10px auto;
+    padding:10px;
+    line-height:28px;
+}
+
+.PlantEditPage h2 {
+    text-align:center;
+}
+
+.PlantEditPage label {
+    padding:10px;
+    font-size: 20px;
+}
+
+.PlantEditPage_Content .Description-button {
+    display: block;
+    text-align: center;
+    margin:15px auto;
+    color: black;
+    background-color: #8C8AB7;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    width:250px;
+    height:35px;
+    padding-top:10px;
+    cursor: pointer;
+}
+
+.Submit-plant-edits {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    background-color: #6BBAA7;
+    text-decoration: none;
+    border-radius:5%;
+    width:140px;
+    font-size:20px;
+    margin: 10px auto 10px auto;
+}
+
+
+.Submit-plant-edits:hover {
+    background-color:#8C8AB7;
+}
+
+@media only screen and (min-width: 600px) {
+    .PlantEditPage {
+        max-width: 60%;
+        margin:30px auto;
+        padding: 10px 45px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .PlantEditPage {
+        margin:30px auto;
+        max-width: 50%;
+        padding:10px 45px;
+    }
+}

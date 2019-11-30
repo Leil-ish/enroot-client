@@ -60,8 +60,8 @@ export default class SinglePlantPage extends Component {
 function PlantContent({ plant }) {
   return (
     <div className='PlantPage_content'>
-      <h1 className='PlantPage_title'>
-        {plant.title}
+      <h1 className='PlantPage_common_name'>
+        {plant.common_name}
       </h1>
       <hr/>
       <p className='PlantPage_description'>

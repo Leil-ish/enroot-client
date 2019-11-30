@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export const nullPlant = {
-  authors: {},
+  scientific_names: {},
 }
 
 export const nullOrder = {

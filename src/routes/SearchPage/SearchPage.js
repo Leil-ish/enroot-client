@@ -33,7 +33,7 @@ class SearchPage extends Component {
           mode: "no-cors",
           headers: {
             'content-type': 'application/json',
-            'authorization': `bearer ${process.env.REACT_APP_API_KEY}`,
+            'scientific_nameization': `bearer ${process.env.REACT_APP_API_KEY}`,
           },
         })
         .then(response => {

@@ -6,7 +6,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden`, {
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -19,7 +19,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}`, {
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -33,7 +33,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/orders/${orderId}`, {
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -47,7 +47,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/orders`, {
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -61,7 +61,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/orders`, {
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -76,7 +76,7 @@ const PlantApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         plant_id: plantId,
@@ -91,16 +91,16 @@ const PlantApiService = {
       )
   },
 
-  postPlant(title, authors, description, categories, image_links, is_eplant) {
+  postPlant(common_name, scientific_names, description, categories, image_links, is_eplant) {
     return fetch(`${config.API_ENDPOINT}/garden`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        title,
-        authors,
+        common_name,
+        scientific_names,
         description,
         categories,
         image_links,
@@ -114,16 +114,16 @@ const PlantApiService = {
       )
   },
 
-  postCustomPlant(title, authors, description, categories) {
+  postCustomPlant(common_name, scientific_names, description, categories) {
     return fetch(`${config.API_ENDPOINT}/garden/add-plant`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        title,
-        authors,
+        common_name,
+        scientific_names,
         description,
         categories,
       }),
@@ -135,17 +135,17 @@ const PlantApiService = {
       )
   },
 
-  patchPlant(plantId, rating, borrowed) {
+  patchPlant(plantId, common_name, scientific_name) {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         plant_id: plantId,
-        rating,
-        borrowed
+        common_name,
+        scientific_name
       }),
     })
   },

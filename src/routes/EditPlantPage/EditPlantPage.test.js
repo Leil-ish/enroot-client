@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TendPage from './TendPage';
+import EditPlantPage from './EditPlantPage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<TendPage />, div);
+  ReactDOM.render(<EditPlantPage />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

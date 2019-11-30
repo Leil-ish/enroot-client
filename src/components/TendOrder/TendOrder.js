@@ -27,7 +27,7 @@ class TendOrder extends Component {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res => {

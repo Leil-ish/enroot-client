@@ -29,7 +29,7 @@ class SinglePlant extends Component {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
     .then(res => {
@@ -46,12 +46,6 @@ class SinglePlant extends Component {
       .catch(error => {
         console.error({ error })
       })
-  }
-
-   handleClick = () => {
-    this.setState(prevState => ({
-      borrowed: !prevState.borrowed
-    }));
   }
 
   render() {

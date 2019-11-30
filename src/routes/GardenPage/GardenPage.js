@@ -14,7 +14,7 @@ export default class GardenPage extends React.Component {
         plants:[],
         error: false,
         plantType: "All",
-        property: "title",
+        property: "common_name",
     };
   }
 

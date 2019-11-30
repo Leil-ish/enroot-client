@@ -17,12 +17,12 @@ class AddPlantPage extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const {title, authors, description, categories} = ev.target
-    PlantApiService.postCustomPlant(title.value, authors.value, description.value, categories.value)
+    const {common_name, scientific_names, description, categories} = ev.target
+    PlantApiService.postCustomPlant(common_name.value, scientific_names.value, description.value, categories.value)
       .then(this.context.addPlant)
       .then(() => {
-        title.value = ''
-        authors.value = ''
+        common_name.value = ''
+        scientific_names.value = ''
         description.value = ''
         categories.value = ''
       })

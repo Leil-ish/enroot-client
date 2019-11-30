@@ -37,12 +37,33 @@ ul {
     width: 350px;
 }
 
+.single-plant .Plant-remove-button {
+    display: block;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    color: white;
+    background-color: #465C8B;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    height:40px;
+    width: 350px;
+}
+
 
 .single-plant .Plant-view-orders-button:hover {
     background-color:#93C178;
 }
 
 .single-plant .Plant-add-orders-button:hover {
+    background-color:#93C178;
+}
+.single-plant .Plant-view-orders-button:hover {
+    background-color:#93C178;
+}
+
+.single-plant .Plant-remove-button:hover {
     background-color:#93C178;
 }
 
