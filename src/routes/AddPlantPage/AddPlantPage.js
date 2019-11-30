@@ -1,15 +1,37 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import Form from '../../components/Form/Form'
-import ApiContext from '../../contexts/ApiContext'
+import PlantContext from '../../contexts/PlantContext'
+import PlantApiService from '../../services/plant-api-service'
+import {Button, Input} from '../../components/Utils/Utils';
 import './AddPlantPage.css'
 
-export default class AddPlantPage extends Component {
+class AddPlantPage extends Component {
+  
   static defaultProps = {
-    plants: [],
-    orders: []
+    match: { params: {} },
+    onSavePlantSuccess: () => {},
   }
-  static contextType = ApiContext;
+
+  static contextType = PlantContext
+
+  handleSubmit = ev => {
+    ev.preventDefault()
+    const {title, authors, description, categories} = ev.target
+    PlantApiService.postCustomPlant(title.value, authors.value, description.value, categories.value)
+      .then(this.context.addPlant)
+      .then(() => {
+        title.value = ''
+        authors.value = ''
+        description.value = ''
+        categories.value = ''
+      })
+      .then(() => {
+        this.props.onSavePlantSuccess()
+        this.props.history.push(`/garden`)
+      })
+      .catch(this.context.setError)
+  }
 
   render() {
 
@@ -23,7 +45,7 @@ export default class AddPlantPage extends Component {
             <label htmlFor='plant-common-name-input'>
               Common Name
             </label>
-            <input type='text' id='plant-common-name-input' />
+            <Input type='text' id='plant-common-name-input' />
           </div>
           <div className='field'>
             <label htmlFor='plant-scientific-name-input'>
@@ -32,33 +54,32 @@ export default class AddPlantPage extends Component {
             <input type='text' id='plant-scientific-name-input' />
           </div>
           <div className='field'>
-            <label htmlFor='plant-flower-color-input'>
+            <label htmlFor='plant-flower-color-Input'>
               Flower Color
             </label>
-            <input type='text' id='plant-flower-color-input' />
+            <Input type='text' id='plant-flower-color-Input' />
           </div>
           <div className='field'>
-            <label htmlFor='plant-seedling-vigor-input'>
+            <label htmlFor='plant-seedling-vigor-Input'>
               Seedling Vigor
             </label>
-            <input type='text' id='plant-seedling-vigor-input' />
+            <Input type='text' id='plant-seedling-vigor-Input' />
           </div>
           <div className='field'>
-            <label htmlFor='plant-shade-tolerance-input'>
+            <label htmlFor='plant-shade-tolerance-Input'>
               Shade Tolerance
             </label>
-            <input type='text' id='plant-shade-tolerance-input' />
+            <Input type='text' id='plant-shade-tolerance-Input' />
           </div>
           <br/>          
           <br/>
           <div className='buttons'>
-            <Link
-              to='/garden'
-              type='button'
-              className='Add-plant-button'
-            >
-              Add Plant
-            </Link>
+            <Button
+                type='submit'
+                className='Add-plant-button'
+              >
+                Add plant to Garden
+            </Button>
             <Link
               to='/find-plant'
               type='button'
@@ -72,3 +93,5 @@ export default class AddPlantPage extends Component {
     )
   }
 }
+
+export default withRouter(AddPlantPage)

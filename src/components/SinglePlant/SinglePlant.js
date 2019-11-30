@@ -1,12 +1,57 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {Button} from '../Utils/Utils'
+import {withRouter} from 'react-router-dom'
+import GardenContext from '../../contexts/GardenContext';
+import TokenService from '../../services/token-service'
+import config from '../../config'
 import './SinglePlant.css'
 
 class SinglePlant extends Component {
-  static defaultProps = {
-    match: {
-      params: {}
-    }
+
+  static contextType = GardenContext;
+
+  state = {
+    plant: []
+  }
+
+  static defaultProps ={
+    onDeletePlant: () => {},
+    match: { params: {} },
+  }
+
+  handleClickPlantDelete = e => {
+    e.preventDefault()
+
+    const plantId = this.props.id
+    
+    fetch (`${config.API_ENDPOINT}/garden/${plantId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+    .then(res => {
+      if (!res.ok)
+        return res.json().then(e => Promise.reject(e))
+    })
+      .then(() => {
+        this.context.deletePlant(plantId)
+        this.props.onDeletePlant(plantId)
+      })
+      .then(() => {
+        this.props.history.push(`/garden`)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+  }
+
+   handleClick = () => {
+    this.setState(prevState => ({
+      borrowed: !prevState.borrowed
+    }));
   }
 
   render() {
@@ -38,6 +83,15 @@ class SinglePlant extends Component {
               >
                 View orders for this plant
               </Link>
+              <Button
+                  className='Plant-remove-button'
+                  type='button'
+                  onClick={e =>
+                    window.confirm("Are you sure you wish to remove this plant? Orders associated with the plant will be deleted also.") &&
+                    this.handleClickPlantDelete(e)
+                }>
+                Remove Plant
+              </Button>
             </div>
           </ul>
         </div>
@@ -45,4 +99,4 @@ class SinglePlant extends Component {
   }
 }
 
-export default SinglePlant;
+export default withRouter(SinglePlant);

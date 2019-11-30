@@ -1,41 +1,74 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
+import {Button} from '../Utils/Utils'
+import PlantContext from '../../contexts/PlantContext';
+import TokenService from '../../services/token-service'
+import config from '../../config'
 import './TendOrder.css'
 
 class TendOrder extends Component {
 
-  static defaultProps = {
-    match: {
-      params: {}
-    }
+  static contextType = PlantContext;
+
+  static defaultProps ={
+    onDeleteOrder: () => {},
+    match: { params: {} },
+  }
+
+  //Delete for order
+  handleClickDelete = e => {
+    e.preventDefault()
+
+    const plantId = this.props.id
+    const orderId = this.props.order.order_id
+    const plant = this.props
+    
+    fetch (`${config.API_ENDPOINT}/garden/${plantId}/orders/${orderId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+      })
+      .then(() => {
+        this.context.deleteOrder(orderId)
+        this.props.onDeleteOrder(orderId)
+      })
+      .then(() => {
+        this.props.history.push(`/garden/${plant.id}`)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
   render() {
-    let {common_name, scientific_name, order_name, order_content, gardenId} = this.props
-    console.log(this.props)
+
+    let {order} = this.props
 
     return (
-        <ul className = 'single-order'>
-            <Link
-              to={`/orders/${gardenId}`}
-              type='button'
-              className='Add-order-button'>
-                <h2>Order for: <i>{common_name}</i></h2>
-              </Link>
-            <h3>{scientific_name}</h3>
-            <h3>{order_name}</h3>
-            <p>{order_content}</p>
-
-            <Link
-                to={`/garden/${gardenId}/add-order`}
-                type='button'
-                className='Add-order-button'
-              >
-            Add a New Order for <i>{common_name}</i>
-            </Link>
-        </ul>
+      <div className = 'single-order'>
+            <h3 className='Single_order_name'>{order.maintenance_needed}</h3>
+            <hr/>
+            <h4>{order.frequency}</h4>
+            <p>{order.details}</p>
+        <Button
+          className='Order_delete'
+          type='button'
+          //Confirmation of delete
+          onClick={e =>
+            window.confirm("Are you sure you wish to delete this item?") &&
+            this.handleClickDelete(e)
+          }
+        >
+          <h4>Delete Order</h4>
+        </Button>
+      </div>
     );
   }
 }
-
-export default TendOrder;
+export default withRouter(TendOrder);

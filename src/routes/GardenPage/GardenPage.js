@@ -1,53 +1,79 @@
 import React from 'react'
-import SinglePlant from '../../components/SinglePlant/SinglePlant'
-import ApiContext from '../../contexts/ApiContext'
+import GardenResults from '../../components/GardenResults/GardenResults'
+import Filters from '../../components/Filters/Filters'
+import GardenContext from '../../contexts/GardenContext'
+import PlantApiService from '../../services/plant-api-service'
+import {Section} from '../../components/Utils/Utils'
 import './GardenPage.css'
 
 export default class GardenPage extends React.Component {
 
-  static defaultProps = {
-    plants: [],
-    orders: []
+  constructor(props) {
+    super(props);
+    this.state = {
+        plants:[],
+        error: false,
+        plantType: "All",
+        property: "title",
+    };
   }
-  
-  static contextType = ApiContext;
 
-  render() {
+  handlePlantFilter(plantType) {
+    this.setState({
+      plantType: plantType
+    })
+  }
+
+  handlePlantSort(property) {
+    this.setState({
+      property: property
+    })
+  }
+
+  static contextType = GardenContext;
+
+  componentDidMount() {
+    this.context.clearError()
+    PlantApiService.getPlants()
+      .then(this.context.setGarden)
+      .catch(this.context.setError)
+    PlantApiService.getAllOrders()
+      .then(this.context.setOrderList)
+      .catch(this.context.setError)
+  }
+
+
+  renderGarden() {
     return (
       <section className='GardenPage'>
         <h2>Garden</h2>
-        <div className='input'>
-            <label htmlFor='plant-filter-input'>
-              Filter garden by:
-            </label>
-            <select id='plant-filter-input'>
-                <option value="type">Plant Type</option>
-            </select>
-          </div>          
-          <div className='input'>
-            <label htmlFor='plant-sort-input'>
-              Sort garden by:
-            </label>
-            <select id='input'>
-                <option value="name">Name</option>
-            </select>
-          </div>
         <ul>
-          {this.context.plants.map(plant =>
-            <li key={plant.gardenId}>
-              <SinglePlant
-                gardenId={plant.gardenId}
-                common_name={plant.common_name}
-                scientific_name={plant.scientific_name}
-                flower_color={plant.flower_color}
-                seedling_vigor={plant.seedling_vigor}
-                image={plant.image}
-                shade_tolerance={plant.shade_tolerance}
-              />
+            <li>
+              <Filters 
+                onPlantSort={property => this.handlePlantSort(property)}/>
             </li>
-          )}
+            <li>
+              <GardenResults 
+                plants={this.context.plants} 
+                orders={this.context.orders}
+                onDeletePlant={this.handleDeletePlant}
+                plantFilter={this.state.plantType}
+                property={this.state.property}/>
+            </li>
         </ul>
       </section>
     )
   }
+
+  render() {
+    const {error} = this.context
+    return (
+      <Section list className='GardenPage'>
+        {error
+          ? <p className='red'>There was an error, try again</p>
+          : this.renderGarden()}
+      </Section>
+    )
+  }
+
 }

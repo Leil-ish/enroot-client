@@ -22,6 +22,12 @@ class SearchPage extends Component {
         })
       }
 
+      handlePlantSort(property) {
+        this.setState({
+          property: property
+        })
+      }
+
       handleSubmit(searchTerm) {
         return fetch(`https://trefle.io/api/plants?common_name=${searchTerm}`, {
           mode: "no-cors",
@@ -73,7 +79,9 @@ class SearchPage extends Component {
             <h2>Search for a Plant to Add to Your Garden</h2>
             <SearchBar 
               onSubmit={searchTerm => this.handleSubmit(searchTerm)}
-              onPlantFilter={plantType => this.handlePlantFilter(plantType)}/>
+              onPlantFilter={plantType => this.handlePlantFilter(plantType)}
+              onPlantSort={property => this.handlePlantSort(property)}/>
+              />
              {error}
             <Results 
               plants={this.state.plants} 

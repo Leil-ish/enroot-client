@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import './LandingPage.css'
 
 export default class LandingPage extends React.Component {
@@ -16,18 +15,6 @@ export default class LandingPage extends React.Component {
               doing to take care of their plants. They will be able to add Google 
               Calendar reminders to do things like water their trees and renew their 
               mulch.</p>
-          <div className = 'options'>
-            <h3>Ready to get started?</h3>
-            <Link className = 'SignUp_link'
-              to='/signup'>
-              Sign Up
-            </Link>
-            <h3>Already using Enroot?</h3>
-            <Link className = 'Login_link'
-              to='/login'>
-              Login
-            </Link>
-            <h3>Questions? Get in touch!</h3>
             <address>
                 <a href="https://leilaanderson.dev" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/KTeC5RF.png" alt="Portfolio" id="linkedin-pic"/></a>
                 <a href="mailto:leila@leilaanderson.dev" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/TJRUfCX.png" alt="Email" id="email-pic"/></a>
@@ -35,7 +22,6 @@ export default class LandingPage extends React.Component {
                 <a href="https://github.com/Leil-ish" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/jHZd0pE.png"  alt="GitHub" id="github-pic"/></a>
             </address>
           </div>
-      </div>
     )
   }
 }

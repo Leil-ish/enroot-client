@@ -1,16 +1,48 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
-import {Input, Required} from '../Utils/Utils';
+import {Button, Input, Required} from '../Utils/Utils';
+import AuthApiService from '../../services/auth-api-service';
 import './SignUpForm.css';
 
 export default class SignUpForm extends Component {
+  static defaultProps = {
+    onSignUpSuccess: () => {}
+  }
+
+  state = {error: null}
+
+  handleSubmit = ev => {
+    ev.preventDefault()
+    const {first_name, last_name, username, password } = ev.target
+
+    this.setState({ error: null })
+    AuthApiService.postUser({
+      username: username.value,
+      password: password.value,
+      first_name: first_name.value,
+      last_name: last_name.value,
+    })
+      .then(user => {
+        first_name.value = ''
+        last_name.value = ''
+        username.value = ''
+        password.value = ''
+        this.props.onSignUpSuccess()
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
+  }
 
   render() {
+    const { error } = this.state
     return (
       <form
         className='SignUpForm'
         onSubmit={this.handleSubmit}
       >
+        <div role='alert'>
+          {error && <p className='red'>{error}</p>}
+        </div>
           <div className='first_name'>
             <label htmlFor='SignUpForm_first_name'>
               First name <Required />
@@ -55,9 +87,9 @@ export default class SignUpForm extends Component {
               id='SignUpForm_password'>
             </Input>
           </div>
-          <Link className='SignUpForm_Submit' to='/add-plant'>
-            Sign Up
-          </Link>
+          <Button type='submit' className='SignUpForm_Submit'>
+            Register
+          </Button>
       </form>
     )
   }

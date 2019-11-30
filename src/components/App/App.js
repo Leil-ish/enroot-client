@@ -14,10 +14,8 @@ import SearchPage from '../../routes/SearchPage/SearchPage'
 import GardenContext from '../../contexts/GardenContext';
 import EditTendOrderPage from '../../routes/EditTendOrderPage/EditTendOrderPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
-import ApiContext from '../../contexts/ApiContext'
 import Error from '../Error/Error'
-import dummyStore from '../../dummy-store'
-import {findOrder, getPlantsForGarden, getOrdersForPlant} from '../../garden-helper'
+import {getPlantsForGarden, getOrdersForPlant} from '../../garden-helper'
 import './App.css';
 
 class App extends Component {
@@ -119,19 +117,19 @@ class App extends Component {
               exact path='/'
               component={LandingPage}
             />
-            <Route
+            <PublicOnlyRoute
               path='/login'
               component={LoginPage}
             />
-            <Route
+            <PublicOnlyRoute
               path='/signup'
               component={SignUpPage}
             />
-            <Route
+            <PrivateRoute
               path='/garden'
               component={GardenPage}
             />
-            <Route
+            <PrivateRoute
               path='/orders'
               component={TendPage}
             />
