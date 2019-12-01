@@ -6,7 +6,7 @@ export default class NotFoundPage extends Component {
   render() {
     return (
       <Section className='NotFoundPage'>
-        <h2>404 - Page not found</h2>
+        <h1>404 - Page not found</h1>
         <p>Try going back to your previous page.</p>
       </Section>
     )

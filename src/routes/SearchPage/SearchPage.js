@@ -81,7 +81,6 @@ class SearchPage extends Component {
               onSubmit={searchTerm => this.handleSubmit(searchTerm)}
               onPlantFilter={plantType => this.handlePlantFilter(plantType)}
               onPlantSort={property => this.handlePlantSort(property)}/>
-              />
              {error}
             <Results 
               plants={this.state.plants} 

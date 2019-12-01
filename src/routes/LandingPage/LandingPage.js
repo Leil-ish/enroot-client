@@ -15,12 +15,14 @@ export default class LandingPage extends React.Component {
               doing to take care of their plants. They will be able to add Google 
               Calendar reminders to do things like water their trees and renew their 
               mulch.</p>
-            <address>
-                <a href="https://leilaanderson.dev" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/KTeC5RF.png" alt="Portfolio" id="linkedin-pic"/></a>
-                <a href="mailto:leila@leilaanderson.dev" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/TJRUfCX.png" alt="Email" id="email-pic"/></a>
-                <a href="https://www.linkedin.com/in/leilaanderson/" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/K9zNzW1.png" alt="LinkedIn" id="linkedin-pic"/></a>
-                <a href="https://github.com/Leil-ish" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/jHZd0pE.png"  alt="GitHub" id="github-pic"/></a>
-            </address>
+            <div className = 'contact'>
+              <address>
+                  <a href="https://leilaanderson.dev" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/KTeC5RF.png" alt="Portfolio" id="linkedin-pic"/></a>
+                  <a href="mailto:leila@leilaanderson.dev" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/TJRUfCX.png" alt="Email" id="email-pic"/></a>
+                  <a href="https://www.linkedin.com/in/leilaanderson/" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/K9zNzW1.png" alt="LinkedIn" id="linkedin-pic"/></a>
+                  <a href="https://github.com/Leil-ish" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/jHZd0pE.png"  alt="GitHub" id="github-pic"/></a>
+              </address>
+            </div>
           </div>
     )
   }

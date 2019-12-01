@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Form from '../../components/Form/Form'
 import PlantContext from '../../contexts/PlantContext'
 import PlantApiService from '../../services/plant-api-service'
@@ -17,14 +17,15 @@ class AddPlantPage extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const {common_name, scientific_names, description, categories} = ev.target
-    PlantApiService.postCustomPlant(common_name.value, scientific_names.value, description.value, categories.value)
+    const {common_name, scientific_names, flower_color, seedling_vigor, shade_tolerance} = ev.target
+    PlantApiService.postCustomPlant(common_name.value, scientific_names.value, flower_color.value, seedling_vigor.value, shade_tolerance.value)
       .then(this.context.addPlant)
       .then(() => {
         common_name.value = ''
         scientific_names.value = ''
-        description.value = ''
-        categories.value = ''
+        flower_color.value = ''
+        seedling_vigor.value = ''
+        shade_tolerance.value = ''
       })
       .then(() => {
         this.props.onSavePlantSuccess()
@@ -71,8 +72,6 @@ class AddPlantPage extends Component {
             </label>
             <Input type='text' id='plant-shade-tolerance-Input' />
           </div>
-          <br/>          
-          <br/>
           <div className='buttons'>
             <Button
                 type='submit'
@@ -94,4 +93,4 @@ class AddPlantPage extends Component {
   }
 }
 
-export default withRouter(AddPlantPage)
+export default AddPlantPage;

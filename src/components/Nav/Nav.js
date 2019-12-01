@@ -28,7 +28,7 @@ export default class GardenNav extends React.Component {
               aria-label='Garden-link'
               to={`/garden`}
                 >
-                <i className="fas fa-plant"></i>
+                <i className="fas fa-book"></i>
             </Link>
           </li>
           <li>
