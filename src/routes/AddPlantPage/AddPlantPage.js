@@ -77,7 +77,7 @@ class AddPlantPage extends Component {
                 type='submit'
                 className='Add-plant-button'
               >
-                Add plant to Garden
+                Add Plant to Garden
             </Button>
             <Link
               to='/find-plant'

@@ -27,7 +27,7 @@ class TendOrder extends Component {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res => {
@@ -52,7 +52,7 @@ class TendOrder extends Component {
 
     return (
       <div className = 'single-order'>
-            <h3 className='Single_order_name'>{order.maintenance_needed}</h3>
+            <h3 className='Single_maintenance_needed'>{order.maintenance_needed}</h3>
             <hr/>
             <h4>{order.frequency}</h4>
             <p>{order.details}</p>

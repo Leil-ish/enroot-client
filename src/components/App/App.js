@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Route, Switch, Link} from 'react-router-dom'
-import Nav from '../Nav/Nav'
+import GardenNav from '../Nav/Nav'
 import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import AddPlantPage from '../../routes/AddPlantPage/AddPlantPage'
@@ -13,6 +13,8 @@ import SinglePlantPage from '../../routes/SinglePlantPage/SinglePlantPage'
 import SearchPage from '../../routes/SearchPage/SearchPage'
 import GardenContext from '../../contexts/GardenContext';
 import EditTendOrderPage from '../../routes/EditTendOrderPage/EditTendOrderPage'
+import EditPlantPage from '../../routes/EditPlantPage/EditPlantPage'
+import PlantOrdersPage from '../../routes/PlantOrdersPage/PlantOrdersPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import Error from '../Error/Error'
 import {getPlantsForGarden, getOrdersForPlant} from '../../garden-helper'
@@ -80,7 +82,7 @@ class App extends Component {
                   const {plantId} = routeProps.match.params
                   const ordersForPlant = getOrdersForPlant(orders, plantId)
                   return (
-                    <TendPage
+                    <PlantOrdersPage
                       {...routeProps}
                       orders={ordersForPlant}
                     />
@@ -112,7 +114,20 @@ class App extends Component {
                 }}
               />
             )}
-            />
+            {['/garden/:plantId/edit-plant'].map(path =>
+              <PrivateRoute
+                exact
+                key={path}
+                path={path}
+                component={routeProps => {
+                  return (
+                    <EditPlantPage
+                      {...routeProps}
+                    />
+                  )
+                }}
+              />
+            )}
             <Route
               exact path='/'
               component={LandingPage}
@@ -152,7 +167,7 @@ class App extends Component {
               key={path}
               path={path}
               component={routeProps =>
-                <Nav
+                <GardenNav
                   plants={plants}
                   orders={orders}
                   {...routeProps}
@@ -167,7 +182,7 @@ class App extends Component {
               const {plantId} = routeProps.match.params
               const ordersForPlant = getOrdersForPlant(orders, plantId)
               return (
-                <Nav
+                <GardenNav
                   {...routeProps}
                   ordersForPlant={ordersForPlant}
                 />
@@ -176,29 +191,29 @@ class App extends Component {
             />
             <Route
               exact path='/'
-              component={Nav}
+              component={GardenNav}
             />
             <PrivateRoute
               exact
               path='/garden'
-              component={Nav}
+              component={GardenNav}
             />
             <PrivateRoute
               exact
               path='/orders'
-              component={Nav}
+              component={GardenNav}
             />
             <PrivateRoute
               path='/find-plant'
-              component={Nav}
+              component={GardenNav}
             />
             <PrivateRoute
               path='/add-plant'
-              component={Nav}
+              component={GardenNav}
             />
             <PrivateRoute
               path='/garden/:plantId/add-order'
-              component={Nav}
+              component={GardenNav}
             />
       </div>
     )

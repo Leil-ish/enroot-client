@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from '../Utils/Utils'
-import {withRouter} from 'react-router-dom'
 import GardenContext from '../../contexts/GardenContext';
 import TokenService from '../../services/token-service'
 import config from '../../config'
@@ -29,7 +28,7 @@ class SinglePlant extends Component {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
     .then(res => {
@@ -50,10 +49,8 @@ class SinglePlant extends Component {
 
   render() {
 
-    let {common_name, scientific_name, flower_color, seedling_vigor, shade_tolerance} = this.props
+    let {id, common_name, scientific_name, flower_color, seedling_vigor, shade_tolerance} = this.props
 
-      const {gardenId} = this.props
-    
       return (
           <div className = 'single-plant'>
             <ul>
@@ -64,14 +61,14 @@ class SinglePlant extends Component {
               <p>Shade Tolerance: {shade_tolerance}</p>
               <div className='buttons'>
               <Link
-                to={`/garden/${gardenId}/add-order`}
+                to={`/garden/${id}/add-order`}
                 type='button'
                 className='Plant-add-order-button'
               >
                 Add a tend order to this plant
               </Link>
               <Link
-                to={`/orders/${gardenId}`}
+                to={`/garden/${id}/orders`}
                 type='button'
                 className='Plant-view-orders-button'
               >
@@ -93,4 +90,4 @@ class SinglePlant extends Component {
   }
 }
 
-export default withRouter(SinglePlant);
+export default SinglePlant;

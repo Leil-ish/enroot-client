@@ -18,12 +18,12 @@ export default class EditTendOrderPage extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const {plant} = this.context
-    const {content, order_name} = ev.target
-    PlantApiService.postOrder(plant.id, content.value, order_name.value)
+    const {content, maintenance_needed} = ev.target
+    PlantApiService.postOrder(plant.id, content.value, maintenance_needed.value)
       .then(this.context.addOrder)
       .then(() => {
         content.value = ''
-        order_name.value = ''
+        maintenance_needed.value = ''
       })
       .then(() => {
         this.props.onSaveOrderSuccess()
@@ -65,7 +65,7 @@ export default class EditTendOrderPage extends Component {
               Maintenance Needed:
             </label>
             <br/>
-            <Input required type='text' id='order_name' name='order_name' aria-label='Order name'/>
+            <Input required type='text' id='maintenance_needed' name='maintenance_needed' aria-label='Order name'/>
           </div>
           <div className='frequency-select'>
             <label htmlFor='order-frequency-select'>

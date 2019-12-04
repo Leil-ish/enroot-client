@@ -6,7 +6,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden`, {
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -19,7 +19,21 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}`, {
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+
+  getApiPlants() {
+    return fetch(`${config.API_ENDPOINT}/trefle`, {
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -33,7 +47,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/orders/${orderId}`, {
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -47,7 +61,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/orders`, {
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -61,7 +75,7 @@ const PlantApiService = {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/orders`, {
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -71,17 +85,18 @@ const PlantApiService = {
       )
   },
 
-  postOrder(plantId, content, order_name) {
+  postOrder(plantId, maintenance_needed, frequency, details) {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/add-order`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         plant_id: plantId,
-        content,
-        order_name,
+        maintenance_needed,
+        frequency,
+        details
       }),
     })
       .then(res =>
@@ -91,20 +106,20 @@ const PlantApiService = {
       )
   },
 
-  postPlant(common_name, scientific_names, description, categories, image_links, is_eplant) {
+  postPlant(scientific_name, common_name, lifespan, growth_rate, growth_period, temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
+    resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
+    moisture_use, user_id, seedling_vigor, flower_color, foliage_color) {
     return fetch(`${config.API_ENDPOINT}/garden`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        common_name,
-        scientific_names,
-        description,
-        categories,
-        image_links,
-        is_eplant,
+        scientific_name, common_name, lifespan, growth_rate, growth_period, 
+        temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
+        resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
+        moisture_use, user_id, seedling_vigor, flower_color, foliage_color
       }),
     })
       .then(res =>
@@ -114,18 +129,21 @@ const PlantApiService = {
       )
   },
 
-  postCustomPlant(common_name, scientific_names, description, categories) {
+  postCustomPlant(scientific_name, common_name, lifespan, growth_rate, growth_period, 
+    temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
+    resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
+    moisture_use, user_id, seedling_vigor, flower_color, foliage_color) {
     return fetch(`${config.API_ENDPOINT}/garden/add-plant`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        common_name,
-        scientific_names,
-        description,
-        categories,
+        scientific_name, common_name, lifespan, growth_rate, growth_period, 
+        temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
+        resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
+        moisture_use, user_id, seedling_vigor, flower_color, foliage_color
       }),
     })
       .then(res =>
@@ -140,7 +158,7 @@ const PlantApiService = {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
-        'scientific_nameization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         plant_id: plantId,

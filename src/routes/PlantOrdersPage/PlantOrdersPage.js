@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 import PlantContext from '../../contexts/PlantContext'
 import TendOrder from '../../components/TendOrder/TendOrder'
 import PlantApiService from '../../services/plant-api-service'
-import './TendPage.css'
+import './PlantOrdersPage.css'
 
-export default class TendPage extends React.Component {
+export default class PlantOrdersPage extends React.Component {
 
   static contextType = PlantContext;
 
@@ -30,12 +30,12 @@ export default class TendPage extends React.Component {
   }
 
   renderOrder() {
-    const {plant, orders, maintenance_needed, frequency, details} = this.context
+    const {plant, orders} = this.context
 
     if (orders.length===0) {
       return (
         <div className='PlantOrdersPage'>
-        <h2>{plant.common_name}</h2>
+        <h2>{plant.title}</h2>
         <hr/>
 
         <h3 className='Orders-subtitle'>No Orders Yet</h3>
@@ -60,7 +60,7 @@ export default class TendPage extends React.Component {
     } else {
       return (
         <div className='PlantOrdersPage'>
-          <h2>{plant.common_name}</h2>
+          <h2>{plant.title}</h2>
           <h3 className='Orders-subtitle'>Orders</h3>
           <ul className='PlantOrdersPage_order-list'>
             <li>
@@ -69,9 +69,8 @@ export default class TendPage extends React.Component {
                   key={order.order_name + 'key'}
                   orderId={order.id}
                   plantId={order.plant_id}
-                  maintenance_needed={maintenance_needed}
-                  frequency={frequency}
-                  details={details}
+                  order_name={order.order_name}
+                  order={order}
                   onDeleteOrder={this.handleDeleteOrder}
                   {...plant}
                 />

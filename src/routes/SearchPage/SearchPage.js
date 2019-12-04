@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import SearchBar from '../../components/SearchBar/SearchBar';
+import PlantContext from '../../contexts/PlantContext'
+import PlantApiService from '../../services/plant-api-service'
 import Results from '../../components/Results/Results';
 import './SearchPage.css'
 
@@ -12,6 +14,23 @@ class SearchPage extends Component {
             plants:[],
             error: false,
         };
+      }
+
+      static defaultProps = {
+        match: { params: {} },
+      }
+    
+      static contextType = PlantContext
+    
+      componentDidMount() {
+        this.context.clearError()
+        PlantApiService.getApiPlants()
+          .then(this.context.setPlant)
+          .catch(this.context.setError)
+      }
+    
+      componentWillUnmount() {
+        this.context.clearPlant()
       }
     
     
@@ -28,12 +47,13 @@ class SearchPage extends Component {
         })
       }
 
+
       handleSubmit(searchTerm) {
-        return fetch(`https://trefle.io/api/plants?common_name=${searchTerm}`, {
+        return fetch(`https://trefle.io/api/species?common_name=${searchTerm}`, {
           mode: "no-cors",
           headers: {
             'content-type': 'application/json',
-            'scientific_nameization': `bearer ${process.env.REACT_APP_API_KEY}`,
+            'authorization': `bearer: <JWT Token>`,
           },
         })
         .then(response => {
@@ -66,6 +86,8 @@ class SearchPage extends Component {
       }
 
       render() {
+
+        console.log(this.state);
         
         const error = this.state.error 
         ? <div className="SearchError">

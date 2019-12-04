@@ -5,7 +5,7 @@ export const nullPlant = {
 }
 
 export const nullOrder = {
-  order_name: {},
+  maintenance_needed: {},
 }
 
 const PlantContext = React.createContext({
