@@ -10,7 +10,6 @@ import SignUpPage from '../../routes/SignUpPage/SignUpPage'
 import GardenPage from '../../routes/GardenPage/GardenPage'
 import TendPage from '../../routes/TendPage/TendPage'
 import SinglePlantPage from '../../routes/SinglePlantPage/SinglePlantPage'
-import SearchPage from '../../routes/SearchPage/SearchPage'
 import GardenContext from '../../contexts/GardenContext';
 import EditTendOrderPage from '../../routes/EditTendOrderPage/EditTendOrderPage'
 import EditPlantPage from '../../routes/EditPlantPage/EditPlantPage'
@@ -89,10 +88,6 @@ class App extends Component {
                   )
                 }}
               />
-            <PrivateRoute
-              path='/find-plant'
-              component={SearchPage}
-            />
             <PrivateRoute
               path='/add-plant'
               component={AddPlantPage}
@@ -204,10 +199,6 @@ class App extends Component {
               component={GardenNav}
             />
             <PrivateRoute
-              path='/find-plant'
-              component={GardenNav}
-            />
-            <PrivateRoute
               path='/add-plant'
               component={GardenNav}
             />
@@ -226,7 +217,7 @@ class App extends Component {
             <h1>
               <Link to='/'>Enroot</Link>
             </h1>
-            <h2>Digital Garden Tend Tracker</h2>
+            <h2>Digital Garden Maintenance Tracker</h2>
           </header>
           <main className='App_main'>
             <Error>

@@ -1,5 +1,5 @@
 .single-plant {
-    border: solid 3px #FBA100;
+    border: solid 3px #465C8B;
     padding: 20px;
     margin: 20px;
 }
@@ -92,4 +92,14 @@ ul {
     text-align:center;    
     font-size:18px;
     margin:5px;
+}
+
+@media only screen and (min-width: 992px) {
+    .single-plant {
+        border: solid 3px #465C8B;
+        padding: 20px;
+        margin: 20px;
+        max-width: 70%;
+        margin: 50px auto;
+    }
 }

@@ -35,22 +35,12 @@ export default class GardenNav extends React.Component {
           </li>
           <li>
               <Link
-                className='GardenNav_find_link GardenNav_link'
-                aria-label='Find-plant-link'
-                to={`/find-plant`}
-              >
-                <img src='https://i.imgur.com/5ZassYs.png' alt='find-plant'></img>
-                <span className="tooltiptext">Search for a Plant</span>
-              </Link>
-          </li>
-          <li>
-              <Link
                 className='GardenNav_add_link GardenNav_link'
                 aria-label='Add-plant-link'
                 to={`/add-plant`}
               >
                 <img src='https://i.imgur.com/Juh9Oa4.png' alt='add-plant'></img>
-                <span className="tooltiptext">Add a Plant Manually</span>
+                <span className="tooltiptext">Add a Plant</span>
               </Link>
           </li>
           <li>

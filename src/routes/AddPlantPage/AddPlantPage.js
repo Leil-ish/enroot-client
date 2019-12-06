@@ -18,6 +18,7 @@ class AddPlantPage extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const {common_name, scientific_names, flower_color, seedling_vigor, shade_tolerance} = ev.target
+    console.log(ev.target)
     PlantApiService.postCustomPlant(common_name.value, scientific_names.value, flower_color.value, seedling_vigor.value, shade_tolerance.value)
       .then(this.context.addPlant)
       .then(() => {
@@ -41,36 +42,40 @@ class AddPlantPage extends Component {
         <h2>
           Add a Plant to Your Garden
         </h2>
-        <Form>
+        <Form 
+          className='AddPlantForm'
+          aria-label='Add-plant-form'
+          onSubmit={this.handleSubmit}
+          >
           <div className='field'>
             <label htmlFor='plant-common-name-input'>
               Common Name
             </label>
-            <Input type='text' id='plant-common-name-input' />
+            <Input type='text' id='plant-common-name-input' aria-label='common name input'/>
           </div>
           <div className='field'>
             <label htmlFor='plant-scientific-name-input'>
               Scientific Name
             </label>
-            <input type='text' id='plant-scientific-name-input' />
+            <Input type='text' id='plant-scientific-name-input' aria-label='scientific name input'/>
           </div>
           <div className='field'>
             <label htmlFor='plant-flower-color-Input'>
               Flower Color
             </label>
-            <Input type='text' id='plant-flower-color-Input' />
+            <Input type='text' id='plant-flower-color-Input' aria-label='flower color input'/>
           </div>
           <div className='field'>
             <label htmlFor='plant-seedling-vigor-Input'>
               Seedling Vigor
             </label>
-            <Input type='text' id='plant-seedling-vigor-Input' />
+            <Input type='text' id='plant-seedling-vigor-Input' aria-label='seedling vigor input'/>
           </div>
           <div className='field'>
             <label htmlFor='plant-shade-tolerance-Input'>
               Shade Tolerance
             </label>
-            <Input type='text' id='plant-shade-tolerance-Input' />
+            <Input type='text' id='plant-shade-tolerance-Input' aria-label='shade tolerance input'/>
           </div>
           <div className='buttons'>
             <Button

@@ -6,15 +6,9 @@ export default class LandingPage extends React.Component {
   render() {
     return (
       <div className='Landing_Page'>
-          <p>This app is a resource for home gardeners. It will pull data from a 
-              third party plant API (Trefle) that contains information about plant 
-              tend, planting, shade needs, etc. Users can look up any plants 
-              in their yards/gardens, get info on them, and save them to a personal 
-              garden page where they can access their 
-              own plants at any time to remind themselves of what they need to be 
-              doing to take care of their plants. They will be able to add Google 
-              Calendar reminders to do things like water their trees and renew their 
-              mulch.</p>
+          <p>This app is a resource for home gardeners. Users can save plant information 
+              to a personal garden page where they can access their own plants at any time 
+              to remind themselves of what they need to be doing to take care of their plants. </p>
             <div className = 'contact'>
               <address>
                   <a href="https://leilaanderson.dev" target="_blank" rel="noopener noreferrer"><img src="https://i.imgur.com/KTeC5RF.png" alt="Portfolio" id="linkedin-pic"/></a>
