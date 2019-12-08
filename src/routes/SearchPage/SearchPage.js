@@ -62,7 +62,6 @@ class SearchPage extends Component {
           <main className='SearchPage'>
             <h2>Search for a Plant to Add to Your Garden</h2>
             <SearchBar 
-              onSubmit={searchTerm => this.handleSubmit(searchTerm)}
               onPlantFilter={plantType => this.handlePlantFilter(plantType)}
               onPlantSort={property => this.handlePlantSort(property)}/>
              {error}
