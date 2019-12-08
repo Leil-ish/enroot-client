@@ -30,7 +30,7 @@ const PlantApiService = {
   },
 
   getApiPlants() {
-    return fetch(`${config.API_ENDPOINT}/trefle`, {
+    return fetch(`${config.API_ENDPOINT}/garden/trefle`, {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,

@@ -47,44 +47,6 @@ class SearchPage extends Component {
         })
       }
 
-
-      handleSubmit(searchTerm) {
-        return fetch(`https://trefle.io/api/species?common_name=${searchTerm}`, {
-          mode: "no-cors",
-          headers: {
-            'content-type': 'application/json',
-            'authorization': `bearer: <JWT Token>`,
-          },
-        })
-        .then(response => {
-          if(!response.ok) {
-            throw new Error('Oops, API call is not set up yet. This is just a static client.');
-          }
-          this.setState({
-            error: true
-          })
-          return response;
-        })
-        .then(response => response.json())
-        .then(data => {
-          if(!data.items) {
-            throw new Error('There are no results for that search. Try using different search terms or manually add the plant.');
-          }
-          this.setState({
-            error: true
-          })
-          return data;
-        })
-        .then(data => {
-          this.setState({
-           plants: data.items
-          })
-        })
-        .catch(err => this.setState({
-          error: err.message
-        }))
-      }
-
       render() {
 
         console.log(this.state);

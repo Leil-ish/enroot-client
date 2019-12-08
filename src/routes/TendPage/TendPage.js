@@ -17,7 +17,7 @@ export default class TendPage extends React.Component {
   componentDidMount() {
     const {plantId} = this.props.match.params
     this.context.clearError()
-    PlantApiService.getPlantOrders(plantId)
+    PlantApiService.getAllOrders()
       .then(this.context.setOrders)
       .catch(this.context.setError)
     PlantApiService.getPlant(plantId)

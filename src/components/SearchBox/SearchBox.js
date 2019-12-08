@@ -1,40 +1,22 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import Form from '../Form/Form';
 import './SearchBox.css'
 
 
 class SearchBox extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchTerm: ""
-        };
-    }
 
-    searchTermChanged(searchTerm) {
-        this.setState({
-            searchTerm
-        });
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const search = this.state.searchTerm.split(' ').join('+');
-        this.props.onSubmit(search);
-    }
-  
     render() {
 
     return (
       <div>
-          <form className="searchBar" onSubmit={this.handleSubmit}>
+          <Form className="searchBar" method='POST' action='/trefle-searchterm' >
               <label htmlFor="search">Search: </label>
               <input 
               type="text" 
               placeholder="Search for a plant" 
-              id="search"
-              onChange={e => this.searchTermChanged(e.target.value)} />
+              id="search" />
               <button type="submit" className='search-submit'>Search</button>
-          </form>
+          </Form>
       </div>
       
     );
