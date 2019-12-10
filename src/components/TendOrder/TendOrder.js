@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
 import {Button} from '../Utils/Utils'
 import PlantContext from '../../contexts/PlantContext';
 import TokenService from '../../services/token-service'
@@ -48,14 +47,14 @@ class TendOrder extends Component {
 
   render() {
 
-    let {order} = this.props
+    let {maintenance_needed, frequency, details} = this.props
 
     return (
       <div className = 'single-order'>
-            <h3 className='Single_maintenance_needed'>{order.maintenance_needed}</h3>
+            <h3 className='Single_maintenance_needed'>{maintenance_needed}</h3>
             <hr/>
-            <h4>{order.frequency}</h4>
-            <p>{order.details}</p>
+            <h4>{frequency}</h4>
+            <p>{details}</p>
         <Button
           className='Order_delete'
           type='button'
@@ -71,4 +70,4 @@ class TendOrder extends Component {
     );
   }
 }
-export default withRouter(TendOrder);
+export default TendOrder;

@@ -42,6 +42,9 @@ class AddPlantPage extends Component {
         <h2>
           Add a Plant to Your Garden
         </h2>
+        <h3>Don't know some of this info but think it would be helpful? Search for your plant 
+          <a href='https://plants.sc.egov.usda.gov/java/' target='_blank' rel='noopener noreferrer'>here!</a>
+        </h3>
         <Form 
           className='AddPlantForm'
           aria-label='Add-plant-form'

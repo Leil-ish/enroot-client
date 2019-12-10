@@ -1,1 +1,36 @@
+.EditTendOrderPage {
+    margin: 50px auto;
+    max-width: 70%;
+    border: 1px solid #465C8B;
+    padding: 10px;
+}
 
+.EditTendOrderPage .Add-order-button {
+    display: block;
+    text-align: center;
+    margin:15px auto 15px auto;
+    color: black;
+    background-color: #465C8B;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    width:200px;
+    height:30px;
+    cursor: pointer;
+}
+
+.EditTendOrderPage .Cancel-add-order-button {
+    display: block;
+    text-align: center;
+    margin:15px auto 15px auto;
+    color: black;
+    background-color: #465C8B;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    width:200px;
+    height:30px;
+    cursor: pointer;
+}

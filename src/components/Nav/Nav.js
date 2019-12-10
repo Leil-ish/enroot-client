@@ -20,7 +20,7 @@ export default class GardenNav extends React.Component {
               onClick={this.handleLogoutClick}
               to='/'>
               <img src='https://i.imgur.com/dzjzyDO.png' alt='logout'></img>
-              <span className="tooltiptext">Logout</span>
+              <span className='tooltiptext'>Logout</span>
             </Link>
           </li>
           <li>
@@ -30,7 +30,7 @@ export default class GardenNav extends React.Component {
               to={`/garden`}
                 >
                 <img src='https://i.imgur.com/rMJYeD7.png' alt='garden'></img>
-                <span className="tooltiptext">View Garden</span>
+                <span className='tooltiptext'>View Garden</span>
             </Link>
           </li>
           <li>
@@ -40,7 +40,7 @@ export default class GardenNav extends React.Component {
                 to={`/add-plant`}
               >
                 <img src='https://i.imgur.com/Juh9Oa4.png' alt='add-plant'></img>
-                <span className="tooltiptext">Add a Plant</span>
+                <span className='tooltiptext'>Add a Plant</span>
               </Link>
           </li>
           <li>
@@ -50,7 +50,7 @@ export default class GardenNav extends React.Component {
                 to={`/orders`}
               >
                 <img src='https://i.imgur.com/OjfBDVb.png' alt='tend-orders'></img>
-                <span className="tooltiptext">View Tend Orders</span>
+                <span className='tooltiptext'>View Tend Orders</span>
               </Link>
           </li>
         </ul>

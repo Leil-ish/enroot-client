@@ -85,7 +85,7 @@ const PlantApiService = {
       )
   },
 
-  postOrder(plantId, maintenance_needed, frequency, details) {
+  postOrder(plantId, maintenance_needed, frequency, modified, details) {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/add-order`, {
       method: 'POST',
       headers: {
@@ -96,6 +96,7 @@ const PlantApiService = {
         plant_id: plantId,
         maintenance_needed,
         frequency,
+        modified,
         details
       }),
     })

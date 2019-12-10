@@ -65,7 +65,24 @@ function PlantContent({ plant }) {
       </h1>
       <hr/>
       <p className='PlantPage_description'>
-        {plant.description}
+        Scientific Name: {plant.scientific_name}<br/>
+        Common Name: {plant.common_name}<br/>
+        Lifespan: {plant.lifespan}<br/>
+        Growth Rate: {plant.growth_rate}<br/>
+        Growth Period: {plant.growth_period}<br/>
+        Temperature Minimum: {plant.temperature_minimum}<br/>
+        Shade Tolerance: {plant.shade_tolerance}<br/>
+        Precipitation Minimum: {plant.precipitation_minimum}<br/>
+        Precipitation Maximum: {plant.precipitation_maximum}<br/>
+        Resprout Ability: {plant.resprout_ability}<br/>
+        Family Common Name: {plant.family_common_name}<br/>
+        Duration: {plant.duration}<br/>
+        Draught Tolerance: {plant.drought_tolerance}<br/>
+        Frost-Free Days Minimum: {plant.frost_free_days_minimum}<br/>
+        Moisture Use: {plant.moisture_use}<br/>
+        Seedling Vigor: {plant.seedling_vigor}<br/>
+        Flower Color: {plant.flower_color}<br/>
+        Foliage Color: {plant.foliage_color}<br/>
       </p>
       <Link
               to={`/garden/${plant.id}/orders`}

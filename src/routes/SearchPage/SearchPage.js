@@ -50,7 +50,7 @@ class SearchPage extends Component {
 
       handleSubmit(searchTerm) {
         return fetch(`https://trefle.io/api/species?common_name=${searchTerm}`, {
-          mode: "no-cors",
+          mode: 'no-cors',
           headers: {
             'content-type': 'application/json',
             'authorization': `bearer: <JWT Token>`,
@@ -90,11 +90,11 @@ class SearchPage extends Component {
         console.log(this.state);
         
         const error = this.state.error 
-        ? <div className="SearchError">
+        ? <div className='SearchError'>
             <h3>{this.state.error}</h3>
             <Link to={`/add-plant`}>Enter Plant Info Yourself</Link>
           </div> 
-        : "";
+        : '';
     
         return (
           <main className='SearchPage'>

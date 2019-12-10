@@ -19,7 +19,7 @@
 }
 
 .Add-plant-order-button {
-    background-color: #8C8AB7;
+    background-color: #465C8B;
     display: block;
     text-align: center;
     margin:0 auto 0 auto;
@@ -34,7 +34,8 @@
 }
 
 .Add-plant-order-button:hover {
-    background-color:#C2B8FF;
+    background-color:#F7EF6A;
+    color: #00104C;
 }
 
 .Back-to-plant-button {
@@ -57,7 +58,8 @@
 }
 
 .Back-to-plant-button:hover {
-    background-color:#C2B8FF;
+    background-color:#F7EF6A;
+    color: #00104C;
 }
 
 @media only screen and (min-width: 600px) {

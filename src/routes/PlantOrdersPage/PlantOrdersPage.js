@@ -31,11 +31,12 @@ export default class PlantOrdersPage extends React.Component {
 
   renderOrder() {
     const {plant, orders} = this.context
+    console.log(this.context)
 
     if (orders.length===0) {
       return (
         <div className='PlantOrdersPage'>
-        <h2>{plant.title}</h2>
+        <h2>{plant.common_name}</h2>
         <hr/>
 
         <h3 className='Orders-subtitle'>No Orders Yet</h3>
@@ -66,10 +67,12 @@ export default class PlantOrdersPage extends React.Component {
             <li>
               {orders.map(order =>
                 <TendOrder
-                  key={order.order_name + 'key'}
+                  key={order.maintenance_needed + 'key'}
                   orderId={order.id}
                   plantId={order.plant_id}
-                  order_name={order.order_name}
+                  maintenance_needed={order.maintenance_needed}
+                  frequency={order.frequency}
+                  details={order.details}
                   order={order}
                   onDeleteOrder={this.handleDeleteOrder}
                   {...plant}
