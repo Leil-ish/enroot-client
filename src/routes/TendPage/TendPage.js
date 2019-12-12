@@ -28,7 +28,7 @@ export default class TendPage extends React.Component {
     const {orders, plants} = this.context
     console.log (orders)
     console.log (plants)
-    {
+
       return (
         <div className='PlantOrdersPage'>
           <h3 className='Orders-subtitle'>Orders</h3>
@@ -57,7 +57,6 @@ export default class TendPage extends React.Component {
           </Link> 
         </div>
       ) 
-    }
   }
 
   render() {

@@ -30,11 +30,29 @@ const PlantApiService = {
   },
 
   getApiPlants() {
-    return fetch(`${config.API_ENDPOINT}/trefle`, {
+    return fetch(`${config.API_ENDPOINT}/garden/trefle`, {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+
+  postSearchTerm(searchTerm) {
+    return fetch(`${config.API_ENDPOINT}/garden/find-plant`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        searchTerm
+      }),
     })
       .then(res =>
         (!res.ok)

@@ -10,6 +10,7 @@ import SignUpPage from '../../routes/SignUpPage/SignUpPage'
 import GardenPage from '../../routes/GardenPage/GardenPage'
 import TendPage from '../../routes/TendPage/TendPage'
 import SinglePlantPage from '../../routes/SinglePlantPage/SinglePlantPage'
+import SearchPage from '../../routes/SearchPage/SearchPage'
 import GardenContext from '../../contexts/GardenContext';
 import EditTendOrderPage from '../../routes/EditTendOrderPage/EditTendOrderPage'
 import EditPlantPage from '../../routes/EditPlantPage/EditPlantPage'
@@ -88,6 +89,10 @@ class App extends Component {
                   )
                 }}
               />
+            <PrivateRoute
+              path='/find-plant'
+              component={SearchPage}
+            />
             <PrivateRoute
               path='/add-plant'
               component={AddPlantPage}
@@ -196,6 +201,10 @@ class App extends Component {
             <PrivateRoute
               exact
               path='/orders'
+              component={GardenNav}
+            />
+            <PrivateRoute
+              path='/find-plant'
               component={GardenNav}
             />
             <PrivateRoute
