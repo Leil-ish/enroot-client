@@ -15,7 +15,7 @@
     font-size: 20px;
 }
 
-.PlantEditPage_Content .Description-button {
+.PlantEditPage_Content .Details-button {
     display: block;
     text-align: center;
     margin:15px auto;
@@ -44,8 +44,25 @@
     margin: 10px auto 10px auto;
 }
 
-
 .Submit-plant-edits:hover {
+    background-color:#8C8AB7;
+}
+
+.Cancel-add-plant-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    background-color: #6BBAA7;
+    text-decoration: none;
+    border-radius:5%;
+    width:140px;
+    font-size:20px;
+    margin: 10px auto 10px auto;
+}
+
+
+.Cancel-add-plant-button:hover {
     background-color:#8C8AB7;
 }
 

@@ -52,15 +52,47 @@ ul {
     width: 350px;
 }
 
+.single-plant .Plant-edit-button {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    color: white;
+    background-color: #465C8B;
+    text-decoration: none;
+    border-radius:5%;
+    border: 1px black;
+    font-size:20px;
+    height:40px;
+    width: 350px;
+}
+
 .single-plant .Plant-add-order-button:hover {
     background-color:#93C178;
+    color: #00104C;
 }
 .single-plant .Plant-view-orders-button:hover {
     background-color:#93C178;
+    color: #00104C;
 }
 
 .single-plant .Plant-remove-button:hover {
     background-color:#93C178;
+    color: #00104C;
+}
+
+.single-plant .Plant-edit-button:hover {
+    background-color:#93C178;
+    color: #00104C;
+}
+
+.single-plant .Details-button {
+    cursor: pointer;
+}
+
+.single-plant .Details-button:hover {
+    background-color:#93C178;
+    color: #00104C;
 }
 
 .single-plant img {
