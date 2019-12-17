@@ -106,9 +106,10 @@ const PlantApiService = {
       )
   },
 
-  postPlant(scientific_name, common_name, lifespan, growth_rate, growth_period, temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
-    resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
-    moisture_use, user_id, seedling_vigor, flower_color, foliage_color) {
+  postPlant(common_name, scientific_name, lifespan, growth_rate, growth_period, 
+            temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
+            resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
+            moisture_use, seedling_vigor, flower_color, foliage_color) {
     return fetch(`${config.API_ENDPOINT}/garden`, {
       method: 'POST',
       headers: {
@@ -116,10 +117,10 @@ const PlantApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        scientific_name, common_name, lifespan, growth_rate, growth_period, 
+        common_name, scientific_name, lifespan, growth_rate, growth_period, 
         temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
         resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
-        moisture_use, user_id, seedling_vigor, flower_color, foliage_color
+        moisture_use, seedling_vigor, flower_color, foliage_color
       }),
     })
       .then(res =>
@@ -129,10 +130,7 @@ const PlantApiService = {
       )
   },
 
-  postCustomPlant(scientific_name, common_name, lifespan, growth_rate, growth_period, 
-    temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
-    resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
-    moisture_use, user_id, seedling_vigor, flower_color, foliage_color) {
+  postCustomPlant(common_name) {
     return fetch(`${config.API_ENDPOINT}/garden/add-plant`, {
       method: 'POST',
       headers: {
@@ -140,10 +138,7 @@ const PlantApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        scientific_name, common_name, lifespan, growth_rate, growth_period, 
-        temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
-        resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
-        moisture_use, user_id, seedling_vigor, flower_color, foliage_color
+        common_name
       }),
     })
       .then(res =>
@@ -153,7 +148,10 @@ const PlantApiService = {
       )
   },
 
-  patchPlant(plantId, common_name, scientific_name) {
+  patchPlant(plantId, scientific_name, lifespan, growth_rate, growth_period, 
+    temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
+    resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
+    moisture_use, seedling_vigor, flower_color, foliage_color) {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}`, {
       method: 'PATCH',
       headers: {
@@ -162,8 +160,10 @@ const PlantApiService = {
       },
       body: JSON.stringify({
         plant_id: plantId,
-        common_name,
-        scientific_name
+        scientific_name, lifespan, growth_rate, growth_period, 
+        temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
+        resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
+        moisture_use, seedling_vigor, flower_color, foliage_color
       }),
     })
   },

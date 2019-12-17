@@ -33,7 +33,7 @@ export default class GardenNav extends React.Component {
                 <span className="tooltiptext">View Garden</span>
             </Link>
           </li>
-          <li>
+          {/*<li>
               <Link
                 className='GardenNav_find_link GardenNav_link'
                 aria-label='Find-plant-link'
@@ -42,7 +42,7 @@ export default class GardenNav extends React.Component {
                 <img src='https://i.imgur.com/5ZassYs.png' alt='find-plant'></img>
                 <span className="tooltiptext">Search for a Plant</span>
               </Link>
-          </li>
+          </li>*/}
           <li>
               <Link
                 className='GardenNav_add_link GardenNav_link'

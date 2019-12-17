@@ -18,12 +18,13 @@ export default class EditTendOrderPage extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const {plant} = this.context
-    const {content, maintenance_needed} = ev.target
-    PlantApiService.postOrder(plant.id, content.value, maintenance_needed.value)
+    const {maintenance_needed, frequency, details} = ev.target
+    PlantApiService.postOrder(plant.id, maintenance_needed.value, frequency.value, details.value)
       .then(this.context.addOrder)
       .then(() => {
-        content.value = ''
         maintenance_needed.value = ''
+        frequency.value = ''
+        details.value = ''
       })
       .then(() => {
         this.props.onSaveOrderSuccess()
@@ -50,6 +51,7 @@ export default class EditTendOrderPage extends Component {
   render() {
 
     const plant = this.context || {content: ''}
+    console.log(this.context)
 
     return (
       <section className='EditTendOrderPage'>
@@ -71,7 +73,7 @@ export default class EditTendOrderPage extends Component {
             <label htmlFor='order-frequency-select'>
               This needs to be done
             </label>
-            <select required id='frequency-select' name='frequency-select' aria-label='Frequency select'>
+            <select required id='frequency' name='frequency' aria-label='Frequency select'>
               <option value='Once Daily'>Once Daily</option>
               <option value='Twice Daily'>Twice Daily</option>
               <option value='Thrice Daily'>Thrice Daily</option>
@@ -81,6 +83,7 @@ export default class EditTendOrderPage extends Component {
               <option value='Once Monthly'>Once Monthly</option>
               <option value='Twice Monthly'>Twice Monthly</option>
               <option value='Thrice Monthly'>Thrice Monthly</option>
+              <option value='Other'>Other (See Details)</option>
             </select>
           </div>
           <div className='text'>
@@ -90,9 +93,9 @@ export default class EditTendOrderPage extends Component {
             <br/>
             <Textarea
               required
-              aria-label='Details of maintenance needed...'
-              name='content'
-              id='content'
+              aria-label='Details of maintenance needed'
+              name='details'
+              id='details'
               cols='30'
               rows='3'
               placeholder='Add any instructions or details...'>
@@ -107,7 +110,6 @@ export default class EditTendOrderPage extends Component {
               type='button'
               className='Cancel-add-order-button'
             >
-            <br />
               Cancel
             </Link>
           </div>

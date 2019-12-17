@@ -1,100 +1,61 @@
 import React from 'react'
 import {Section} from '../../components/Utils/Utils'
 import {Link} from 'react-router-dom'
-import PlantContext from '../../contexts/PlantContext'
+import GardenContext from '../../contexts/GardenContext'
 import TendOrder from '../../components/TendOrder/TendOrder'
 import PlantApiService from '../../services/plant-api-service'
 import './TendPage.css'
 
 export default class TendPage extends React.Component {
 
-  static contextType = PlantContext;
+  static contextType = GardenContext;
 
   static defaultProps ={
     match: { params: {} },
   }
 
   componentDidMount() {
-    const {plantId} = this.props.match.params
     this.context.clearError()
     PlantApiService.getAllOrders()
-      .then(this.context.setOrders)
+      .then(this.context.setOrderList)
       .catch(this.context.setError)
-    PlantApiService.getPlant(plantId)
-      .then(this.context.setPlant)
+    PlantApiService.getPlants()
+      .then(this.context.setGarden)
       .catch(this.context.setError)
     }
 
-  componentWillUnmount() {
-    this.context.clearOrder()
-  }
-
   renderOrder() {
-    const {plant, orders, maintenance_needed, frequency, details} = this.context
+    const {orders} = this.context
+    console.log (orders)
 
-    if (orders.length===0) {
       return (
         <div className='PlantOrdersPage'>
-        <h2>{plant.common_name}</h2>
-        <hr/>
-
-        <h3 className='Orders-subtitle'>No Orders Yet</h3>
-        <hr/>
-        <br/>
-          <Link
-              to={`/garden/${plant.id}/add-order`}
-              type='button'
-              className='Add-plant-order-button'
-            >
-            <p>Add Order</p>
-          </Link> 
-          <Link
-              to={`/garden/${plant.id}`}
-              type='button'
-              className='Back-to-plant-button'
-            >
-            <p>Back to Plant</p>
-          </Link> 
-      </div>
-      )
-    } else {
-      return (
-        <div className='PlantOrdersPage'>
-          <h2>{plant.common_name}</h2>
           <h3 className='Orders-subtitle'>Orders</h3>
           <ul className='PlantOrdersPage_order-list'>
             <li>
               {orders.map(order =>
                 <TendOrder
-                  key={order.order_name + 'key'}
+                  key={order.details + 'key'}
                   orderId={order.id}
                   plantId={order.plant_id}
-                  maintenance_needed={maintenance_needed}
-                  frequency={frequency}
-                  details={details}
+                  maintenance_needed={order.maintenance_needed}
+                  frequency={order.frequency}
+                  details={order.details}
                   onDeleteOrder={this.handleDeleteOrder}
-                  {...plant}
+                  {...order}
                 />
               )}
               </li>
             </ul>
             <Link
-                to={`/garden/${plant.id}/add-order`}
-                type='button'
-                className='Add-plant-order-button'
-              >
-              <p>Add Order</p>
-            </Link> 
-            <Link
-                to={`/garden/${plant.id}`}
-                type='button'
-                className='Back-to-plant-button'
-              >
-              <p>Back to Plant</p>
-            </Link> 
+              to={`/garden`}
+              type='button'
+              className='Garden-button'
+            >
+            <p>Back to Garden View</p>
+          </Link> 
         </div>
       ) 
-    }
   }
 
   render() {
