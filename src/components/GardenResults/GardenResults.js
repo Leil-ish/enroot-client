@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SinglePlant from '../SinglePlant/SinglePlant';
+import TendOrder from '../TendOrder/TendOrder'
 import {compareValues} from '../Utils/Utils'
 import '../Results/Results.css';
 
@@ -21,10 +22,21 @@ class GardenResults extends Component {
         onDeletePlant={this.handleDeletePlant}
         key={key}
         />);
+        const orders = this.props.orders.map(order =>
+                <TendOrder
+                  key={order.maintenance_needed + 'key'}
+                  maintenance_needed={order.maintenance_needed}
+                  frequency={order.frequency}
+                  details={order.details}
+                  onDeleteOrder={this.handleDeleteOrder}
+                  {...order}
+                />
+              )
 
     return (
         <ul className='plantList'>
             <li>{list}</li>
+            <li>{orders}</li>
         </ul>
     );
   }

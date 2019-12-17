@@ -68,14 +68,11 @@ export default class PlantOrdersPage extends React.Component {
               {orders.map(order =>
                 <TendOrder
                   key={order.maintenance_needed + 'key'}
-                  orderId={order.id}
-                  plantId={order.plant_id}
                   maintenance_needed={order.maintenance_needed}
                   frequency={order.frequency}
                   details={order.details}
-                  order={order}
                   onDeleteOrder={this.handleDeleteOrder}
-                  {...plant}
+                  {...order}
                 />
               )}
               </li>

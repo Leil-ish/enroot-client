@@ -25,9 +25,8 @@ export default class TendPage extends React.Component {
     }
 
   renderOrder() {
-    const {orders, plants} = this.context
+    const {orders} = this.context
     console.log (orders)
-    console.log (plants)
 
       return (
         <div className='PlantOrdersPage'>
