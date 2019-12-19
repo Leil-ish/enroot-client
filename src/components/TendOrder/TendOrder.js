@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button} from '../Utils/Utils'
 import PlantContext from '../../contexts/PlantContext';
+import {withRouter} from 'react-router-dom';
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import './TendOrder.css'
@@ -20,7 +21,7 @@ class TendOrder extends Component {
 
     const plantId = this.props.id
     const orderId = this.props.order.order_id
-    const plant = this.props
+    const plant = this.props.plant
     
     fetch (`${config.API_ENDPOINT}/garden/${plantId}/orders/${orderId}`, {
       method: 'DELETE',
@@ -38,7 +39,7 @@ class TendOrder extends Component {
         this.props.onDeleteOrder(orderId)
       })
       .then(() => {
-        this.props.history.push(`/garden/${plant.id}`)
+        this.props.history.push(`/garden/${plant.id}/orders`)
       })
       .catch(error => {
         console.error({ error })
@@ -47,14 +48,17 @@ class TendOrder extends Component {
 
   render() {
 
-    let {maintenance_needed, frequency, details} = this.props
+    let {order} = this.props
+    console.log(this.props.history)
+
+    console.log(this.props)
 
     return (
       <div className = 'single-order'>
-            <h3 className='Single_maintenance_needed'>{maintenance_needed}</h3>
+            <h3 className='Single_maintenance_needed'>{order.maintenance_needed}</h3>
             <hr/>
-            <h4>{frequency}</h4>
-            <p>{details}</p>
+            <h4>{order.frequency}</h4>
+            <p>{order.details}</p>
         <Button
           className='Order_delete'
           type='button'
@@ -70,4 +74,4 @@ class TendOrder extends Component {
     );
   }
 }
-export default TendOrder;
+export default withRouter(TendOrder);

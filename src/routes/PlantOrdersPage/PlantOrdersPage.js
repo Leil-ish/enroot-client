@@ -72,6 +72,8 @@ export default class PlantOrdersPage extends React.Component {
                   frequency={order.frequency}
                   details={order.details}
                   onDeleteOrder={this.handleDeleteOrder}
+                  order={order}
+                  plant={plant}
                   {...order}
                 />
               )}

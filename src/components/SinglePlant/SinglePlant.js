@@ -105,13 +105,6 @@ class SinglePlant extends Component {
                           Add more information about this plant
                         </Link>
                         <Link
-                          to={`/garden/${id}/add-order`}
-                          type='button'
-                          className='Plant-add-order-button'
-                        >
-                          Add a tend order to this plant
-                        </Link>
-                        <Link
                           to={`/garden/${id}/orders`}
                           type='button'
                           className='Plant-view-orders-button'

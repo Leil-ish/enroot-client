@@ -12,6 +12,9 @@ export default class TendPage extends React.Component {
 
   static defaultProps ={
     match: { params: {} },
+    history: {
+      push: () => {},
+    },
   }
 
   componentDidMount() {
@@ -42,6 +45,7 @@ export default class TendPage extends React.Component {
                   frequency={order.frequency}
                   details={order.details}
                   onDeleteOrder={this.handleDeleteOrder}
+                  order={order}
                   {...order}
                 />
               )}
