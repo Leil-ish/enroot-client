@@ -55,10 +55,11 @@ class TendTask extends Component {
 
     return (
       <div className = 'single-task'>
-            <h3 className='Single_maintenance_needed'>{task.maintenance_needed}</h3>
+            <h3 className='Single_maintenance_needed'>Maintenance Needed: <br/> 
+            {task.maintenance_needed}</h3>
             <hr/>
-            <h4>{task.frequency}</h4>
-            <p>{task.details}</p>
+            <h4>Frequency: {task.frequency}</h4>
+            <p>Details: {task.details}</p>
         <Button
           className='Task_delete'
           type='button'

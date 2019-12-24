@@ -88,8 +88,8 @@ export default class EditPlantPage extends Component {
         <h2>
           Add Details About Your {plant.common_name}
         </h2>
-        <h3>Fill in as much as you know about your plant! Don't know some of this info but think it would be helpful? Search for your plant in the
-          <a href='https://plants.sc.egov.usda.gov/java/' target='_blank' rel='noopener noreferrer'> USDA Plants Database</a>
+        <h3>Fill in as much as you know about your plant! Don't know some of this info but think it would be helpful? Search for your plant in the 
+           <a href='https://plants.sc.egov.usda.gov/java/' className='usda-link' target='_blank' rel='noopener noreferrer'> USDA Plants Database</a>.
         </h3>
         <Form className='EditPlantForm' aria-label='Edit-plant-form' onSubmit={this.handleSubmit}>
           <div className='field'>

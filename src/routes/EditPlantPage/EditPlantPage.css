@@ -66,6 +66,16 @@
     background-color:#8C8AB7;
 }
 
+.PlantEditPage .usda-link {
+    color: #465C8B;
+    cursor: pointer;
+}
+
+.PlantEditPage .usda-link:hover {
+    color: #93C178;
+
+}
+
 @media only screen and (min-width: 600px) {
     .PlantEditPage {
         max-width: 60%;

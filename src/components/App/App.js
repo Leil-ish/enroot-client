@@ -212,6 +212,10 @@ class App extends Component {
               component={GardenNav}
             />
             <PrivateRoute
+              path='/garden/:plantId/edit-plant'
+              component={GardenNav}
+            />
+            <PrivateRoute
               path='/garden/:plantId/add-task'
               component={GardenNav}
             />
