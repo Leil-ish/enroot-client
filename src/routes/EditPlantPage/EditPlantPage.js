@@ -72,8 +72,8 @@ export default class EditPlantPage extends Component {
       PlantApiService.getPlant(plantId)
         .then(this.context.setPlant)
         .catch(this.context.setError)
-      PlantApiService.getPlantOrders(plantId)
-        .then(this.context.setOrders)
+      PlantApiService.getPlantTasks(plantId)
+        .then(this.context.setTasks)
         .catch(this.context.setError)
     }
   

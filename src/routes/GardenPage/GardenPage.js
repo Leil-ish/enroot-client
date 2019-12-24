@@ -37,8 +37,8 @@ export default class GardenPage extends React.Component {
     PlantApiService.getPlants()
       .then(this.context.setGarden)
       .catch(this.context.setError)
-    PlantApiService.getAllOrders()
-      .then(this.context.setOrderList)
+    PlantApiService.getAllTasks()
+      .then(this.context.setTaskList)
       .catch(this.context.setError)
   }
 
@@ -55,7 +55,7 @@ export default class GardenPage extends React.Component {
             <li>
               <GardenResults 
                 plants={this.context.plants} 
-                orders={this.context.orders}
+                tasks={this.context.tasks}
                 onDeletePlant={this.handleDeletePlant}
                 plantFilter={this.state.plantType}
                 property={this.state.property}/>

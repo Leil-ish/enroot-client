@@ -1,24 +1,24 @@
-.PlantOrdersPage h2 {
+.PlantTasksPage h2 {
     font-size: 30px;
     text-align:center;
     margin:50px 15px 0px 15px;
 }
 
-.PlantOrdersPage h3 {
+.PlantTasksPage h3 {
     text-align:center;
     margin:15px;
 }
 
-.Add-plant-order-button p {
+.Add-plant-task-button p {
     text-align:center;
     margin:0;
 }
 
-.Orders-subtitle {
+.Tasks-subtitle {
     letter-spacing: 2px;
 }
 
-.Add-plant-order-button {
+.Add-plant-task-button {
     background-color: #465C8B;
     display: block;
     text-align: center;
@@ -33,7 +33,7 @@
     padding-top:15px;
 }
 
-.Add-plant-order-button:hover {
+.Add-plant-task-button:hover {
     background-color:#F7EF6A;
     color: #00104C;
 }
@@ -63,19 +63,19 @@
 }
 
 @media only screen and (min-width: 600px) {
-    .PlantOrdersPage {
+    .PlantTasksPage {
         max-width: 50%;
         margin:0px auto;
     }
 }
 
 @media only screen and (min-width: 992px) {
-    .PlantOrdersPage {
+    .PlantTasksPage {
         max-width: 40%;
         margin:0px auto;
     }
 
-    .Add-plant-order-button {
+    .Add-plant-task-button {
         font-size:18px;
         height:40px;
     }

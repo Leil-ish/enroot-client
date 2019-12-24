@@ -9,7 +9,7 @@ ul {
     padding: 15px;
 }
 
-.single-plant .Plant-view-orders-button {
+.single-plant .Plant-view-tasks-button {
     display: block;
     text-align: center;
     margin: 10px auto 10px auto;
@@ -23,7 +23,7 @@ ul {
     width: 350px;
 }
 
-.single-plant .Plant-add-order-button {
+.single-plant .Plant-add-task-button {
     display: block;
     text-align: center;
     margin: 10px auto 10px auto;
@@ -67,11 +67,11 @@ ul {
     width: 350px;
 }
 
-.single-plant .Plant-add-order-button:hover {
+.single-plant .Plant-add-task-button:hover {
     background-color:#93C178;
     color: #00104C;
 }
-.single-plant .Plant-view-orders-button:hover {
+.single-plant .Plant-view-tasks-button:hover {
     background-color:#93C178;
     color: #00104C;
 }

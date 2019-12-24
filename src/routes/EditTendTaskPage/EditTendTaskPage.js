@@ -4,13 +4,13 @@ import Form from '../../components/Form/Form'
 import PlantApiService from '../../services/plant-api-service'
 import PlantContext from '../../contexts/PlantContext'
 import {Textarea, Button, Input} from '../../components/Utils/Utils'
-import './EditTendOrderPage.css'
+import './EditTendTaskPage.css'
 
-export default class EditTendOrderPage extends Component {
+export default class EditTendTaskPage extends Component {
 
   static defaultProps = {
     match: { params: {} },
-    onSaveOrderSuccess: () => {},
+    onSaveTaskSuccess: () => {},
   }
 
   static contextType = PlantContext
@@ -19,15 +19,15 @@ export default class EditTendOrderPage extends Component {
     ev.preventDefault()
     const {plant} = this.context
     const {maintenance_needed, frequency, details} = ev.target
-    PlantApiService.postOrder(plant.id, maintenance_needed.value, frequency.value, details.value)
-      .then(this.context.addOrder)
+    PlantApiService.postTask(plant.id, maintenance_needed.value, frequency.value, details.value)
+      .then(this.context.addTask)
       .then(() => {
         maintenance_needed.value = ''
         frequency.value = ''
         details.value = ''
       })
       .then(() => {
-        this.props.onSaveOrderSuccess()
+        this.props.onSaveTaskSuccess()
         this.props.history.push(`/garden/${plant.id}`)
       })
       .catch(this.context.setError)
@@ -39,8 +39,8 @@ export default class EditTendOrderPage extends Component {
     PlantApiService.getPlant(plantId)
       .then(this.context.setPlant)
       .catch(this.context.setError)
-    PlantApiService.getPlantOrders(plantId)
-      .then(this.context.setOrders)
+    PlantApiService.getPlantTasks(plantId)
+      .then(this.context.setTasks)
       .catch(this.context.setError)
   }
 
@@ -54,23 +54,23 @@ export default class EditTendOrderPage extends Component {
     console.log(this.context)
 
     return (
-      <section className='EditTendOrderPage'>
+      <section className='EditTendTaskPage'>
         <h2>
-          Add Order for {plant.name}
+          Add Task for {plant.name}
         </h2>
         <Form 
-          className='AddOrderForm'
-          aria-label='Add-order-form'
+          className='AddTaskForm'
+          aria-label='Add-task-form'
           onSubmit={this.handleSubmit}>
           <div className='field'>
-            <label htmlFor='order-name-input'>
+            <label htmlFor='task-name-input'>
               Maintenance Needed:
             </label>
             <br/>
-            <Input required type='text' id='maintenance_needed' name='maintenance_needed' aria-label='Order name'/>
+            <Input required type='text' id='maintenance_needed' name='maintenance_needed' aria-label='Task name'/>
           </div>
           <div className='frequency-select'>
-            <label htmlFor='order-frequency-select'>
+            <label htmlFor='task-frequency-select'>
               This needs to be done
             </label>
             <select required id='frequency' name='frequency' aria-label='Frequency select'>
@@ -87,7 +87,7 @@ export default class EditTendOrderPage extends Component {
             </select>
           </div>
           <div className='text'>
-            <label htmlFor='order-content-input'>
+            <label htmlFor='task-content-input'>
               Details:
             </label>
             <br/>
@@ -102,13 +102,13 @@ export default class EditTendOrderPage extends Component {
           </Textarea>
           </div>
           <div className='buttons'>
-            <Button type='submit' className='Add-order-button' onClick={this.handleAddOrder}>
-              Add Order
+            <Button type='submit' className='Add-task-button' onClick={this.handleAddTask}>
+              Add Task
             </Button>
             <Link
               to='/garden'
               type='button'
-              className='Cancel-add-order-button'
+              className='Cancel-add-task-button'
             >
               Cancel
             </Link>

@@ -20,8 +20,8 @@ export default class SinglePlantPage extends Component {
     PlantApiService.getPlant(plantId)
       .then(this.context.setPlant)
       .catch(this.context.setError)
-    PlantApiService.getPlantOrders(plantId)
-      .then(this.context.setOrders)
+    PlantApiService.getPlantTasks(plantId)
+      .then(this.context.setTasks)
       .catch(this.context.setError)
   }
 
@@ -85,11 +85,11 @@ function PlantContent({ plant }) {
         Foliage Color: {plant.foliage_color}<br/>
       </p>
       <Link
-              to={`/garden/${plant.id}/orders`}
+              to={`/garden/${plant.id}/tasks`}
               type='button'
-              className='Add-order-button'
+              className='Add-task-button'
             >
-              View/Add Orders
+              View/Add Tasks
       </Link>
     </div>
   )

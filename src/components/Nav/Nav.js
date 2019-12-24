@@ -56,11 +56,11 @@ export default class GardenNav extends React.Component {
           <li>
               <Link
                 className='GardenNav_tend_link GardenNav_link'
-                aria-label='Add-orders-link'
-                to={`/orders`}
+                aria-label='Add-tasks-link'
+                to={`/tasks`}
               >
-                <img src='https://i.imgur.com/OjfBDVb.png' alt='tend-orders'></img>
-                <span className="tooltiptext">View Tend Orders</span>
+                <img src='https://i.imgur.com/OjfBDVb.png' alt='tend-tasks'></img>
+                <span className="tooltiptext">View Tend Tasks</span>
               </Link>
           </li>
         </ul>

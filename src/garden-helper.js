@@ -2,13 +2,13 @@
 export const findPlant = (plants=[], plantId) =>
 plants.find(plant => plant.id === plantId)
 
-export const findOrder = (orders=[], orderId) =>
-orders.find(order => order.id === orderId)
+export const findTask = (tasks=[], taskId) =>
+tasks.find(task => task.id === taskId)
 
-export const getOrdersForPlant = (orders=[], plantId) => (
+export const getTasksForPlant = (tasks=[], plantId) => (
 (!plantId)
-  ? orders
-  : orders.filter(order => order.plantId === plantId)
+  ? tasks
+  : tasks.filter(task => task.plantId === plantId)
 )
 
 export const getPlantsForGarden = (plants=[], plantId) => (
@@ -17,5 +17,5 @@ export const getPlantsForGarden = (plants=[], plantId) => (
   : plants.filter(plant => plant.plantId === plantId)
 )
 
-export const countOrdersForPlant = (orders=[], plantId) =>
-orders.filter(order => order.plantId === plantId).length
+export const countTasksForPlant = (tasks=[], plantId) =>
+tasks.filter(task => task.plantId === plantId).length

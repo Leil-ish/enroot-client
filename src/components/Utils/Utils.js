@@ -46,7 +46,7 @@ export function Section({ className, list, ...props }) {
 }
 
 //Comparison function for sorting garden by various properties (called within GardenResults.js)
-export function compareValues(key, order='asc') {
+export function compareValues(key, task='asc') {
   return function(a, b) {
     if(!a.hasOwnProperty(key) || 
        !b.hasOwnProperty(key)) {
@@ -66,7 +66,7 @@ export function compareValues(key, order='asc') {
     }
 
     return (
-      (order === 'desc') ? 
+      (task === 'desc') ? 
       (comparison * -1) : comparison
     );
   };

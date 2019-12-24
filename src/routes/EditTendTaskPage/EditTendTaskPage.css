@@ -1,11 +1,11 @@
-.EditTendOrderPage {
+.EditTendTaskPage {
     margin: 50px auto;
     max-width: 70%;
     border: 1px solid #465C8B;
     padding: 10px;
 }
 
-.EditTendOrderPage .Add-order-button {
+.EditTendTaskPage .Add-task-button {
     display: block;
     text-align: center;
     margin:15px auto 15px auto;
@@ -20,7 +20,7 @@
     cursor: pointer;
 }
 
-.EditTendOrderPage .Cancel-add-order-button {
+.EditTendTaskPage .Cancel-add-task-button {
     display: block;
     text-align: center;
     margin:15px auto 15px auto;

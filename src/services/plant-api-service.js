@@ -43,8 +43,8 @@ const PlantApiService = {
       )
   },
 
-  getOrder(plantId, orderId) {
-    return fetch(`${config.API_ENDPOINT}/garden/${plantId}/orders/${orderId}`, {
+  getTask(plantId, taskId) {
+    return fetch(`${config.API_ENDPOINT}/garden/${plantId}/tasks/${taskId}`, {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -57,8 +57,8 @@ const PlantApiService = {
       )
   },
 
-  getAllOrders() {
-    return fetch(`${config.API_ENDPOINT}/orders`, {
+  getAllTasks() {
+    return fetch(`${config.API_ENDPOINT}/tasks`, {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -71,8 +71,8 @@ const PlantApiService = {
       )
   },
 
-  getPlantOrders(plantId) {
-    return fetch(`${config.API_ENDPOINT}/garden/${plantId}/orders`, {
+  getPlantTasks(plantId) {
+    return fetch(`${config.API_ENDPOINT}/garden/${plantId}/tasks`, {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -85,8 +85,8 @@ const PlantApiService = {
       )
   },
 
-  postOrder(plantId, maintenance_needed, frequency, details) {
-    return fetch(`${config.API_ENDPOINT}/garden/${plantId}/add-order`, {
+  postTask(plantId, maintenance_needed, frequency, details) {
+    return fetch(`${config.API_ENDPOINT}/garden/${plantId}/add-task`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

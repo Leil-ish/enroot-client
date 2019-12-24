@@ -2,11 +2,11 @@ import React from 'react'
 import {Section} from '../../components/Utils/Utils'
 import {Link} from 'react-router-dom'
 import GardenContext from '../../contexts/GardenContext'
-import TendOrder from '../../components/TendOrder/TendOrder'
+import TendTask from '../../components/TendTask/TendTask'
 import PlantApiService from '../../services/plant-api-service'
-import './TendPage.css'
+import './TaskPage.css'
 
-export default class TendPage extends React.Component {
+export default class TaskPage extends React.Component {
 
   static contextType = GardenContext;
 
@@ -19,34 +19,34 @@ export default class TendPage extends React.Component {
 
   componentDidMount() {
     this.context.clearError()
-    PlantApiService.getAllOrders()
-      .then(this.context.setOrderList)
+    PlantApiService.getAllTasks()
+      .then(this.context.setTaskList)
       .catch(this.context.setError)
     PlantApiService.getPlants()
       .then(this.context.setGarden)
       .catch(this.context.setError)
     }
 
-  renderOrder() {
-    const {orders} = this.context
-    console.log (orders)
+  renderTask() {
+    const {tasks} = this.context
+    console.log (tasks)
 
       return (
-        <div className='PlantOrdersPage'>
-          <h3 className='Orders-subtitle'>Orders</h3>
-          <ul className='PlantOrdersPage_order-list'>
+        <div className='PlantTasksPage'>
+          <h3 className='Tasks-subtitle'>Tasks</h3>
+          <ul className='PlantTasksPage_task-list'>
             <li>
-              {orders.map(order =>
-                <TendOrder
-                  key={order.details + 'key'}
-                  orderId={order.id}
-                  plantId={order.plant_id}
-                  maintenance_needed={order.maintenance_needed}
-                  frequency={order.frequency}
-                  details={order.details}
-                  onDeleteOrder={this.handleDeleteOrder}
-                  order={order}
-                  {...order}
+              {tasks.map(task =>
+                <TendTask
+                  key={task.details + 'key'}
+                  taskId={task.id}
+                  plantId={task.plant_id}
+                  maintenance_needed={task.maintenance_needed}
+                  frequency={task.frequency}
+                  details={task.details}
+                  onDeleteTask={this.handleDeleteTask}
+                  task={task}
+                  {...task}
                 />
               )}
               </li>
@@ -63,19 +63,19 @@ export default class TendPage extends React.Component {
   }
 
   render() {
-    const { error, orders } = this.context
+    const { error, tasks } = this.context
     let content
     if (error) {
       content = (error.error === `Plant doesn't exist`)
-        ? <p className='red'>Order not found</p>
+        ? <p className='red'>Task not found</p>
         : <p className='red'>There was an error</p>
-    } else if (!orders) {
+    } else if (!tasks) {
       content = <div className='loading' />
     } else {
-      content = this.renderOrder()
+      content = this.renderTask()
     }
     return (
-      <Section className='OrderPage'>
+      <Section className='TaskPage'>
         {content}
       </Section>
     )

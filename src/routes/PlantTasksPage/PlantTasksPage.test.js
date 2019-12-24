@@ -1,14 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom'
-import TendOrder from './TendOrder';
+import PlantTasksPage from './PlantTasksPage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(
-    <BrowserRouter>
-        <TendOrder />
-    </BrowserRouter>
-    ,div);
+  ReactDOM.render(<PlantTasksPage />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

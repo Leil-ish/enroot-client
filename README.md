@@ -29,7 +29,7 @@ See the section about [deployment](https://faceplant.github.io/create-react-app/
 
 ### `yarn eject`
 
-**Order: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Task: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 

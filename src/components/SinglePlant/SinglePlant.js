@@ -105,17 +105,17 @@ class SinglePlant extends Component {
                           Add more information about this plant
                         </Link>
                         <Link
-                          to={`/garden/${id}/orders`}
+                          to={`/garden/${id}/tasks`}
                           type='button'
-                          className='Plant-view-orders-button'
+                          className='Plant-view-tasks-button'
                         >
-                          View orders for this plant
+                          View tasks for this plant
                         </Link>
                         <Button
                             className='Plant-remove-button'
                             type='button'
                             onClick={e =>
-                              window.confirm("Are you sure you wish to remove this plant? Orders associated with the plant will be deleted also.") &&
+                              window.confirm("Are you sure you wish to remove this plant? Tasks associated with the plant will be deleted also.") &&
                               this.handleClickPlantDelete(e)
                           }>
                           Remove Plant

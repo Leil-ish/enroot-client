@@ -1,10 +1,10 @@
-.single-order {
+.single-task {
     max-width: 70%;
     margin: 50px auto;
     border-bottom: 1px solid #465C8B;
 }
 
-.single-order .Order_delete {
+.single-task .Task_delete {
     display: block;
     cursor: pointer;
     text-align: center;

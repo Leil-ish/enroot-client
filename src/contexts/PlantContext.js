@@ -4,25 +4,25 @@ export const nullPlant = {
   scientific_names: {},
 }
 
-export const nullOrder = {
+export const nullTask = {
   maintenance_needed: {},
 }
 
 const PlantContext = React.createContext({
   plant: nullPlant,
-  order: nullOrder,
+  task: nullTask,
   error: null,
   setError: () => {},
   clearError: () => { },
   setPlant: () => {},
-  setOrder: () => {},
+  setTask: () => {},
   clearPlant: () => {},
-  setOrders: () => {},
-  addOrder: () => {},
+  setTasks: () => {},
+  addTask: () => {},
   addPlant: () => {},
   updatePlant: () => {},
-  deleteOrder: () => {},
-  clearOrder: () => {},
+  deleteTask: () => {},
+  clearTask: () => {},
 })
 
 export default PlantContext
@@ -30,7 +30,7 @@ export default PlantContext
 export class PlantProvider extends Component {
   state = {
     plant: nullPlant,
-    order: nullOrder,
+    task: nullTask,
     error: null,
   };
 
@@ -47,12 +47,12 @@ export class PlantProvider extends Component {
     this.setState({plant})
   }
 
-  setOrder = order => {
-    this.setState({order})
+  setTask = task => {
+    this.setState({task})
   }
 
-  setOrders = orders => {
-    this.setState({orders})
+  setTasks = tasks => {
+    this.setState({tasks})
   }
 
   setPlants = plants => {
@@ -61,24 +61,24 @@ export class PlantProvider extends Component {
 
   clearPlant = () => {
     this.setPlant(nullPlant)
-    this.setOrders([])
+    this.setTasks([])
   }
 
-  clearOrder = () => {
-    this.setOrder(nullOrder)
-    this.setOrders([])
+  clearTask = () => {
+    this.setTask(nullTask)
+    this.setTasks([])
   }
 
-  addOrder = order => {
-    this.setOrders([
-      ...this.state.orders,
-      order
+  addTask = task => {
+    this.setTasks([
+      ...this.state.tasks,
+      task
     ])
   }
 
-  deleteOrder = orderId => {
+  deleteTask = taskId => {
     this.setState({
-      orders: this.state.orders.filter(order => order.id !== orderId)
+      tasks: this.state.tasks.filter(task => task.id !== taskId)
     })
   }
 
@@ -99,19 +99,19 @@ export class PlantProvider extends Component {
   render() {
     const value = {
       plant: this.state.plant,
-      order: this.state.order,
-      orders: this.state.orders,
+      task: this.state.task,
+      tasks: this.state.tasks,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
       setPlant: this.setPlant,
-      setOrder: this.setOrder,
-      setOrders: this.setOrders,
+      setTask: this.setTask,
+      setTasks: this.setTasks,
       clearPlant: this.clearPlant,
-      clearOrder: this.clearOrder,
-      addOrder: this.addOrder,
+      clearTask: this.clearTask,
+      addTask: this.addTask,
       addPlant: this.addPlant,
-      deleteOrder: this.deleteOrder,
+      deleteTask: this.deleteTask,
       editPlant: this.editPlant,
     }
     return (

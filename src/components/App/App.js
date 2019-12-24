@@ -8,16 +8,16 @@ import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import SignUpPage from '../../routes/SignUpPage/SignUpPage'
 import GardenPage from '../../routes/GardenPage/GardenPage'
-import TendPage from '../../routes/TendPage/TendPage'
+import TaskPage from '../../routes/TaskPage/TaskPage'
 import SinglePlantPage from '../../routes/SinglePlantPage/SinglePlantPage'
 import SearchPage from '../../routes/SearchPage/SearchPage'
 import GardenContext from '../../contexts/GardenContext';
-import EditTendOrderPage from '../../routes/EditTendOrderPage/EditTendOrderPage'
+import EditTendTaskPage from '../../routes/EditTendTaskPage/EditTendTaskPage'
 import EditPlantPage from '../../routes/EditPlantPage/EditPlantPage'
-import PlantOrdersPage from '../../routes/PlantOrdersPage/PlantOrdersPage'
+import PlantTasksPage from '../../routes/PlantTasksPage/PlantTasksPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import Error from '../Error/Error'
-import {getPlantsForGarden, getOrdersForPlant} from '../../garden-helper'
+import {getPlantsForGarden, getTasksForPlant} from '../../garden-helper'
 import './App.css';
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
     this.state = {
       hasError: false,
       plants:[],
-      orders:[],
+      tasks:[],
       error: false,
     };
   }
@@ -39,9 +39,9 @@ class App extends Component {
     return {hasError: true}
   }
 
-  handleDeleteOrder = orderId => {
+  handleDeleteTask = taskId => {
     this.setState({
-      orders: this.state.orders.filter(order => order.id !== orderId)
+      tasks: this.state.tasks.filter(task => task.id !== taskId)
     })
   }
 
@@ -53,7 +53,7 @@ class App extends Component {
 
 
   renderMainRoutes() {
-    const {plants, orders} = this.context
+    const {plants, tasks} = this.context
     return (
       <div className='App-main'>
         {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
@@ -77,14 +77,14 @@ class App extends Component {
               )}
               <PrivateRoute
                 exact
-                path='/garden/:plantId/orders'
+                path='/garden/:plantId/tasks'
                 component={routeProps => {
                   const {plantId} = routeProps.match.params
-                  const ordersForPlant = getOrdersForPlant(orders, plantId)
+                  const tasksForPlant = getTasksForPlant(tasks, plantId)
                   return (
-                    <PlantOrdersPage
+                    <PlantTasksPage
                       {...routeProps}
-                      orders={ordersForPlant}
+                      tasks={tasksForPlant}
                     />
                   )
                 }}
@@ -97,18 +97,18 @@ class App extends Component {
               path='/add-plant'
               component={AddPlantPage}
             />
-            {['/garden/:plantId/add-order'].map(path =>
+            {['/garden/:plantId/add-task'].map(path =>
               <PrivateRoute
                 exact
                 key={path}
                 path={path}
                 component={routeProps => {
                   const {plantId} = routeProps.match.params
-                  const ordersForPlant = getOrdersForPlant(orders, plantId)
+                  const tasksForPlant = getTasksForPlant(tasks, plantId)
                   return (
-                    <EditTendOrderPage
+                    <EditTendTaskPage
                       {...routeProps}
-                      orders={ordersForPlant}
+                      tasks={tasksForPlant}
                     />
                   )
                 }}
@@ -145,8 +145,8 @@ class App extends Component {
               component={GardenPage}
             />
             <PrivateRoute
-              path='/orders'
-              component={TendPage}
+              path='/tasks'
+              component={TaskPage}
             />
             <Route
               component={NotFoundPage}
@@ -157,7 +157,7 @@ class App extends Component {
   }
 
   renderNavRoutes() {
-    const {plants, orders} = this.state
+    const {plants, tasks} = this.state
     return (
       <div className='App-nav'>
         {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
@@ -169,7 +169,7 @@ class App extends Component {
               component={routeProps =>
                 <GardenNav
                   plants={plants}
-                  orders={orders}
+                  tasks={tasks}
                   {...routeProps}
                 />
               }
@@ -177,14 +177,14 @@ class App extends Component {
           )}
           <PrivateRoute
             exact
-            path='/garden/:plantId/orders'
+            path='/garden/:plantId/tasks'
             component={routeProps => {
               const {plantId} = routeProps.match.params
-              const ordersForPlant = getOrdersForPlant(orders, plantId)
+              const tasksForPlant = getTasksForPlant(tasks, plantId)
               return (
                 <GardenNav
                   {...routeProps}
-                  ordersForPlant={ordersForPlant}
+                  tasksForPlant={tasksForPlant}
                 />
               )
             }}
@@ -200,7 +200,7 @@ class App extends Component {
             />
             <PrivateRoute
               exact
-              path='/orders'
+              path='/tasks'
               component={GardenNav}
             />
             <PrivateRoute
@@ -212,7 +212,7 @@ class App extends Component {
               component={GardenNav}
             />
             <PrivateRoute
-              path='/garden/:plantId/add-order'
+              path='/garden/:plantId/add-task'
               component={GardenNav}
             />
       </div>

@@ -2,12 +2,12 @@ import React, {Component} from 'react'
 
 const GardenContext = React.createContext({
   plants: [],
-  orders: [],
+  tasks: [],
   error: null,
   setError: () => {},
   clearError: () => {},
   setGarden: () => {},
-  setOrderList: () => {},
+  setTaskList: () => {},
   deletePlant: () => {},
 })
 export default GardenContext
@@ -15,7 +15,7 @@ export default GardenContext
 export class GardenProvider extends Component {
   state = {
     plants: [],
-    orders: [],
+    tasks: [],
     error: null,
   };
 
@@ -23,8 +23,8 @@ export class GardenProvider extends Component {
     this.setState({ plants })
   }
 
-  setOrderList = orders => {
-    this.setState({ orders })
+  setTaskList = tasks => {
+    this.setState({ tasks })
   }
 
   deletePlant = plantId => {
@@ -45,12 +45,12 @@ export class GardenProvider extends Component {
   render() {
     const value = {
       plants: this.state.plants,
-      orders: this.state.orders,
+      tasks: this.state.tasks,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
       setGarden: this.setGarden,
-      setOrderList: this.setOrderList,
+      setTaskList: this.setTaskList,
       deletePlant: this.deletePlant,
     }
     return (

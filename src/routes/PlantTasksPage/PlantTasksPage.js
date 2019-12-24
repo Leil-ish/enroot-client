@@ -2,11 +2,11 @@ import React from 'react'
 import {Section} from '../../components/Utils/Utils'
 import {Link} from 'react-router-dom'
 import PlantContext from '../../contexts/PlantContext'
-import TendOrder from '../../components/TendOrder/TendOrder'
+import TendTask from '../../components/TendTask/TendTask'
 import PlantApiService from '../../services/plant-api-service'
-import './PlantOrdersPage.css'
+import './PlantTasksPage.css'
 
-export default class PlantOrdersPage extends React.Component {
+export default class PlantTasksPage extends React.Component {
 
   static contextType = PlantContext;
 
@@ -17,8 +17,8 @@ export default class PlantOrdersPage extends React.Component {
   componentDidMount() {
     const {plantId} = this.props.match.params
     this.context.clearError()
-    PlantApiService.getPlantOrders(plantId)
-      .then(this.context.setOrders)
+    PlantApiService.getPlantTasks(plantId)
+      .then(this.context.setTasks)
       .catch(this.context.setError)
     PlantApiService.getPlant(plantId)
       .then(this.context.setPlant)
@@ -26,28 +26,28 @@ export default class PlantOrdersPage extends React.Component {
     }
 
   componentWillUnmount() {
-    this.context.clearOrder()
+    this.context.clearTask()
   }
 
-  renderOrder() {
-    const {plant, orders} = this.context
+  renderTask() {
+    const {plant, tasks} = this.context
     console.log(this.context)
 
-    if (orders.length===0) {
+    if (tasks.length===0) {
       return (
-        <div className='PlantOrdersPage'>
+        <div className='PlantTasksPage'>
         <h2>{plant.common_name}</h2>
         <hr/>
 
-        <h3 className='Orders-subtitle'>No Orders Yet</h3>
+        <h3 className='Tasks-subtitle'>No Tasks Yet</h3>
         <hr/>
         <br/>
           <Link
-              to={`/garden/${plant.id}/add-order`}
+              to={`/garden/${plant.id}/add-task`}
               type='button'
-              className='Add-plant-order-button'
+              className='Add-plant-task-button'
             >
-            <p>Add Order</p>
+            <p>Add Task</p>
           </Link> 
           <Link
               to={`/garden/${plant.id}`}
@@ -60,31 +60,31 @@ export default class PlantOrdersPage extends React.Component {
       )
     } else {
       return (
-        <div className='PlantOrdersPage'>
+        <div className='PlantTasksPage'>
           <h2>{plant.title}</h2>
-          <h3 className='Orders-subtitle'>Orders</h3>
-          <ul className='PlantOrdersPage_order-list'>
+          <h3 className='Tasks-subtitle'>Tasks</h3>
+          <ul className='PlantTasksPage_task-list'>
             <li>
-              {orders.map(order =>
-                <TendOrder
-                  key={order.maintenance_needed + 'key'}
-                  maintenance_needed={order.maintenance_needed}
-                  frequency={order.frequency}
-                  details={order.details}
-                  onDeleteOrder={this.handleDeleteOrder}
-                  order={order}
+              {tasks.map(task =>
+                <TendTask
+                  key={task.maintenance_needed + 'key'}
+                  maintenance_needed={task.maintenance_needed}
+                  frequency={task.frequency}
+                  details={task.details}
+                  onDeleteTask={this.handleDeleteTask}
+                  task={task}
                   plant={plant}
-                  {...order}
+                  {...task}
                 />
               )}
               </li>
             </ul>
             <Link
-                to={`/garden/${plant.id}/add-order`}
+                to={`/garden/${plant.id}/add-task`}
                 type='button'
-                className='Add-plant-order-button'
+                className='Add-plant-task-button'
               >
-              <p>Add Order</p>
+              <p>Add Task</p>
             </Link> 
             <Link
                 to={`/garden/${plant.id}`}
@@ -99,19 +99,19 @@ export default class PlantOrdersPage extends React.Component {
   }
 
   render() {
-    const { error, orders } = this.context
+    const { error, tasks } = this.context
     let content
     if (error) {
       content = (error.error === `Plant doesn't exist`)
-        ? <p className='red'>Order not found</p>
+        ? <p className='red'>Task not found</p>
         : <p className='red'>There was an error</p>
-    } else if (!orders) {
+    } else if (!tasks) {
       content = <div className='loading' />
     } else {
-      content = this.renderOrder()
+      content = this.renderTask()
     }
     return (
-      <Section className='OrderPage'>
+      <Section className='TaskPage'>
         {content}
       </Section>
     )

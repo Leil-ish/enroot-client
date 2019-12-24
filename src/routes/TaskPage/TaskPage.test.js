@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PlantOrdersPage from './PlantOrdersPage';
+import TaskPage from './TaskPage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<PlantOrdersPage />, div);
+  ReactDOM.render(<TaskPage />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

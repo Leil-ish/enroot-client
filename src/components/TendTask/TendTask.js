@@ -4,26 +4,26 @@ import PlantContext from '../../contexts/PlantContext';
 import {withRouter} from 'react-router-dom';
 import TokenService from '../../services/token-service'
 import config from '../../config'
-import './TendOrder.css'
+import './TendTask.css'
 
-class TendOrder extends Component {
+class TendTask extends Component {
 
   static contextType = PlantContext;
 
   static defaultProps ={
-    onDeleteOrder: () => {},
+    onDeleteTask: () => {},
     match: { params: {} },
   }
 
-  //Delete for order
+  //Delete for task
   handleClickDelete = e => {
     e.preventDefault()
 
     const plantId = this.props.id
-    const orderId = this.props.order.order_id
+    const taskId = this.props.task.task_id
     const plant = this.props.plant
     
-    fetch (`${config.API_ENDPOINT}/garden/${plantId}/orders/${orderId}`, {
+    fetch (`${config.API_ENDPOINT}/garden/${plantId}/tasks/${taskId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -35,11 +35,11 @@ class TendOrder extends Component {
           return res.json().then(e => Promise.reject(e))
       })
       .then(() => {
-        this.context.deleteOrder(orderId)
-        this.props.onDeleteOrder(orderId)
+        this.context.deleteTask(taskId)
+        this.props.onDeleteTask(taskId)
       })
       .then(() => {
-        this.props.history.push(`/garden/${plant.id}/orders`)
+        this.props.history.push(`/garden/${plant.id}/tasks`)
       })
       .catch(error => {
         console.error({ error })
@@ -48,19 +48,19 @@ class TendOrder extends Component {
 
   render() {
 
-    let {order} = this.props
+    let {task} = this.props
     console.log(this.props.history)
 
     console.log(this.props)
 
     return (
-      <div className = 'single-order'>
-            <h3 className='Single_maintenance_needed'>{order.maintenance_needed}</h3>
+      <div className = 'single-task'>
+            <h3 className='Single_maintenance_needed'>{task.maintenance_needed}</h3>
             <hr/>
-            <h4>{order.frequency}</h4>
-            <p>{order.details}</p>
+            <h4>{task.frequency}</h4>
+            <p>{task.details}</p>
         <Button
-          className='Order_delete'
+          className='Task_delete'
           type='button'
           //Confirmation of delete
           onClick={e =>
@@ -68,10 +68,10 @@ class TendOrder extends Component {
             this.handleClickDelete(e)
           }
         >
-          <h4>Delete Order</h4>
+          <h4>Delete Task</h4>
         </Button>
       </div>
     );
   }
 }
-export default withRouter(TendOrder);
+export default withRouter(TendTask);
