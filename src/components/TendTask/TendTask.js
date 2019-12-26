@@ -49,9 +49,6 @@ class TendTask extends Component {
   render() {
 
     let {task} = this.props
-    console.log(this.props.history)
-
-    console.log(this.props)
 
     return (
       <div className = 'single-task'>

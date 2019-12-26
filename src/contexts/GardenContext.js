@@ -1,5 +1,9 @@
 import React, {Component} from 'react'
 
+export const nullTask = {
+  maintenance_needed: {},
+}
+
 const GardenContext = React.createContext({
   plants: [],
   tasks: [],
@@ -9,6 +13,10 @@ const GardenContext = React.createContext({
   setGarden: () => {},
   setTaskList: () => {},
   deletePlant: () => {},
+  setTasks: () => {},
+  addTask: () => {},
+  deleteTask: () => {},
+  clearTask: () => {},
 })
 export default GardenContext
 
@@ -16,6 +24,7 @@ export class GardenProvider extends Component {
   state = {
     plants: [],
     tasks: [],
+    task: nullTask,
     error: null,
   };
 
@@ -30,6 +39,32 @@ export class GardenProvider extends Component {
   deletePlant = plantId => {
     this.setState({
       plants: this.state.plants.filter(plant => plant.id !== plantId)
+    })
+  }
+
+  setTask = task => {
+    this.setState({task})
+  }
+
+  setTasks = tasks => {
+    this.setState({tasks})
+  }
+
+  clearTask = () => {
+    this.setTask(nullTask)
+    this.setTasks([])
+  }
+
+  addTask = task => {
+    this.setTasks([
+      ...this.state.tasks,
+      task
+    ])
+  }
+
+  deleteTask = taskId => {
+    this.setState({
+      tasks: this.state.tasks.filter(task => task.id !== taskId)
     })
   }
 
@@ -52,6 +87,13 @@ export class GardenProvider extends Component {
       setGarden: this.setGarden,
       setTaskList: this.setTaskList,
       deletePlant: this.deletePlant,
+      task: this.state.task,
+      tasks: this.state.tasks,
+      setTask: this.setTask,
+      setTasks: this.setTasks,
+      clearTask: this.clearTask,
+      addTask: this.addTask,
+      deleteTask: this.deleteTask,
     }
     return (
       <GardenContext.Provider value={value}>

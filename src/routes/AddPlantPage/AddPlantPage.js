@@ -37,6 +37,7 @@ class AddPlantPage extends Component {
         <h2>
           Add a Plant to Your Garden
         </h2>
+        <h3>You can add more details and tasks for this plant from your garden menu.</h3>
         <Form 
           className='AddPlantForm'
           aria-label='Add-plant-form'

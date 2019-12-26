@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import {Button} from '../Utils/Utils'
 import GardenContext from '../../contexts/GardenContext';
 import TokenService from '../../services/token-service'
+import TendTask from '../TendTask/TendTask'
+import PlantApiService from '../../services/plant-api-service'
 import config from '../../config'
 import './SinglePlant.css'
 
@@ -12,6 +14,19 @@ class SinglePlant extends Component {
 
   state = {
     plant: []
+  }
+
+  componentDidMount() {
+    const {id} = this.props
+    console.log(id)
+    this.context.clearError()
+    PlantApiService.getPlantTasks(id)
+      .then(this.context.setTasks)
+      .catch(this.context.setError)
+    }
+
+  componentWillUnmount() {
+    this.context.clearTask()
   }
 
   static defaultProps ={
@@ -66,6 +81,8 @@ class SinglePlant extends Component {
       temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
       resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
       moisture_use, seedling_vigor, flower_color, foliage_color} = this.props
+    let {tasks} = this.context;
+    console.log(tasks)
 
       return (
           <div className = 'single-plant'>
@@ -96,20 +113,37 @@ class SinglePlant extends Component {
                         Flower Color: {flower_color}<br/>
                         Foliage Color: {foliage_color}<br/>
                         </p>
+                        <div className='task-content'>
+                        <ul className='GardenPage_task-list'>
+                          <li>
+                            {tasks.map(task =>
+                              <TendTask
+                                key={task.maintenance_needed + 'key'}
+                                maintenance_needed={task.maintenance_needed}
+                                frequency={task.frequency}
+                                details={task.details}
+                                onDeleteTask={this.handleDeleteTask}
+                                task={task}
+                                {...task}
+                              />
+                            )}
+                            </li>
+                          </ul>
+                      </div>
                         <div className='buttons'>
                         <Link
                           to={`/garden/${id}/edit-plant`}
                           type='button'
                           className='Plant-edit-button'
                         >
-                          Add more information about this plant
+                          Add More Information About this Plant
                         </Link>
                         <Link
                           to={`/garden/${id}/tasks`}
                           type='button'
                           className='Plant-view-tasks-button'
                         >
-                          View tasks for this plant
+                          View Task Page for this Plant
                         </Link>
                         <Button
                             className='Plant-remove-button'
@@ -121,10 +155,9 @@ class SinglePlant extends Component {
                           Remove Plant
                         </Button>
                       </div>
+                    <p className='Tasks'>Tasks</p>
                     </div>) : null}
-                </div>
-              <hr/>
-          
+                </div>      
           </ul>
         </div>
       );
