@@ -11,7 +11,7 @@
     display: block;
     text-align: center;
     padding: 10px;
-    color: #93C178;
+    color: #2D3413;
     background-color: rgb(9, 20, 44);
     text-decoration: none;
     border-radius:5%;
@@ -21,7 +21,7 @@
 }
 
 .LoginForm_Submit:hover {
-    background-color:#93C178;
+    background-color:#2D3413;
     color: rgb(9, 20, 44);
 }
 

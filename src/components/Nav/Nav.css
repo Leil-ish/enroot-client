@@ -3,12 +3,12 @@
   padding: 0;
   max-height: 50px;
   position: fixed;
-  top: 0px;
+  top: 50px;
   left:0px;
 }
 
 .GardenNav_link {
-  color: #465C86;
+  color: #567E2E;
   display: inline-block;
   font-size: 20px;
   margin: 5px;
@@ -17,7 +17,7 @@
 }
 
 .GardenNav_logout_link {
-  color: #465C86;
+  color: #567E2E;
   display: inline-block;
   font-size: 20px;
   margin: 5px;
@@ -27,10 +27,9 @@
 
 .GardenNav_landing ul {
   display:flex;
-  justify-content: center;
-  letter-spacing: 1px;
+  justify-content: left;
   flex-direction:row;
-  background: #668F80;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   width: 100%;
   background-color:none;
   position:absolute;
@@ -41,18 +40,19 @@
 }
 
 .GardenNav_landing li {
-  text-align:center;
-  padding: 5px 5%;
   cursor:pointer;
+  padding: 10px 20px;
 }
 
 .GardenNav_landing li:hover {
   background-color: #DADFF7;
+  color: black;
 }
 
-a {
+.GardenNav_landing a {
   text-decoration: none;
-  color: black;
+  color: white;
+  letter-spacing: 2px;
 }
 
 .tooltip {

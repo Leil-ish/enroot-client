@@ -13,15 +13,8 @@ export default class GardenPage extends React.Component {
     this.state = {
         plants:[],
         error: false,
-        plantType: "All",
         property: "common_name",
     };
-  }
-
-  handlePlantFilter(plantType) {
-    this.setState({
-      plantType: plantType
-    })
   }
 
   handlePlantSort(property) {
@@ -37,27 +30,22 @@ export default class GardenPage extends React.Component {
     PlantApiService.getPlants()
       .then(this.context.setGarden)
       .catch(this.context.setError)
-    PlantApiService.getAllTasks()
-      .then(this.context.setTaskList)
-      .catch(this.context.setError)
   }
 
 
   renderGarden() {
+console.log (this.state.property)
     return (
       <section className='GardenPage'>
-        <h2>Garden</h2>
-        <ul>
-            <li>
-              <Filters 
+        <h2>GARDEN</h2>
+        <Filters 
                 onPlantSort={property => this.handlePlantSort(property)}/>
-            </li>
+        <hr/>
+        <ul>
             <li>
               <GardenResults 
                 plants={this.context.plants} 
-                tasks={this.context.tasks}
                 onDeletePlant={this.handleDeletePlant}
-                plantFilter={this.state.plantType}
                 property={this.state.property}/>
             </li>
         </ul>
@@ -70,7 +58,7 @@ export default class GardenPage extends React.Component {
     return (
       <Section list className='GardenPage'>
         {error
-          ? <p className='red'>There was an error, try again</p>
+          ? <p className='error'>There was an error, try again.</p>
           : this.renderGarden()}
       </Section>
     )

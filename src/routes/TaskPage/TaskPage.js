@@ -1,12 +1,21 @@
 import React from 'react'
 import {Section} from '../../components/Utils/Utils'
-import {Link} from 'react-router-dom'
 import GardenContext from '../../contexts/GardenContext'
-import TendTask from '../../components/TendTask/TendTask'
+import TaskResults from '../../components/TaskResults/TaskResults'
+import TaskFilters from '../../components/Filters/TaskFilters'
 import PlantApiService from '../../services/plant-api-service'
 import './TaskPage.css'
 
 export default class TaskPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        plants:[],
+        error: false,
+        property: "plant_common_name",
+    };
+  }
 
   static contextType = GardenContext;
 
@@ -15,6 +24,12 @@ export default class TaskPage extends React.Component {
     history: {
       push: () => {},
     },
+  }
+
+  handleTaskSort(property) {
+    this.setState({
+      property: property
+    })
   }
 
   componentDidMount() {
@@ -28,36 +43,21 @@ export default class TaskPage extends React.Component {
     }
 
   renderTask() {
-    const {tasks} = this.context
-    console.log (tasks)
 
       return (
-        <div className='PlantTasksPage'>
-          <h3 className='Tasks-subtitle'>Tasks</h3>
-          <ul className='PlantTasksPage_task-list'>
-            <li>
-              {tasks.map(task =>
-                <TendTask
-                  key={task.details + 'key'}
-                  taskId={task.id}
-                  plantId={task.plant_id}
-                  maintenance_needed={task.maintenance_needed}
-                  frequency={task.frequency}
-                  details={task.details}
-                  onDeleteTask={this.handleDeleteTask}
-                  task={task}
-                  {...task}
-                />
-              )}
-              </li>
+        <div className='TasksPage'>
+          <h2 className='Tasks-subtitle'>Tasks for All Plants</h2>
+          <TaskFilters 
+                onTaskSort={property => this.handleTaskSort(property)}/>
+          <hr/>
+          <ul className='TasksPage_task-list'>
+          <li>
+              <TaskResults 
+                tasks={this.context.tasks} 
+                onDeleteTask={this.handleDeleteTask}
+                property={this.state.property}/>
+            </li>
             </ul>
-            <Link
-              to={`/garden`}
-              type='button'
-              className='Garden-button'
-            >
-            <p>Back to Garden View</p>
-          </Link> 
         </div>
       ) 
   }

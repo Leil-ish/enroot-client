@@ -1,12 +1,17 @@
 .PlantTasksPage h2 {
+    text-align: center;
     font-size: 30px;
-    text-align:center;
-    margin:50px 15px 0px 15px;
+    letter-spacing: 8px;
+    color: #2D3413;
+    margin-bottom: 40px;
 }
 
 .PlantTasksPage h3 {
-    text-align:center;
-    margin:15px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 8px;
+    color: #2D3413;
+    margin-bottom: 40px;
 }
 
 .Add-plant-task-button p {
@@ -19,14 +24,14 @@
 }
 
 .Add-plant-task-button {
-    background-color: #465C8B;
+    background-color: #2D3413;
     display: block;
     text-align: center;
     margin:0 auto 0 auto;
     text-decoration: none;
     border-radius:5%;
     border: 1px black;
-    color: black;
+    color: white;
     font-size: 20px;
     width:150px;
     height:42px;
@@ -35,18 +40,18 @@
 
 .Add-plant-task-button:hover {
     background-color:#F7EF6A;
-    color: #00104C;
+    color: #FFF;
 }
 
 .Back-to-plant-button {
-    background-color: #465C8B;
+    background-color: #2D3413;
     display: block;
     text-align: center;
     margin:15px auto 0px auto;
     text-decoration: none;
     border-radius:5%;
     border: 1px black;
-    color: black;
+    color: white;
     font-size: 20px;
     width:150px;
     height:45px;
@@ -59,7 +64,7 @@
 
 .Back-to-plant-button:hover {
     background-color:#F7EF6A;
-    color: #00104C;
+    color: #FFF;
 }
 
 @media only screen and (min-width: 600px) {

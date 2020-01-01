@@ -230,7 +230,6 @@ class App extends Component {
             <h1>
               <Link to='/'>Enroot</Link>
             </h1>
-            <h2>Digital Garden Maintenance Tracker</h2>
           </header>
           <main className='App_main'>
             <Error>

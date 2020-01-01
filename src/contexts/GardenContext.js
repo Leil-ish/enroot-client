@@ -4,10 +4,18 @@ export const nullTask = {
   maintenance_needed: {},
 }
 
+export const nullPlant = {
+  scientific_name: {},
+}
+
 const GardenContext = React.createContext({
+  plant: nullPlant,
+  task: nullTask,
   plants: [],
   tasks: [],
   error: null,
+  setPlant: () => {},
+  clearPlant: () => {},
   setError: () => {},
   clearError: () => {},
   setGarden: () => {},
@@ -24,12 +32,22 @@ export class GardenProvider extends Component {
   state = {
     plants: [],
     tasks: [],
+    plant: nullPlant,
     task: nullTask,
     error: null,
   };
 
   setGarden = plants => {
     this.setState({ plants })
+  }
+
+  setPlant = plant => {
+    this.setState({plant})
+  }
+
+  clearPlant = () => {
+    this.setPlant(nullPlant)
+    this.setTasks([])
   }
 
   setTaskList = tasks => {
@@ -79,12 +97,14 @@ export class GardenProvider extends Component {
 
   render() {
     const value = {
+      plant: this.state.plant,
       plants: this.state.plants,
-      tasks: this.state.tasks,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
       setGarden: this.setGarden,
+      setPlant: this.setPlant,
+      clearPlant: this.clearPlant,
       setTaskList: this.setTaskList,
       deletePlant: this.deletePlant,
       task: this.state.task,

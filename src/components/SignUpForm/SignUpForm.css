@@ -4,13 +4,14 @@
     border: 3px solid rgb(9, 20, 44);
     border-radius:5%;
     margin: 50px auto 50px auto;
-    padding: 50px;
+    padding: 20px;
 }
 
 Input {
     margin: 25px 0;
     height: 40px;
     width: 90%;
+    border: 1px solid black;
 }
 
 label {
@@ -23,8 +24,8 @@ label {
     display: block;
     text-align: center;
     padding: 10px;
-    color: #93C178;
-    background-color: rgb(9, 20, 44);
+    color: white;
+    background-color: #2D3413;
     text-decoration: none;
     border-radius:5%;
     width:140px;
@@ -33,7 +34,7 @@ label {
 }
 
 .SignUpForm_Submit:hover {
-    background-color:#93C178;
+    background-color:#2D3413;
     color: rgb(9, 20, 44);
 }
 

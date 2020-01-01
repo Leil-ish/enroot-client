@@ -4,8 +4,15 @@
 
 .GardenPage h2 {
     text-align: center;
+    font-size: 30px;
+    letter-spacing: 8px;
+    color: #2D3413;
 }
 
 .GardenPage .input {
     text-align: center;
+}
+
+.GardenPage p {
+    padding: 10%;
 }

@@ -31,7 +31,6 @@ export default class PlantTasksPage extends React.Component {
 
   renderTask() {
     const {plant, tasks} = this.context
-    console.log(this.context)
 
     if (tasks.length===0) {
       return (
@@ -62,13 +61,14 @@ export default class PlantTasksPage extends React.Component {
       return (
         <div className='PlantTasksPage'>
           <h2>{plant.title}</h2>
-          <h3 className='Tasks-subtitle'>Tasks</h3>
+          <h3 className='Tasks-subtitle'>TASKS</h3>
           <ul className='PlantTasksPage_task-list'>
             <li>
               {tasks.map(task =>
                 <TendTask
                   key={task.maintenance_needed + 'key'}
                   maintenance_needed={task.maintenance_needed}
+                  plant_common_name={task.plant_common_name}
                   frequency={task.frequency}
                   details={task.details}
                   onDeleteTask={this.handleDeleteTask}

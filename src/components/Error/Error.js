@@ -18,7 +18,7 @@ class Error extends Component {
     render() {
         if (this.state.hasError) {
         return (
-            <div>
+            <div className='error-message'>
                 <h2>Oops! Could not display this right now.</h2>
             </div>
             );

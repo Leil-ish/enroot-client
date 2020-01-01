@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {Button} from '../Utils/Utils'
 import GardenContext from '../../contexts/GardenContext';
 import TokenService from '../../services/token-service'
-import TendTask from '../TendTask/TendTask'
 import PlantApiService from '../../services/plant-api-service'
 import config from '../../config'
 import './SinglePlant.css'
@@ -18,7 +17,6 @@ class SinglePlant extends Component {
 
   componentDidMount() {
     const {id} = this.props
-    console.log(id)
     this.context.clearError()
     PlantApiService.getPlantTasks(id)
       .then(this.context.setTasks)
@@ -77,73 +75,52 @@ class SinglePlant extends Component {
 
   render() {
 
-    let {id, scientific_name, common_name, lifespan, growth_rate, growth_period, 
+    let {id} = this.props;
+    let {scientific_name, lifespan, growth_rate, growth_period, 
       temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
       resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
-      moisture_use, seedling_vigor, flower_color, foliage_color} = this.props
-    let {tasks} = this.context;
-    console.log(tasks)
+      moisture_use, seedling_vigor, flower_color, foliage_color} = this.props;
 
       return (
           <div className = 'single-plant'>
             <ul>
-              <h3>Common Name: {common_name}</h3>
+              <h3>{this.props.common_name}</h3>
               <hr/>
                 <div onClick={(e)=>this.togglePanel(e)} className = 'collapsible'>
-                    <p className='Details-button'>Details</p>
+                    <p className='Details-button'>Details</p><hr/>
                     {this.state.open ? (
                       <div className='api-plant-content'>
-                        <h4>Scientific Name: {scientific_name}</h4>
-                        <p>
-                        Common Name: {common_name}<br/>
-                        Lifespan: {lifespan}<br/>
-                        Growth Rate: {growth_rate}<br/>
-                        Growth Period: {growth_period}<br/>
-                        Temperature Minimum: {temperature_minimum}<br/>
-                        Shade Tolerance: {shade_tolerance}<br/>
-                        Precipitation Minimum: {precipitation_minimum}<br/>
-                        Precipitation Maximum: {precipitation_maximum}<br/>
-                        Resprout Ability: {resprout_ability}<br/>
-                        Family Common Name: {family_common_name}<br/>
-                        Duration: {duration}<br/>
-                        Draught Tolerance: {drought_tolerance}<br/>
-                        Frost-Free Days Minimum: {frost_free_days_minimum}<br/>
-                        Moisture Use: {moisture_use}<br/>
-                        Seedling Vigor: {seedling_vigor}<br/>
-                        Flower Color: {flower_color}<br/>
-                        Foliage Color: {foliage_color}<br/>
-                        </p>
-                        <div className='task-content'>
-                        <ul className='GardenPage_task-list'>
-                          <li>
-                            {tasks.map(task =>
-                              <TendTask
-                                key={task.maintenance_needed + 'key'}
-                                maintenance_needed={task.maintenance_needed}
-                                frequency={task.frequency}
-                                details={task.details}
-                                onDeleteTask={this.handleDeleteTask}
-                                task={task}
-                                {...task}
-                              />
-                            )}
-                            </li>
-                          </ul>
-                      </div>
+                        <h4>Scientific Name:</h4> <p>{scientific_name}</p><hr/>
+                        <h4>Lifespan:</h4> <p>{lifespan}</p><hr/>
+                        <h4>Growth Rate:</h4> <p>{growth_rate}</p><hr/>
+                        <h4>Growth Period:</h4> <p>{growth_period}</p><hr/>
+                        <h4>Temperature Minimum:</h4><p> {temperature_minimum}</p><hr/>
+                        <h4>Shade Tolerance:</h4> <p>{shade_tolerance}</p><hr/>
+                        <h4>Precipitation Minimum:</h4> <p>{precipitation_minimum}</p><hr/>
+                        <h4>Precipitation Maximum:</h4> <p>{precipitation_maximum}</p><hr/>
+                        <h4>Resprout Ability:</h4> <p>{resprout_ability}</p><hr/>
+                        <h4>Family Name:</h4> <p>{family_common_name}</p><hr/>
+                        <h4>Duration:</h4> <p>{duration}</p><hr/>
+                        <h4>Draught Tolerance:</h4> <p>{drought_tolerance}</p><hr/>
+                        <h4>Frost-Free Days Minimum:</h4> <p>{frost_free_days_minimum}</p><hr/>
+                        <h4>Moisture Use:</h4> <p>{moisture_use}</p><hr/>
+                        <h4>Seedling Vigor:</h4> <p>{seedling_vigor}</p><hr/>
+                        <h4>Flower Color:</h4> <p>{flower_color}</p><hr/>
+                        <h4>Foliage Color:</h4><p> {foliage_color}</p><hr/>
                         <div className='buttons'>
                         <Link
                           to={`/garden/${id}/edit-plant`}
                           type='button'
                           className='Plant-edit-button'
                         >
-                          Add More Information About this Plant
+                          Add More Info
                         </Link>
                         <Link
                           to={`/garden/${id}/tasks`}
                           type='button'
                           className='Plant-view-tasks-button'
                         >
-                          View Task Page for this Plant
+                          View Tasks
                         </Link>
                         <Button
                             className='Plant-remove-button'
@@ -152,10 +129,10 @@ class SinglePlant extends Component {
                               window.confirm("Are you sure you wish to remove this plant? Tasks associated with the plant will be deleted also.") &&
                               this.handleClickPlantDelete(e)
                           }>
-                          Remove Plant
+                          Remove
                         </Button>
+                        <hr/>
                       </div>
-                    <p className='Tasks'>Tasks</p>
                     </div>) : null}
                 </div>      
           </ul>

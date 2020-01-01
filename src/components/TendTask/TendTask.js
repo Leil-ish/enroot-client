@@ -1,27 +1,30 @@
 import React, {Component} from 'react';
 import {Button} from '../Utils/Utils'
-import PlantContext from '../../contexts/PlantContext';
+import GardenContext from '../../contexts/GardenContext'
 import {withRouter} from 'react-router-dom';
+import PlantApiService from '../../services/plant-api-service'
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import './TendTask.css'
 
 class TendTask extends Component {
 
-  static contextType = PlantContext;
+  static contextType = GardenContext;
 
   static defaultProps ={
     onDeleteTask: () => {},
     match: { params: {} },
+    history: {
+      push: () => {},
+    },
   }
 
   //Delete for task
   handleClickDelete = e => {
     e.preventDefault()
 
-    const plantId = this.props.id
-    const taskId = this.props.task.task_id
-    const plant = this.props.plant
+    const plantId = this.props.plant_id
+    const taskId = this.props.id
     
     fetch (`${config.API_ENDPOINT}/garden/${plantId}/tasks/${taskId}`, {
       method: 'DELETE',
@@ -39,7 +42,7 @@ class TendTask extends Component {
         this.props.onDeleteTask(taskId)
       })
       .then(() => {
-        this.props.history.push(`/garden/${plant.id}/tasks`)
+        this.props.history.push(`/garden/${plantId}/tasks`)
       })
       .catch(error => {
         console.error({ error })
@@ -52,10 +55,12 @@ class TendTask extends Component {
 
     return (
       <div className = 'single-task'>
-            <h3 className='Single_maintenance_needed'>Maintenance Needed: <br/> 
-            {task.maintenance_needed}</h3>
             <hr/>
-            <h4>Frequency: {task.frequency}</h4>
+            <h4 className='Single_maintenance_needed'>Maintenance Needed for </h4>
+            <h3>{task.plant_common_name}: </h3>
+            <p>{task.maintenance_needed}</p>
+            <hr/>
+            <p>Frequency: {task.frequency}</p>
             <p>Details: {task.details}</p>
         <Button
           className='Task_delete'
@@ -66,7 +71,7 @@ class TendTask extends Component {
             this.handleClickDelete(e)
           }
         >
-          <h4>Delete Task</h4>
+          <h4>Delete</h4>
         </Button>
       </div>
     );

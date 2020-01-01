@@ -1,5 +1,5 @@
 .PlantEditPage {
-    border: 2px solid #465C8B;
+    border: 2px solid #2D3413;
     max-width:80%;
     margin: 10px auto;
     padding:10px;
@@ -19,8 +19,8 @@
     display: block;
     text-align: center;
     margin:15px auto;
-    color: black;
-    background-color: #8C8AB7;
+    color: white;
+    background-color: #2D3413;
     text-decoration: none;
     border-radius:5%;
     border: 1px black;
@@ -35,8 +35,8 @@
     display: block;
     text-align: center;
     padding: 10px;
-    color: black;
-    background-color: #6BBAA7;
+    color: white;
+    background-color: #2D3413;
     text-decoration: none;
     border-radius:5%;
     width:140px;
@@ -45,15 +45,15 @@
 }
 
 .Submit-plant-edits:hover {
-    background-color:#8C8AB7;
+    background-color:#F94A41;
 }
 
 .Cancel-add-plant-button {
     display: block;
     text-align: center;
     padding: 10px;
-    color: black;
-    background-color: #6BBAA7;
+    color: white;
+    background-color: #2D3413;
     text-decoration: none;
     border-radius:5%;
     width:140px;
@@ -63,16 +63,16 @@
 
 
 .Cancel-add-plant-button:hover {
-    background-color:#8C8AB7;
+    background-color:#F94A41;
 }
 
 .PlantEditPage .usda-link {
-    color: #465C8B;
+    color: #2D3413;
     cursor: pointer;
 }
 
 .PlantEditPage .usda-link:hover {
-    color: #93C178;
+    color: #2D3413;
 
 }
 

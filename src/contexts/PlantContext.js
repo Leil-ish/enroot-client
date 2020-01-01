@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export const nullPlant = {
-  scientific_names: {},
+  scientific_name: {},
 }
 
 export const nullTask = {
@@ -57,7 +57,7 @@ export class PlantProvider extends Component {
 
   setPlants = plants => {
     this.setState({plants})
-  }
+  } 
 
   clearPlant = () => {
     this.setPlant(nullPlant)

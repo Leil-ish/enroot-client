@@ -1,0 +1,14 @@
+.TasksPage h2 {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 8px;
+    color: #2D3413;
+    margin-bottom: 40px;
+}
+
+.TasksPage h3 {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 8px;
+    color: #2D3413;
+}
