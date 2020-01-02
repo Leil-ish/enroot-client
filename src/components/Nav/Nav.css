@@ -3,8 +3,17 @@
   padding: 0;
   max-height: 50px;
   position: fixed;
-  top: 50px;
-  left:0px;
+  top: 0px;
+  right:0px;
+}
+
+.GardenNav_main ul {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  width: 70px;
+}
+
+.GardenNav_main li {
+  color: white;
 }
 
 .GardenNav_link {

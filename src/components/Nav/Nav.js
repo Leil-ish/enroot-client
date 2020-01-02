@@ -13,6 +13,8 @@ export default class GardenNav extends React.Component {
     return (
       <div className='GardenNav_main'>
         <ul>
+          <li>Menu</li>
+          <hr/>
           <li>
             <Link
               className='GardenNav_logout_link'
@@ -40,7 +42,7 @@ export default class GardenNav extends React.Component {
                 to={`/add-plant`}
               >
                 <img src='https://i.imgur.com/9YkbxkT.png' alt='add-plant'></img>
-                <span className="tooltiptext">Add a Plant Manually</span>
+                <span className="tooltiptext">Add a Plant</span>
               </Link>
           </li>
           <li>
@@ -50,7 +52,7 @@ export default class GardenNav extends React.Component {
                 to={`/tasks`}
               >
                 <img src='https://i.imgur.com/VtEly61.png' alt='tend-tasks'></img>
-                <span className="tooltiptext">View Tend Tasks</span>
+                <span className="tooltiptext">View Tasks</span>
               </Link>
           </li>
         </ul>

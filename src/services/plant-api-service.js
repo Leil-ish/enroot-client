@@ -85,7 +85,7 @@ const PlantApiService = {
       )
   },
 
-  postTask(plantId, maintenance_needed, frequency, details) {
+  postTask(plantId, plant_common_name, maintenance_needed, frequency, details) {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/add-task`, {
       method: 'POST',
       headers: {
@@ -94,6 +94,7 @@ const PlantApiService = {
       },
       body: JSON.stringify({
         plant_id: plantId,
+        plant_common_name,
         maintenance_needed,
         frequency,
         details

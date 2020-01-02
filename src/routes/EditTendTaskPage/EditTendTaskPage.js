@@ -17,11 +17,12 @@ export default class EditTendTaskPage extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const {plant} = this.context
+    const {plant, task} = this.context
     const {maintenance_needed, frequency, details} = ev.target
-    PlantApiService.postTask(plant.id, maintenance_needed.value, frequency.value, details.value)
+    PlantApiService.postTask(plant.id, plant.common_name, maintenance_needed.value, frequency.value, details.value)
       .then(this.context.addTask)
       .then(() => {
+        task.plant_common_name=''
         maintenance_needed.value = ''
         frequency.value = ''
         details.value = ''
@@ -50,13 +51,12 @@ export default class EditTendTaskPage extends Component {
 
   render() {
 
-    const plant = this.context || {content: ''}
-    console.log(this.context)
+    const {plant} = this.context
 
     return (
       <section className='EditTendTaskPage'>
         <h2>
-          Add Task for {plant.name}
+          Add Task for {plant.common_name}
         </h2>
         <Form 
           className='AddTaskForm'
@@ -71,7 +71,7 @@ export default class EditTendTaskPage extends Component {
           </div>
           <div className='frequency-select'>
             <label htmlFor='task-frequency-select'>
-              This needs to be done
+              Frequency:
             </label>
             <select required id='frequency' name='frequency' aria-label='Frequency select'>
               <option value='Once Daily'>Once Daily</option>
@@ -86,7 +86,7 @@ export default class EditTendTaskPage extends Component {
               <option value='Other'>Other (See Details)</option>
             </select>
           </div>
-          <div className='text'>
+          <div className='details'>
             <label htmlFor='task-content-input'>
               Details:
             </label>

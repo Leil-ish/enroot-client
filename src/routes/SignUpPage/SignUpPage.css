@@ -1,4 +1,7 @@
 .SignUpPage h2 {
-    margin-top:50px;
     text-align: center;
+    font-size: 30px;
+    letter-spacing: 8px;
+    color: #2D3413;
+    margin: 40px auto 20px auto;
 }

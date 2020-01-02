@@ -11,7 +11,11 @@
     font-size: 20px;
     letter-spacing: 8px;
     color: #2D3413;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+.PlantTasksPage_task-list {
+    margin: 0;
 }
 
 .Add-plant-task-button p {
@@ -19,8 +23,9 @@
     margin:0;
 }
 
-.Tasks-subtitle {
+#Tasks-subtitle {
     letter-spacing: 2px;
+    margin: 20px;
 }
 
 .Add-plant-task-button {

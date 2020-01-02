@@ -11,19 +11,18 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/GbX4gDO.jpg");
   background-size: cover;
   display:block;
-  font-size: 30px;
   font-style: none;
   text-decoration: none;
   color: #cccccc;
   height: 300px;
-  padding: 80px;
+  padding: 45% 50% 10px 10%;
   max-width: 100%;
 }
 
 .App_header a {
   font-family: 'Special Elite', cursive;
   font-size: 40px;
-  margin: 80px auto;
+  padding: 90% auto 0px;
   text-decoration: none;
   color: #fff;
 }

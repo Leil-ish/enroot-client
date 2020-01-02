@@ -2,17 +2,36 @@
     border: 2px solid #2D3413;
     max-width:80%;
     margin: 10px auto;
-    padding:10px;
+    padding:20px;
     line-height:28px;
+    text-align: center;
 }
 
 .PlantEditPage h2 {
     text-align:center;
+    line-height: 30px;
+    letter-spacing: 2px;
+    color: #2D3413;
 }
+
+.PlantEditPage h3 {
+    text-align:center;
+    line-height: 30px;
+    letter-spacing: 2px;
+    margin: 30px auto;
+}
+
 
 .PlantEditPage label {
     padding:10px;
     font-size: 20px;
+}
+
+.PlantEditPage Input {
+    margin: 25px auto;
+    height: 40px;
+    width: 70%;
+    border: 1px solid black;
 }
 
 .PlantEditPage_Content .Details-button {

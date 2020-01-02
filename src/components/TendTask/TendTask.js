@@ -2,14 +2,11 @@ import React, {Component} from 'react';
 import {Button} from '../Utils/Utils'
 import GardenContext from '../../contexts/GardenContext'
 import {withRouter} from 'react-router-dom';
-import PlantApiService from '../../services/plant-api-service'
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import './TendTask.css'
 
 class TendTask extends Component {
-
-  static contextType = GardenContext;
 
   static defaultProps ={
     onDeleteTask: () => {},
@@ -23,8 +20,7 @@ class TendTask extends Component {
   handleClickDelete = e => {
     e.preventDefault()
 
-    const plantId = this.props.plant_id
-    const taskId = this.props.id
+    const {plantId, taskId} = this.props
     
     fetch (`${config.API_ENDPOINT}/garden/${plantId}/tasks/${taskId}`, {
       method: 'DELETE',
@@ -56,11 +52,12 @@ class TendTask extends Component {
     return (
       <div className = 'single-task'>
             <hr/>
-            <h4 className='Single_maintenance_needed'>Maintenance Needed for </h4>
-            <h3>{task.plant_common_name}: </h3>
-            <p>{task.maintenance_needed}</p>
+            <h3 className='Single_maintenance_needed'>Task for {task.plant_common_name}: </h3>
+            <hr/>
+            <p>Task: {task.maintenance_needed}</p>
             <hr/>
             <p>Frequency: {task.frequency}</p>
+            <hr/>
             <p>Details: {task.details}</p>
         <Button
           className='Task_delete'
@@ -78,3 +75,4 @@ class TendTask extends Component {
   }
 }
 export default withRouter(TendTask);
+TendTask.contextType = GardenContext;

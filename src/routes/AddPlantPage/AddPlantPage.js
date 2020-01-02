@@ -35,7 +35,7 @@ class AddPlantPage extends Component {
     return (
       <section className='AddPlantPage'>
         <h2>
-          Add a Plant to Your Garden
+          Add a Plant
         </h2>
         <h3>You can add more details and tasks for this plant from your garden menu.</h3>
         <Form 
@@ -55,7 +55,7 @@ class AddPlantPage extends Component {
                 type='submit'
                 className='Add-plant-button'
               >
-                Add plant to Garden
+                Add Plant
             </Button>
             <Link
               to='/garden'

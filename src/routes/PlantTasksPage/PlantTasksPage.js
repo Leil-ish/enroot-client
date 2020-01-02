@@ -38,7 +38,7 @@ export default class PlantTasksPage extends React.Component {
         <h2>{plant.common_name}</h2>
         <hr/>
 
-        <h3 className='Tasks-subtitle'>No Tasks Yet</h3>
+        <h3 id='Tasks-subtitle'>No Tasks Yet</h3>
         <hr/>
         <br/>
           <Link
@@ -60,8 +60,6 @@ export default class PlantTasksPage extends React.Component {
     } else {
       return (
         <div className='PlantTasksPage'>
-          <h2>{plant.title}</h2>
-          <h3 className='Tasks-subtitle'>TASKS</h3>
           <ul className='PlantTasksPage_task-list'>
             <li>
               {tasks.map(task =>
@@ -74,6 +72,8 @@ export default class PlantTasksPage extends React.Component {
                   onDeleteTask={this.handleDeleteTask}
                   task={task}
                   plant={plant}
+                  plantId={plant.id}
+                  taskId={task.task_id}
                   {...task}
                 />
               )}

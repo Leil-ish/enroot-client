@@ -16,6 +16,8 @@ class TaskResults extends Component {
         {...task} 
         key={key}
         task={task}
+        plantId={task.plant_id}
+        taskId={task.id}
         />);
 
     return (

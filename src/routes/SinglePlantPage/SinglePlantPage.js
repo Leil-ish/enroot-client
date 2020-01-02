@@ -65,24 +65,24 @@ function PlantContent({ plant }) {
       </h1>
       <hr/>
       <p className='PlantPage_description'>
-        Scientific Name: {plant.scientific_name}<br/>
-        Common Name: {plant.common_name}<br/>
-        Lifespan: {plant.lifespan}<br/>
-        Growth Rate: {plant.growth_rate}<br/>
-        Growth Period: {plant.growth_period}<br/>
-        Temperature Minimum: {plant.temperature_minimum}<br/>
-        Shade Tolerance: {plant.shade_tolerance}<br/>
-        Precipitation Minimum: {plant.precipitation_minimum}<br/>
-        Precipitation Maximum: {plant.precipitation_maximum}<br/>
-        Resprout Ability: {plant.resprout_ability}<br/>
-        Family Common Name: {plant.family_common_name}<br/>
-        Duration: {plant.duration}<br/>
-        Draught Tolerance: {plant.drought_tolerance}<br/>
-        Frost-Free Days Minimum: {plant.frost_free_days_minimum}<br/>
-        Moisture Use: {plant.moisture_use}<br/>
-        Seedling Vigor: {plant.seedling_vigor}<br/>
-        Flower Color: {plant.flower_color}<br/>
-        Foliage Color: {plant.foliage_color}<br/>
+        <h2>Scientific Name:</h2>{plant.scientific_name}<br/>
+        <h2>Common Name:</h2> {plant.common_name}<br/>
+        <h2>Lifespan:</h2> {plant.lifespan}<br/>
+        <h2>Growth Rate:</h2> {plant.growth_rate}<br/>
+        <h2>Growth Period:</h2> {plant.growth_period}<br/>
+        <h2>Temperature Minimum:</h2> {plant.temperature_minimum}<br/>
+        <h2>Shade Tolerance:</h2> {plant.shade_tolerance}<br/>
+        <h2>Precipitation Minimum:</h2> {plant.precipitation_minimum}<br/>
+        <h2>Precipitation Maximum:</h2> {plant.precipitation_maximum}<br/>
+        <h2>Resprout Ability:</h2> {plant.resprout_ability}<br/>
+        <h2>Family Common Name:</h2> {plant.family_common_name}<br/>
+        <h2>Duration:</h2> {plant.duration}<br/>
+        <h2>Draught Tolerance:</h2> {plant.drought_tolerance}<br/>
+        <h2>Frost-Free Days Minimum:</h2> {plant.frost_free_days_minimum}<br/>
+        <h2>Moisture Use:</h2> {plant.moisture_use}<br/>
+        <h2>Seedling Vigor:</h2> {plant.seedling_vigor}<br/>
+        <h2>Flower Color:</h2> {plant.flower_color}<br/>
+        <h2>Foliage Color:</h2> {plant.foliage_color}<br/>
       </p>
       <Link
               to={`/garden/${plant.id}/tasks`}

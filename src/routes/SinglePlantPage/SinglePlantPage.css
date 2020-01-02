@@ -1,8 +1,23 @@
 .PlantPage {
-    margin: 50px auto;
+    margin: 20px auto;
     max-width: 70%;
     border: 1px solid #2D3413;
     padding: 10px;
+}
+
+.PlantPage h1 {
+    text-align:center;
+    line-height: 30px;
+    letter-spacing: 2px;
+    color: #2D3413;
+}
+
+.PlantPage_content {
+    padding: 20px;
+}
+
+.PlantPage_content h2 {
+    font-size: 18px;
 }
 
 .PlantPage .Add-task-button {

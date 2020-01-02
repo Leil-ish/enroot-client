@@ -34,7 +34,6 @@ export default class GardenPage extends React.Component {
 
 
   renderGarden() {
-console.log (this.state.property)
     return (
       <section className='GardenPage'>
         <h2>GARDEN</h2>

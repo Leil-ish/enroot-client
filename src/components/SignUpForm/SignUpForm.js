@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Input, Required} from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
+import {Link} from 'react-router-dom';
 import './SignUpForm.css';
 
 export default class SignUpForm extends Component {
@@ -90,6 +91,13 @@ export default class SignUpForm extends Component {
           <Button type='submit' className='SignUpForm_Submit'>
             Register
           </Button>
+          <Link
+          to={`/`}
+          type='button'
+          className='Cancel-SignUp-button'
+          >
+          Cancel
+          </Link> 
       </form>
     )
   }

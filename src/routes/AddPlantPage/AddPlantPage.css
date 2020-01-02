@@ -2,7 +2,27 @@
     margin: 50px auto;
     max-width: 70%;
     border: 1px solid #2D3413;
-    padding: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.AddPlantPage h2 {
+    text-align:center;
+    line-height: 30px;
+    letter-spacing: 2px;
+    color: #2D3413;
+}
+
+.AddPlantPage h2 {
+    text-align:center;
+    line-height: 30px;
+    letter-spacing: 2px;
+}
+
+.AddPlantPage Input {
+    border: 1px solid black;
+    margin: 20px;
+    width: 150px;
 }
 
 .AddPlantPage .Add-plant-button {
@@ -15,7 +35,7 @@
     border-radius:5%;
     border: 1px black;
     font-size:20px;
-    width:200px;
+    width:150px;
     height:30px;
     cursor: pointer;
 }
@@ -30,9 +50,10 @@
     border-radius:5%;
     border: 1px black;
     font-size:20px;
-    width:200px;
+    width:150px;
     height:30px;
     cursor: pointer;
+    padding: 0px 0px 5px 0px;
 }
 
 .AddPlantPage a {
@@ -43,4 +64,14 @@
 .AddPlantPage a:hover {
     background: #2D3413;
     color: #FFF;
+}
+
+.AddPlantPage .Add-plant-button:hover {
+    background-color: #F94A41;
+    color:white;
+}
+
+.AddPlantPage .Cancel-add-plant-button:hover {    
+    background-color: #F94A41;
+    color:white;
 }
