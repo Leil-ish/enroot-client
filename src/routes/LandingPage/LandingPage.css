@@ -18,6 +18,8 @@
 .Landing_Page a {
     text-decoration: none;
     color: white;
+    padding: 0;
+    margin: 10px 5%;
 }
 
 .Landing_Page p {
@@ -30,7 +32,7 @@
 }
 
 .Landing_Page img {
-    max-width:10%;
+    max-width:30px;
     margin: 25px 5%;
 }
 
@@ -46,16 +48,112 @@
     max-width:100%;
 }
 
+address {
+    font-style: normal;
+}
+
+.portfolio-pic {
+    position: relative;
+    display: inline-block;
+  }
+  
+.portfolio-pic .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+.portfolio-pic:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+  }
+
+.email-pic {
+    position: relative;
+    display: inline-block;
+  }
+  
+.email-pic .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+.email-pic:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+  }
+
+.linkedin-pic {
+    position: relative;
+    display: inline-block;
+  }
+  
+.linkedin-pic .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+.linkedin-pic:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+  }
+  
+.github-pic {
+    position: relative;
+    display: inline-block;
+  }
+  
+.github-pic .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+.github-pic:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+  }
+
 @media only screen and (min-width: 600px) {
+    .Landing_Page a {
+        margin: 10px 5%;
+    }
+    
     .Landing_Page img {
-        max-width:6%;
+        max-width:50px;
         margin: 25px 5%;
     }
 
     .Landing_Page p {
         margin:0;
         padding: 5% 25% 5% 10%;
-        line-height: 40px;
+        line-height: 30px;
         font-size: 22px;
         color: #fff;
         max-width:100%;
@@ -76,106 +174,11 @@
     .Landing_Page p {
         margin:0;
         padding: 5% 30% 5% 4%;
-        line-height: 40px;
+        line-height: 30px;
         font-size: 22px;
         color: #fff;
         max-width:100%;
     }
-
-    address {
-        font-style: normal;
-    }
-
-    .portfolio-pic {
-        position: relative;
-        display: inline-block;
-      }
-      
-    .portfolio-pic .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-      }
-      
-    .portfolio-pic:hover .tooltiptext {
-        visibility: visible;
-        opacity: 0.8;
-      }
-
-    .email-pic {
-        position: relative;
-        display: inline-block;
-      }
-      
-      /* Tooltip text */
-    .email-pic .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-      }
-      
-    .email-pic:hover .tooltiptext {
-        visibility: visible;
-        opacity: 0.8;
-      }
-
-    .linkedin-pic {
-        position: relative;
-        display: inline-block;
-      }
-      
-      /* Tooltip text */
-    .linkedin-pic .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-      }
-      
-    .linkedin-pic:hover .tooltiptext {
-        visibility: visible;
-        opacity: 0.8;
-      }
-      
-    .github-pic {
-        position: relative;
-        display: inline-block;
-      }
-      
-    .github-pic .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-      }
-      
-      /* Show the tooltip text when you mouse over the tooltip container */
-    .github-pic:hover .tooltiptext {
-        visibility: visible;
-        opacity: 0.8;
-      }
     
 }
 
