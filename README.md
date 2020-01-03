@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/faceplant/create-react-app).
+# Bibliofile Client
 
-## Available Scripts
+This is the frontend for a virtual library project called Bibliofile, found online at <https://leil-ish-bibliofile-app.now.sh/>! It allows users to:
 
-In the project directory, you can run:
+* Search for books using an interface that pulls from the Google Books API  
 
-### `yarn start`
+![Search Interface](https://i.imgur.com/uZkzA5t.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Add those books (along with their descriptions, author and genre information, etc.) to a personal virtual library with one click  
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Book results page showing Harry Potter book](https://i.imgur.com/Or6HkVK.png)
 
-### `yarn test`
+* Add books manually in the event that they cannot be found on Google Books  
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://faceplant.github.io/create-react-app/docs/running-tests) for more information.
+![Add book page](https://i.imgur.com/jZkzigi.png)
 
-### `yarn build`
+* Add notes to the books in their libraries  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Notes page](https://i.imgur.com/MkCnkJJ.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To get started, click "Register" on the landing page and enter your name, username, and password. On this page, you can also send me an email, check out my portfolio site, or visit me on LinkedIn or GitHub.  
 
-See the section about [deployment](https://faceplant.github.io/create-react-app/docs/deployment) for more information.
+![Landing Page](https://i.imgur.com/LIIFeCD.png)
 
-### `yarn eject`
+From there, you can navigate using the fixed nav icons at the top left.  
 
-**Task: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Header](https://i.imgur.com/ZXs9P3Y.png)  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+From the top:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Click on the logout arrow icon to log out of your account.
+* Click on the book icon to visit your library.
+* Click on the magnifying glass icon to search for a book to add automatically.
+* Click on the plus icon to add book details manually.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You may search for books to add by title, author, or ISBN number (but don't include the dashes in the ISBN). When you click "Add Book," the book will be added to your library for you to add notes to!
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://faceplant.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://faceplant.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://faceplant.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://faceplant.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://faceplant.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://faceplant.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://faceplant.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project was created using React on the frontend and Node.js, Express, and PostgreSQL on the backend. If you like this repo, you can find its backend companion at <https://github.com/Leil-ish/bibliofile-api>!

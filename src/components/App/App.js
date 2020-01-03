@@ -31,7 +31,12 @@ class App extends Component {
       plants:[],
       tasks:[],
       error: false,
+      isLoading: true
     };
+  }
+
+  componentDidMount() {
+    this.setState({isLoading: false})
   }
 
   static getDerivedStateFromError(error) {

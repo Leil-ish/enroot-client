@@ -14,7 +14,7 @@ export default class GardenNav extends React.Component {
       <div className='GardenNav_main'>
         <ul>
           <li>Menu</li>
-          <hr/>
+          <li><hr/></li>
           <li>
             <Link
               className='GardenNav_logout_link'
