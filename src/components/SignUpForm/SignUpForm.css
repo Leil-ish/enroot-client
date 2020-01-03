@@ -58,7 +58,11 @@ label {
 
 @media only screen and (min-width: 600px) {
     .SignUpForm {
-        max-width: 40%;
+        max-width: 60%;
+    }
+
+    .SignUpForm Input {
+        margin: 25px;
     }
 }
 

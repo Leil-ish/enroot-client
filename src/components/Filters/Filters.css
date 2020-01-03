@@ -6,8 +6,14 @@
     padding: 20px 20px 40px 15%;
 }
 
+@media only screen and (min-width: 600px) {
+    .Sort {
+        margin-left: 20%;
+    }
+}
+
 @media only screen and (min-width: 992px) {
     .Sort {
-        margin-left: 10%;
+        margin-left: 25%;
     }
 }

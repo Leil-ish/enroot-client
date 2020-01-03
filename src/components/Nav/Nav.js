@@ -32,7 +32,7 @@ export default class GardenNav extends React.Component {
               to={`/garden`}
                 >
                 <img src='https://i.imgur.com/4HDGyjW.png' alt='garden'></img>
-                <span className="tooltiptext">View Garden</span>
+                <span className="tooltiptext">Garden</span>
             </Link>
           </li>
           <li>

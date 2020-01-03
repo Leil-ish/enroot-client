@@ -13,24 +13,37 @@
 }
 
 .PlantPage_content {
-    padding: 20px;
-}
-
-.PlantPage_content h2 {
-    font-size: 18px;
+    padding: 30px;
 }
 
 .PlantPage .Add-task-button {
     display: block;
     text-align: center;
-    margin:15px auto 15px auto;
+    margin:25px auto 25px auto;
     color: white;
     background-color: #2D3413;
     text-decoration: none;
     border-radius:5%;
     border: 1px black;
     font-size:20px;
+    padding: 10px 0 10px 0;
     width:200px;
-    height:30px;
+    height:40px;
     cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+    .PlantPage {
+        max-width: 50%;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .PlantPage {
+        margin: 20px auto;
+        max-width: 40%;
+        border: 1px solid #2D3413;
+        padding: 10px;
+    }
 }

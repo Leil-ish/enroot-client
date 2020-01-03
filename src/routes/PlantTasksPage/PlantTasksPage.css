@@ -1,3 +1,7 @@
+.PlantTasksPage {
+    text-align: center;
+}
+
 .PlantTasksPage h2 {
     text-align: center;
     font-size: 30px;
@@ -39,16 +43,16 @@
     color: white;
     font-size: 20px;
     width:150px;
-    height:42px;
-    padding-top:15px;
+    height:45px;
+    padding: 15px 0 0 0;
 }
 
 .Add-plant-task-button:hover {
-    background-color:#F7EF6A;
+    background-color:#F94A41;
     color: #FFF;
 }
 
-.Back-to-plant-button {
+.Back-to-garden-button {
     background-color: #2D3413;
     display: block;
     text-align: center;
@@ -63,18 +67,18 @@
     padding: 15px 0 0 0;
 }
 
-.Back-to-plant-button p {
+.Back-to-garden-button p {
     margin:0;
 }
 
-.Back-to-plant-button:hover {
-    background-color:#F7EF6A;
+.Back-to-garden-button:hover {
+    background-color:#F94A41;
     color: #FFF;
 }
 
 @media only screen and (min-width: 600px) {
     .PlantTasksPage {
-        max-width: 50%;
+        max-width: 65%;
         margin:0px auto;
     }
 }
@@ -83,10 +87,5 @@
     .PlantTasksPage {
         max-width: 40%;
         margin:0px auto;
-    }
-
-    .Add-plant-task-button {
-        font-size:18px;
-        height:40px;
     }
 }

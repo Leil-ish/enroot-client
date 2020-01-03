@@ -22,7 +22,26 @@ body {
 .App_header a {
   font-family: 'Special Elite', cursive;
   font-size: 40px;
-  padding: 90% auto 0px;
   text-decoration: none;
   color: #fff;
+}
+
+@media only screen and (min-width: 600px) {
+  .App_header a {
+    font-size: 50px;
+  }
+
+  .App_header {
+    padding: 25% 50% 0px 10%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .App_header a {
+    font-size: 50px;
+  }
+
+  .App_header {
+    padding: 10% 50% 0px 10%;
+  }
 }

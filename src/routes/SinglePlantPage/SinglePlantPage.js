@@ -64,32 +64,40 @@ function PlantContent({ plant }) {
         {plant.common_name}
       </h1>
       <hr/>
-      <p className='PlantPage_description'>
-        <h2>Scientific Name:</h2>{plant.scientific_name}<br/>
-        <h2>Common Name:</h2> {plant.common_name}<br/>
-        <h2>Lifespan:</h2> {plant.lifespan}<br/>
-        <h2>Growth Rate:</h2> {plant.growth_rate}<br/>
-        <h2>Growth Period:</h2> {plant.growth_period}<br/>
-        <h2>Temperature Minimum:</h2> {plant.temperature_minimum}<br/>
-        <h2>Shade Tolerance:</h2> {plant.shade_tolerance}<br/>
-        <h2>Precipitation Minimum:</h2> {plant.precipitation_minimum}<br/>
-        <h2>Precipitation Maximum:</h2> {plant.precipitation_maximum}<br/>
-        <h2>Resprout Ability:</h2> {plant.resprout_ability}<br/>
-        <h2>Family Common Name:</h2> {plant.family_common_name}<br/>
-        <h2>Duration:</h2> {plant.duration}<br/>
-        <h2>Draught Tolerance:</h2> {plant.drought_tolerance}<br/>
-        <h2>Frost-Free Days Minimum:</h2> {plant.frost_free_days_minimum}<br/>
-        <h2>Moisture Use:</h2> {plant.moisture_use}<br/>
-        <h2>Seedling Vigor:</h2> {plant.seedling_vigor}<br/>
-        <h2>Flower Color:</h2> {plant.flower_color}<br/>
-        <h2>Foliage Color:</h2> {plant.foliage_color}<br/>
-      </p>
+      <div className='PlantPage_description'>
+        <p>Scientific Name: {plant.scientific_name}</p>
+        <p>Common Name: {plant.common_name}</p>
+        <p>Lifespan: {plant.lifespan}</p>
+        <p>Growth Rate: {plant.growth_rate}</p>
+        <p>Growth Period: {plant.growth_period}</p>
+        <p>Temperature Minimum: {plant.temperature_minimum}</p>
+        <p>Shade Tolerance: {plant.shade_tolerance}</p>
+        <p>Precipitation Minimum: {plant.precipitation_minimum}</p>
+        <p>Precipitation Maximum: {plant.precipitation_maximum}</p>
+        <p>Resprout Ability: {plant.resprout_ability}</p>
+        <p>Family Common Name: {plant.family_common_name}</p>
+        <p>Duration: {plant.duration}</p>
+        <p>Draught Tolerance: {plant.drought_tolerance}</p>
+        <p>Frost-Free Days Minimum: {plant.frost_free_days_minimum}</p>
+        <p>Moisture Use: {plant.moisture_use}</p>
+        <p>Seedling Vigor: {plant.seedling_vigor}</p>
+        <p>Flower Color: {plant.flower_color}</p>
+        <p>Foliage Color: {plant.foliage_color}</p>
+      </div>
+      <hr/>
       <Link
               to={`/garden/${plant.id}/tasks`}
               type='button'
               className='Add-task-button'
             >
               View/Add Tasks
+      </Link>
+      <Link
+              to={`/garden/${plant.id}/edit-plant`}
+              type='button'
+              className='Add-task-button'
+            >
+              Add More Plant Info
       </Link>
     </div>
   )

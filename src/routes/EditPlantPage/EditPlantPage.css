@@ -101,12 +101,21 @@
         margin:30px auto;
         padding: 10px 45px;
     }
+
+    .PlantEditPage label {
+        padding:20px;
+        font-size: 20px;
+    }
 }
 
 @media only screen and (min-width: 992px) {
     .PlantEditPage {
         margin:30px auto;
-        max-width: 50%;
+        max-width: 40%;
         padding:10px 45px;
+    }
+
+    .PlantEditPage Input {
+        width: 80%;
     }
 }

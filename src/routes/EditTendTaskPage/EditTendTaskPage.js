@@ -58,6 +58,7 @@ export default class EditTendTaskPage extends Component {
         <h2>
           Add Task for {plant.common_name}
         </h2>
+        <hr/>
         <Form 
           className='AddTaskForm'
           aria-label='Add-task-form'
@@ -72,7 +73,7 @@ export default class EditTendTaskPage extends Component {
           <div className='frequency-select'>
             <label htmlFor='task-frequency-select'>
               Frequency:
-            </label>
+            </label><br/>
             <select required id='frequency' name='frequency' aria-label='Frequency select'>
               <option value='Once Daily'>Once Daily</option>
               <option value='Twice Daily'>Twice Daily</option>

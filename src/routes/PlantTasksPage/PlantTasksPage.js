@@ -49,11 +49,11 @@ export default class PlantTasksPage extends React.Component {
             <p>Add Task</p>
           </Link> 
           <Link
-              to={`/garden/${plant.id}`}
+              to={`/garden`}
               type='button'
-              className='Back-to-plant-button'
+              className='Back-to-garden-button'
             >
-            <p>Back to Plant</p>
+            <p>Back to Garden</p>
           </Link> 
       </div>
       )
@@ -87,12 +87,12 @@ export default class PlantTasksPage extends React.Component {
               <p>Add Task</p>
             </Link> 
             <Link
-                to={`/garden/${plant.id}`}
-                type='button'
-                className='Back-to-plant-button'
-              >
-              <p>Back to Plant</p>
-            </Link> 
+              to={`/garden`}
+              type='button'
+              className='Back-to-garden-button'
+            >
+            <p>Back to Garden</p>
+          </Link> 
         </div>
       ) 
     }

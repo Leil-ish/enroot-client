@@ -7,6 +7,7 @@ ul {
     list-style: none;
     line-height: 30px;
     padding: 15px;
+    margin: 0;
 }
 
 .single-plant .Plant-view-tasks-button {
@@ -53,22 +54,18 @@ ul {
     width: 70%;
 }
 
-.single-plant .Plant-add-task-button:hover {
-    background-color:#2D3413;
-    color: #FFF;
-}
 .single-plant .Plant-view-tasks-button:hover {
-    background-color:#2D3413;
+    background-color:#F94A41;
     color: #FFF;
 }
 
 .single-plant .Plant-remove-button:hover {
-    background-color:#2D3413;
+    background-color:#F94A41;
     color: #FFF;
 }
 
 .single-plant .Plant-edit-button:hover {
-    background-color:#2D3413;
+    background-color:#F94A41;
     color: #FFF;
 }
 
@@ -116,12 +113,22 @@ ul {
     margin:5px;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 600px) {
     .single-plant {
         border: solid 3px #2D3413;
         padding: 20px;
         margin: 20px;
         max-width: 70%;
+        margin: 50px auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .single-plant {
+        border: solid 3px #2D3413;
+        padding: 20px;
+        margin: 20px;
+        max-width: 80%;
         margin: 50px auto;
     }
 }

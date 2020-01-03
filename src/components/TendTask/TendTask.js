@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button} from '../Utils/Utils'
 import GardenContext from '../../contexts/GardenContext'
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import './TendTask.css'
@@ -48,16 +48,20 @@ class TendTask extends Component {
   render() {
 
     let {task} = this.props
+    const {plantId} = this.props
 
     return (
       <div className = 'single-task'>
             <hr/>
-            <h3 className='Single_maintenance_needed'>Task for {task.plant_common_name}: </h3>
+            <h3>Task for&nbsp;
+              <Link className='plant-link'
+                to={`/garden/${plantId}`}
+              >{task.plant_common_name}
+              </Link>:
+            </h3>
             <hr/>
             <p>Task: {task.maintenance_needed}</p>
-            <hr/>
             <p>Frequency: {task.frequency}</p>
-            <hr/>
             <p>Details: {task.details}</p>
         <Button
           className='Task_delete'

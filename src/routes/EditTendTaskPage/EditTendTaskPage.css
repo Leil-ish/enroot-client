@@ -1,41 +1,42 @@
 .EditTendTaskPage {
     margin: 50px auto;
     max-width: 70%;
-    border: 1px solid #2D3413;
-    padding: 20px;
+    padding: 0px;
     text-align: center;
+    line-height: 40px;
 }
 
+.EditTendTaskPage div {
+    margin: 20px auto 0px auto;
+}
 
 .EditTendTaskPage h2 {
     text-align:center;
-    line-height: 30px;
+    line-height: 40px;
     letter-spacing: 2px;
     color: #2D3413;
 }
 
-.EditTendTaskPage h2 {
-    text-align:center;
-    line-height: 30px;
-    letter-spacing: 2px;
+.EditTendTaskPage label {
+    margin: 20px;
 }
 
 .EditTendTaskPage Input {
     border: 1px solid black;
-    margin: 20px;
     width: 150px;
+    height: 30px;
 }
 
-select {
+.EditTendTaskPage select {
     border: 1px solid black;
-    margin: 20px;
     width: 150px;
+    height: 30px;
 }
 
-Textarea {
+.EditTendTaskPage Textarea {
     border: 1px solid black;
-    margin: 20px;
     width: 150px;
+    height: 50px;
 }
 
 .EditTendTaskPage .Add-task-button {
@@ -49,7 +50,7 @@ Textarea {
     border: 1px black;
     font-size:20px;
     width:150px;
-    height:30px;
+    height:35px;
     cursor: pointer;
 }
 
@@ -64,8 +65,9 @@ Textarea {
     border: 1px black;
     font-size:20px;
     width:150px;
-    height:30px;
+    height:35px;
     cursor: pointer;
+    padding: 0 0 5px 0;
 }
 
 .EditTendTaskPage .Cancel-add-task-button:hover {    
@@ -76,4 +78,44 @@ Textarea {
 .EditTendTaskPage .Add-task-button:hover {    
     background-color: #F94A41;
     color:white;
+}
+
+@media only screen and (min-width: 600px) {
+    .EditTendTaskPage {
+        padding: 50px;
+        margin: 0 auto;
+        max-width: 50%;
+    }
+
+    .EditTendTaskPage Input {
+        width: 150px;
+        height: 25px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .EditTendTaskPage {
+        padding: 50px;
+        margin: 0 auto;
+        max-width: 40%;
+        font-size: 25px;
+    }
+
+    .EditTendTaskPage Input {
+        border: 1px solid black;
+        width: 200px;
+        height: 30px;
+    }
+
+    .EditTendTaskPage select {
+        border: 1px solid black;
+        width: 200px;
+    }
+    
+    .EditTendTaskPage Textarea {
+        border: 1px solid black;
+        margin: 20px;
+        width: 200px;
+    }
+
 }

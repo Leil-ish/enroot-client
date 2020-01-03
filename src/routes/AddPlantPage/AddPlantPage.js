@@ -13,8 +13,6 @@ class AddPlantPage extends Component {
     onSavePlantSuccess: () => {},
   }
 
-  static contextType = PlantContext
-
   handleSubmit = ev => {
     ev.preventDefault()
     const {common_name} = ev.target
@@ -72,3 +70,4 @@ class AddPlantPage extends Component {
 }
 
 export default withRouter(AddPlantPage)
+AddPlantPage.contextType = PlantContext
