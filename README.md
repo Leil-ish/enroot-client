@@ -1,38 +1,50 @@
-# Bibliofile Client
+# Enroot Client
 
-This is the frontend for a virtual library project called Bibliofile, found online at <https://leil-ish-bibliofile-app.now.sh/>! It allows users to:
+![Landing Header](https://i.imgur.com/kT7Fbbb.png)
 
-* Search for books using an interface that pulls from the Google Books API  
+This is the frontend for a fullstack gardening task tracker project called Enroot, found online at <https://leilish-enroot-app.now.sh/>! It allows users to:
 
-![Search Interface](https://i.imgur.com/uZkzA5t.png)
+* View all plants in their gardens in a condensed form
 
-* Add those books (along with their descriptions, author and genre information, etc.) to a personal virtual library with one click  
+![Garden page](https://i.imgur.com/KsJEnUZ.png)
 
-![Book results page showing Harry Potter book](https://i.imgur.com/Or6HkVK.png)
+* View plant details within a collapsible
 
-* Add books manually in the event that they cannot be found on Google Books  
+![Plant details](https://i.imgur.com/U31MSnB.png)
 
-![Add book page](https://i.imgur.com/jZkzigi.png)
+* Add plants to a virtual garden
 
-* Add notes to the books in their libraries  
+![Add plant page](https://i.imgur.com/S47ErEm.png)
 
-![Notes page](https://i.imgur.com/MkCnkJJ.png)
+* Update plant information as you learn more about your plants
+
+![Update plant page](https://i.imgur.com/5oZUCTX.png)
+
+* Add tasks to the plants in their gardens  
+
+![Tasks page](https://i.imgur.com/Zguuul0.png)
+
+* Sort plants by common name, scientific name, flower color, or temperature minimum
+
+![Sort plants](https://i.imgur.com/HCRxLxp.png)
+
+* Sort tasks by plant name, task frequency, or maintenance needed
+
+![Sort tasks](https://i.imgur.com/2DooIJ2.png)
 
 To get started, click "Register" on the landing page and enter your name, username, and password. On this page, you can also send me an email, check out my portfolio site, or visit me on LinkedIn or GitHub.  
 
-![Landing Page](https://i.imgur.com/LIIFeCD.png)
+![Landing Page](https://i.imgur.com/YSi5xPF.png)
 
-From there, you can navigate using the fixed nav icons at the top left.  
+From there, you can navigate using the fixed nav icons at the top right, labeled in the photo and referenced in order below. Descriptions are also available in tooltip form on the site itself.  
 
-![Header](https://i.imgur.com/ZXs9P3Y.png)  
+![Nav](https://i.imgur.com/EYgrazY.png) 
 
 From the top:
 
 * Click on the logout arrow icon to log out of your account.
-* Click on the book icon to visit your library.
-* Click on the magnifying glass icon to search for a book to add automatically.
-* Click on the plus icon to add book details manually.
+* Click on the garden icon to visit your garden.
+* Click on the plus icon to add plant details manually.
+* Click on the shovel icon to view all plant-related tasks.
 
-You may search for books to add by title, author, or ISBN number (but don't include the dashes in the ISBN). When you click "Add Book," the book will be added to your library for you to add notes to!
-
-This project was created using React on the frontend and Node.js, Express, and PostgreSQL on the backend. If you like this repo, you can find its backend companion at <https://github.com/Leil-ish/bibliofile-api>!
+This project was created using React on the frontend and Node.js, Express, and PostgreSQL on the backend. If you like this repo, you can find its backend companion at <https://github.com/Leil-ish/enroot-api>!
