@@ -47,4 +47,4 @@ From the top:
 * Click on the plus icon to add plant details manually.
 * Click on the shovel icon to view all plant-related tasks.
 
-This project was created using React on the frontend and Node.js, Express, and PostgreSQL on the backend. If you like this repo, you can find its backend companion at <https://github.com/Leil-ish/enroot-api>!
+This project was created using React on the frontend and Node.js, Express, and PostgreSQL on the backend. If you like this repo, you can find its backend companion at <https://github.com/leil-ish/enroot-api>!

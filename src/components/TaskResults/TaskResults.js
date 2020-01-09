@@ -9,6 +9,7 @@ class TaskResults extends Component {
 //Filter and sort functionality for saved garden tasks
   render() {
     const {property} = this.props;
+    console.log(this.props)
     const list = this.props.tasks
     .sort(compareValues(`${property}`))
     .map((task, key) => 

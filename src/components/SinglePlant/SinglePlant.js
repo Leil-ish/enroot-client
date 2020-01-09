@@ -79,8 +79,7 @@ class SinglePlant extends Component {
     let {scientific_name, lifespan, growth_rate, growth_period, 
       temperature_minimum, shade_tolerance, precipitation_minimum, precipitation_maximum, 
       resprout_ability, family_common_name, duration, drought_tolerance, frost_free_days_minimum, 
-      moisture_use, seedling_vigor, flower_color, foliage_color} = this.props;
-    
+      moisture_use, seedling_vigor, flower_color, foliage_color} = this.props;    
 
       return (
           <div className = 'single-plant'>
@@ -115,7 +114,7 @@ class SinglePlant extends Component {
                           type='button'
                           className='Plant-edit-button'
                         >
-                          Add More Info
+                          Add/Edit Plant Info
                         </Link>
                         <Link
                           to={`/garden/${id}/tasks`}

@@ -97,7 +97,7 @@ function PlantContent({ plant }) {
               type='button'
               className='Add-task-button'
             >
-              Add More Plant Info
+              Add/Edit Plant Info
       </Link>
     </div>
   )

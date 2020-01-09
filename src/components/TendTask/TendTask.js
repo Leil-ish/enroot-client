@@ -48,6 +48,7 @@ class TendTask extends Component {
   render() {
 
     let {task} = this.props
+    console.log(task)
     const {plantId} = this.props
 
     return (

@@ -97,104 +97,104 @@ export default class EditPlantPage extends Component {
           <div className='field'>
             <label htmlFor='scientific-name-input'>
               Scientific Name:
-            </label>
-            <Input type='text' id='scientific_name' name='scientific_name' aria-label='scientific name input'/>
+            </label><br/>
+            <Input type='text' id='scientific_name' name='scientific_name' aria-label='scientific name input' placeholder={plant.scientific_name} />
           </div>
           <div className='field'>
             <label htmlFor='lifespan-input'>
               Lifespan:
-            </label>
-            <Input type='text' id='lifespan' name='lifespan' aria-label='lifespan input'/>
+            </label><br/>
+            <Input type='text' id='lifespan' name='lifespan' aria-label='lifespan input' placeholder={plant.lifespan}/>
           </div>
           <div className='field'>
             <label htmlFor='growth-rate-input'>
               Growth Rate:
-            </label>
-            <Input type='text' id='growth_rate' name='growth_rate' aria-label='growth rate input'/>
+            </label><br/>
+            <Input type='text' id='growth_rate' name='growth_rate' aria-label='growth rate input' placeholder={plant.growth_rate}/>
           </div>
           <div className='field'>
             <label htmlFor='growth-period-input'>
               Growth Period:
-            </label>
-            <Input type='text' id='growth_period' name='growth_period' aria-label='growth period input'/>
+            </label><br/>
+            <Input type='text' id='growth_period' name='growth_period' aria-label='growth period input' placeholder={plant.growth_period}/>
           </div>
           <div className='field'>
             <label htmlFor='temperature-minimum-input'>
               Temperature Minimum:
-            </label>
-            <Input type='text' id='temperature_minimum' name='temperature_minimum' aria-label='temperature minimum input'/>
+            </label><br/>
+            <Input type='text' id='temperature_minimum' name='temperature_minimum' aria-label='temperature minimum input' placeholder={plant.temperature_minimum}/>
           </div>
           <div className='field'>
             <label htmlFor='shade-tolerance-input'>
               Shade Tolerance:
-            </label>
-            <Input type='text' id='shade_tolerance' name='shade_tolerance' aria-label='shade tolerance input'/>
+            </label><br/>
+            <Input type='text' id='shade_tolerance' name='shade_tolerance' aria-label='shade tolerance input'placeholder={plant.shade_tolerance}/>
           </div>
           <div className='field'>
             <label htmlFor='precipitation-minimum-input'>
               Precipitation Minimum:
-            </label>
-            <Input type='text' id='precipitation_minimum' name='precipitation_minimum' aria-label='precipitation minimum input'/>
+            </label><br/>
+            <Input type='text' id='precipitation_minimum' name='precipitation_minimum' aria-label='precipitation minimum input' placeholder={plant.precipitation_minimum}/>
           </div>
           <div className='field'>
             <label htmlFor='precipitation-maximum-input'>
               Precipitation Maximum:
-            </label>
-            <Input type='text' id='precipitation_maximum' name='precipitation_maximum' aria-label='precipitation maximum input'/>
+            </label><br/>
+            <Input type='text' id='precipitation_maximum' name='precipitation_maximum' aria-label='precipitation maximum input' placeholder={plant.precipitation_maximum}/>
           </div>
           <div className='field'>
             <label htmlFor='resprout-ability-input'>
               Resprout Ability:
-            </label>
-            <Input type='text' id='resprout_ability' name='resprout_ability' aria-label='resprout ability input'/>
+            </label><br/>
+            <Input type='text' id='resprout_ability' name='resprout_ability' aria-label='resprout ability input' placeholder={plant.resprout_ability}/>
           </div>
           <div className='field'>
             <label htmlFor='family-common-name-input'>
               Family Common Name:
-            </label>
-            <Input type='text' id='family_common_name' name='family_common_name' aria-label='family common name input'/>
+            </label><br/>
+            <Input type='text' id='family_common_name' name='family_common_name' aria-label='family common name input' placeholder={plant.family_common_name}/>
           </div>
           <div className='field'>
             <label htmlFor='duration-input'>
               Duration:
-            </label>
-            <Input type='text' id='duration' name='duration' aria-label='duration input'/>
+            </label><br/>
+            <Input type='text' id='duration' name='duration' aria-label='duration input' placeholder={plant.duration}/>
           </div>
           <div className='field'>
             <label htmlFor='drought-tolerance-input'>
               Drought Tolerance:
-            </label>
-            <Input type='text' id='drought_tolerance' name='drought_tolerance' aria-label='drought tolerance input'/>
+            </label><br/>
+            <Input type='text' id='drought_tolerance' name='drought_tolerance' aria-label='drought tolerance input' placeholder={plant.drought_tolerance}/>
           </div>
           <div className='field'>
             <label htmlFor='frost-free-days-input'>
               Frost-Free Days Minimum:
-            </label>
-            <Input type='text' id='frost_free_days_minimum' name='frost_free_days_minimum' aria-label='frost free days minimum input'/>
+            </label><br/>
+            <Input type='text' id='frost_free_days_minimum' name='frost_free_days_minimum' aria-label='frost free days minimum input' placeholder={plant.frost_free_days_minimum}/>
           </div>
           <div className='field'>
             <label htmlFor='moisture-use-input'>
               Moisture Use:
-            </label>
-            <Input type='text' id='moisture_use' name='moisture_use' aria-label='moisture use input'/>
+            </label><br/>
+            <Input type='text' id='moisture_use' name='moisture_use' aria-label='moisture use input' placeholder={plant.moisture_use} />
           </div>
           <div className='field'>
             <label htmlFor='seedling-vigor-input'>
               Seedling Vigor:
-            </label>
-            <Input type='text' id='seedling_vigor' name='seedling_vigor' aria-label='seedling vigor input'/>
+            </label><br/>
+            <Input type='text' id='seedling_vigor' name='seedling_vigor' aria-label='seedling vigor input' placeholder={plant.seedling_vigor}/>
           </div>
           <div className='field'>
             <label htmlFor='flower-color-input'>
               Flower Color:
-            </label>
-            <Input type='text' id='flower_color' name='flower_color' aria-label='flower color input'/>
+            </label><br/>
+            <Input type='text' id='flower_color' name='flower_color' aria-label='flower color input'placeholder={plant.flower_color}/>
           </div>
           <div className='field'>
             <label htmlFor='foliage-color-input'>
               Foliage Color:
-            </label>
-            <Input type='text' id='foliage_color' name='foliage_color' aria-label='foliage color input'/>
+            </label><br/>
+            <Input type='text' id='foliage_color' name='foliage_color' aria-label='foliage color input' placeholder={plant.foliage_color}/>
           </div>
           <div className='buttons'>
             <Link

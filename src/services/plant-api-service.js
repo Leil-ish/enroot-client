@@ -29,20 +29,6 @@ const PlantApiService = {
       )
   },
 
-  getApiPlants() {
-    return fetch(`${config.API_ENDPOINT}/garden/trefle`, {
-      headers: {
-        'content-type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  },
-
   getTask(plantId, taskId) {
     return fetch(`${config.API_ENDPOINT}/garden/${plantId}/tasks/${taskId}`, {
       headers: {

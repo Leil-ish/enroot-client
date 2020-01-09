@@ -12,11 +12,16 @@ export default class LandingPage extends React.Component {
               linked within the app), they can add data points to keep track of things like 
               minimum temperature, growth period, etc. for their gardens. 
               <br/><br/>
-              Additionally, users can add tasks on their plants, reminding them of how frequently 
+              User can also add tasks on their plants, reminding them of how frequently 
               they should water, prune, weed, or mulch their plants. Tasks can be viewed by the 
               individual plant or on their own page as an overview of all maintenance needed by the 
               garden. Both plants and tasks can be sorted by a variety of properties to aid in 
               organization. 
+              <br/><br/>
+              Ready to get started? You can register for your own account, or you can test things out
+              with these login credentials:
+              <br/><br/>Username: testuser
+              <br/>Password: Password2@
               </p>
             <div className = 'contact'>
               <hr/>

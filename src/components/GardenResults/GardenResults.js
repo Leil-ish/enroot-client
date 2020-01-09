@@ -9,6 +9,7 @@ class GardenResults extends Component {
 //Filter and sort functionality for saved garden plants
   render() {
     const {property} = this.props;
+    console.log(this.props)
     const list = this.props.plants
     .sort(compareValues(`${property}`))
     .map((plant, key) => 
