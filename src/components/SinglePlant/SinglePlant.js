@@ -114,7 +114,7 @@ class SinglePlant extends Component {
                           type='button'
                           className='Plant-edit-button'
                         >
-                          Add/Edit Plant Info
+                          Edit Plant Info
                         </Link>
                         <Link
                           to={`/garden/${id}/tasks`}

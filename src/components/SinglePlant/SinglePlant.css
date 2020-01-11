@@ -19,9 +19,10 @@ ul {
     text-decoration: none;
     border-radius:5%;
     border: 1px black;
-    font-size:20px;
+    font-size:16px;
     height:40px;
-    width: 70%;
+    width: 75%;
+    padding: 5px 0;
 }
 
 .single-plant .Plant-remove-button {
@@ -34,9 +35,9 @@ ul {
     text-decoration: none;
     border-radius:5%;
     border: 1px black;
-    font-size:20px;
+    font-size:16px;
     height:40px;
-    width: 70%;
+    width: 75%;
 }
 
 .single-plant .Plant-edit-button {
@@ -49,9 +50,10 @@ ul {
     text-decoration: none;
     border-radius:5%;
     border: 1px black;
-    font-size:20px;
+    font-size:16px;
     height:40px;
-    width: 70%;
+    width: 75%;
+    padding: 5px 0;
 }
 
 .single-plant .Plant-view-tasks-button:hover {

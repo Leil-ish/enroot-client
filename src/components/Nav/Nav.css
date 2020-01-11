@@ -1,190 +1,198 @@
-.GardenNav_main {
-  list-style-type: none;
-  padding: 0;
-  max-height: 50px;
-  position: fixed;
-  top: 0px;
-  right:0px;
-  text-align: center;
-}
+  .GardenNav_main ul {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    width: 62px;
+    font-size: 14px;
+  }
 
-.GardenNav_main ul {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  width: 70px;
-}
+  .GardenNav_main {
+    list-style-type: none;
+    padding: 0;
+    max-height: 50px;
+    position: fixed;
+    top: 0px;
+    right:0px;
+    text-align: center;
+  }
 
-.GardenNav_main li {
-  color: white;
-}
+  .GardenNav_main li {
+    color: white;
+  }
 
-.GardenNav_link {
-  color: #567E2E;
-  display: inline-block;
-  font-size: 20px;
-  margin: 5px;
-  max-width: 100px;
-  text-decoration: none;
-}
+  .GardenNav_link {
+    color: #567E2E;
+    display: inline-block;
+    font-size: 20px;
+    margin: 5px;
+    max-width: 100px;
+    text-decoration: none;
+  }
 
-.GardenNav_logout_link {
-  color: #567E2E;
-  display: inline-block;
-  font-size: 20px;
-  margin: 5px;
-  max-width: 100px;
-  text-decoration: none;
-}
+  .GardenNav_logout_link {
+    color: #567E2E;
+    display: inline-block;
+    font-size: 20px;
+    margin: 5px;
+    max-width: 100px;
+    text-decoration: none;
+  }
 
-.GardenNav_landing ul {
-  display:flex;
-  justify-content: left;
-  flex-direction:row;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  width: 100%;
-  background-color:none;
-  position:absolute;
-  top:0px;
-  left:0px;
-  font-size: 18px;
-  padding:0;
-}
+  .GardenNav_landing ul {
+    display:flex;
+    justify-content: left;
+    flex-direction:row;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    width: 100%;
+    background-color:none;
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size: 18px;
+    padding:0;
+  }
 
-.GardenNav_landing li {
-  cursor:pointer;
-  padding: 10px 20px;
-  color: white;
-}
+  .GardenNav_landing li {
+    cursor:pointer;
+    padding: 10px 20px;
+    color: white;
+  }
 
-.GardenNav_landing li:hover {
-  background-color: #50514F;
-  color: black;
-}
+  .GardenNav_landing li:hover {
+    background-color: #50514F;
+    color: black;
+  }
 
-.GardenNav_landing a {
-  text-decoration: none;
-  letter-spacing: 2px;
-  color: white;
-}
+  .GardenNav_landing a {
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: white;
+  }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
 
-.GardenNav_logout_link .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1;
-  right: 105%;
-}
+  .GardenNav_logout_link .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    right: 105%;
+  }
 
-.GardenNav_logout_link:hover .tooltiptext {
-  visibility: visible;
-  opacity: .7;
-}
+  .GardenNav_logout_link:hover .tooltiptext {
+    visibility: visible;
+    opacity: .7;
+  }
 
-.GardenNav_logout_link .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent black;
-}
+  .GardenNav_logout_link .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+  }
 
-.GardenNav_garden_link .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1;
-  right: 105%;
-}
+  .GardenNav_garden_link .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    right: 105%;
+  }
 
-.GardenNav_garden_link:hover .tooltiptext {
-  visibility: visible;
-  opacity: .7;
-}
+  .GardenNav_garden_link:hover .tooltiptext {
+    visibility: visible;
+    opacity: .7;
+  }
 
-.GardenNav_garden_link .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent black;
-}
+  .GardenNav_garden_link .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+  }
 
-.GardenNav_add_link .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1;
-  right: 105%;
-}
+  .GardenNav_add_link .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    right: 105%;
+  }
 
-.GardenNav_add_link:hover .tooltiptext {
-  visibility: visible;
-  opacity: .7;
-}
+  .GardenNav_add_link:hover .tooltiptext {
+    visibility: visible;
+    opacity: .7;
+  }
 
-.GardenNav_add_link .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent black;
-}
+  .GardenNav_add_link .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+  }
 
-.GardenNav_tend_link .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1;
-  right: 105%;
-}
+  .GardenNav_tend_link .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    right: 105%;
+  }
 
-.GardenNav_tend_link:hover .tooltiptext {
-  visibility: visible;
-  opacity: .7;
-}
+  .GardenNav_tend_link:hover .tooltiptext {
+    visibility: visible;
+    opacity: .7;
+  }
 
-.GardenNav_tend_link .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent black;
+  .GardenNav_tend_link .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+  }
+
+@media only screen and (min-width: 350px) {
+  .GardenNav_main ul {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    width: 70px;
+  }
 }
 
 @media only screen and (min-width: 600px) {

@@ -1,19 +1,27 @@
 .customize-results select {
     font-size: 18px;
+    max-width: 50%;
 }
 
 .Sort label {
-    padding: 20px 20px 40px 15%;
+    padding: 10px;
+    margin-left: 25px;
+}
+
+@media only screen and (min-width: 370px) {
+    .Sort label {
+        margin-left: 18%;
+    }
 }
 
 @media only screen and (min-width: 600px) {
-    .Sort {
-        margin-left: 20%;
+    .Sort label {
+        margin-left: 33%;
     }
 }
 
 @media only screen and (min-width: 992px) {
-    .Sort {
-        margin-left: 25%;
+    .Sort label {
+        margin-left: 38%;
     }
 }
